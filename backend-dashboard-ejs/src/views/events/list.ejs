@@ -1,0 +1,55 @@
+<h2 class="text-xl font-bold mb-4">Events</h2>
+
+<a href="/admin/events/create"
+class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
+Create Event
+</a>
+
+<table class="w-full bg-white shadow">
+
+<tr class="bg-gray-200">
+<th class="p-2">Title</th>
+<th class="p-2">Category</th>
+<th class="p-2">Images</th>
+<th class="p-2">Action</th>
+</tr>
+
+<% events.forEach(event => { %>
+
+<tr class="border-t">
+
+<td class="p-2">
+<%= event.title %>
+</td>
+
+<td class="p-2">
+<%= event.category %>
+</td>
+
+<td class="p-2">
+
+<% event.images.forEach(img => { %>
+<img src="<%= img %>" class="w-20 inline-block mr-2 rounded">
+<% }) %>
+
+</td>
+
+<td class="p-2">
+
+<a href="/admin/events/edit/<%= event._id %>"
+class="text-blue-500">
+Edit
+</a>
+
+<a href="/admin/events/delete/<%= event._id %>"
+class="text-red-500 ml-3">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

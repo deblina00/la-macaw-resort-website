@@ -1,0 +1,36 @@
+<h2 class="text-xl font-bold mb-4">Rooms</h2>
+
+<a href="/admin/rooms/create" class="bg-green-600 text-white px-4 py-2">Add Room</a>
+
+<table class="w-full bg-white mt-4">
+
+<tr>
+<th>Room</th>
+<th>Branch</th>
+<th>Price</th>
+<th>Actions</th>
+</tr>
+
+<% rooms.forEach(room=>{ %>
+
+<tr class="text-center">
+<td><%= room.title %></td>
+<td><%= room.branchId?.name %></td>
+<td><%= room.price %></td>
+
+<td class="p-2">
+<a href="/admin/rooms/edit/<%= room._id %>" class="text-blue-500">
+Edit
+</a>
+
+<a href="/admin/rooms/delete/<%= room._id %>"
+class="text-red-500 ml-3">
+Delete
+</a>
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

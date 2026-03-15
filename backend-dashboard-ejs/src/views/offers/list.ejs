@@ -1,0 +1,45 @@
+<h2 class="text-xl font-bold mb-4">Ongoing Offers</h2>
+
+<a href="/admin/offers/create"
+class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
+Add Offer
+</a>
+
+<table class="w-full bg-white shadow">
+
+<tr class="bg-gray-200">
+<th class="p-2">Title</th>
+<th class="p-2">Discount</th>
+<th class="p-2">Validity</th>
+<th class="p-2">Actions</th>
+</tr>
+
+<% offers.forEach(o => { %>
+
+<tr class="border-t">
+
+<td class="p-2"><%= o.title %></td>
+
+<td class="p-2"><%= o.discountValue %>%</td>
+
+<td class="p-2">
+<%= o.validity?.from?.toDateString() %>
+-
+<%= o.validity?.to?.toDateString() %>
+</td>
+
+<td class="p-2">
+
+<a href="/admin/offers/edit/<%= o._id %>"
+class="text-blue-500">Edit</a>
+
+<a href="/admin/offers/delete/<%= o._id %>"
+class="text-red-500 ml-3">Delete</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

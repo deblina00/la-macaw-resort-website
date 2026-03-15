@@ -1,0 +1,42 @@
+<h2>Edit Offer</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input
+name="title"
+value="<%= offer.title %>"
+class="border p-2 w-full mb-3"
+>
+
+<textarea
+name="offerDetails"
+class="border p-2 w-full mb-3"
+><%= offer.offerDetails %></textarea>
+
+<input
+name="discountValue"
+value="<%= offer.discountValue %>"
+class="border p-2 w-full mb-3"
+>
+
+<input
+type="date"
+name="validityFrom"
+value="<%= offer.validity?.from?.toISOString().substring(0,10) %>"
+class="border p-2 w-full mb-3"
+>
+
+<input
+type="date"
+name="validityTo"
+value="<%= offer.validity?.to?.toISOString().substring(0,10) %>"
+class="border p-2 w-full mb-3"
+>
+
+<input type="file" name="image" class="border p-2 w-full mb-3">
+
+<button class="bg-blue-600 text-white px-4 py-2">
+Update
+</button>
+
+</form>

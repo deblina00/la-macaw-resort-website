@@ -1,0 +1,40 @@
+<h2 class="text-xl font-bold mb-4">Gallery</h2>
+
+<a href="/admin/gallery/upload"
+class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
+Upload Image
+</a>
+
+<table class="w-full bg-white shadow">
+
+<tr class="bg-gray-200">
+<th class="p-2">Image</th>
+<th class="p-2">Category</th>
+<th class="p-2">Action</th>
+</tr>
+
+<% images.forEach(gallery => { %>
+
+<tr class="border-t">
+
+<td class="p-2">
+<img src="<%= gallery.image %>"
+class="w-40 rounded">
+</td>
+
+<td class="p-2">
+<%= gallery.category %>
+</td>
+
+<td class="p-2">
+<a href="/admin/gallery/delete/<%= gallery._id %>"
+class="text-red-500">
+Delete
+</a>
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

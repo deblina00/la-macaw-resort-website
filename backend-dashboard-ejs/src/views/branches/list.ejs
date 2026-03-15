@@ -1,0 +1,44 @@
+<h2 class="text-xl font-bold mb-4">Branches</h2>
+
+<a href="/admin/branches/create"
+class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
+Add Branch
+</a>
+
+<table class="w-full bg-white shadow">
+
+<tr class="bg-gray-200">
+<th class="p-2">Name</th>
+<th class="p-2">Location</th>
+<th class="p-2">Actions</th>
+</tr>
+
+<% branches.forEach(branch => { %>
+
+<tr class="border-t">
+
+<td class="p-2">
+<%= branch.name %>
+</td>
+
+<td class="p-2">
+<%= branch.location %>
+</td>
+
+<td class="p-2">
+<a href="/admin/branches/edit/<%= branch._id %>"
+class="text-blue-500">
+Edit
+</a>
+
+<a href="/admin/branches/delete/<%= branch._id %>"
+class="text-red-500 ml-3">
+Delete
+</a>
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

@@ -1,0 +1,38 @@
+<h2>Upload Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input
+name="title"
+placeholder="Image Title"
+class="border p-2 w-full mb-3"
+>
+
+<select
+name="category"
+class="border p-2 w-full mb-3"
+>
+
+<option value="">Select Category</option>
+
+<option value="rooms">Rooms</option>
+<option value="events">Events</option>
+<option value="banquets">Banquets</option>
+<option value="tajpur">Tajpur</option>
+<option value="joypur">Joypur</option>
+<option value="purulia">Purulia</option>
+
+</select>
+
+<input
+type="file"
+name="image"
+class="border p-2 w-full mb-3"
+required
+>
+
+<button class="bg-blue-600 text-white px-4 py-2">
+Upload
+</button>
+
+</form>

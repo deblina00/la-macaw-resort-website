@@ -1,0 +1,35 @@
+<h2>Create Room</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input name="title" placeholder="Room Title" class="border p-2 w-full mb-3">
+
+<select name="branchId" class="border p-2 w-full mb-3">
+
+<% branches.forEach(branch => { %>
+
+<option value="<%= branch._id %>">
+<%= branch.name %>
+</option>
+
+<% }) %>
+
+</select>
+
+<input name="price" placeholder="Price" class="border p-2 w-full mb-3">
+
+<input name="capacity" placeholder="Capacity" class="border p-2 w-full mb-3">
+
+<input name="amenities"
+placeholder="Amenities (comma separated)"
+class="border p-2 w-full mb-3">
+
+<textarea name="description"
+class="border p-2 w-full mb-3"></textarea>
+
+<input type="file" name="gallery" multiple
+class="border p-2 w-full mb-3">
+
+<button class="bg-blue-600 text-white px-4 py-2">Save</button>
+
+</form>

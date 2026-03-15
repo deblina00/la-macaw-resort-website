@@ -1,0 +1,54 @@
+<h2>Edit Room</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input
+name="title"
+value="<%= room.title %>"
+class="border p-2 w-full mb-3"
+>
+
+<select name="branchId" class="border p-2 w-full mb-3">
+
+<% branches.forEach(branch => { %>
+
+<option value="<%= branch._id %>"
+<%= room.branchId == branch._id ? "selected" : "" %>>
+<%= branch.name %>
+</option>
+
+<% }) %>
+
+</select>
+
+<input
+name="price"
+value="<%= room.price %>"
+class="border p-2 w-full mb-3"
+>
+
+<input
+name="capacity"
+value="<%= room.capacity %>"
+class="border p-2 w-full mb-3"
+>
+
+<input
+name="amenities"
+value="<%= room.amenities?.join(', ') %>"
+class="border p-2 w-full mb-3"
+>
+
+<textarea
+name="description"
+class="border p-2 w-full mb-3"
+><%= room.description %></textarea>
+
+<input type="file" name="gallery" multiple
+class="border p-2 w-full mb-3">
+
+<button class="bg-blue-600 text-white px-4 py-2">
+Update
+</button>
+
+</form>

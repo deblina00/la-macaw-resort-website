@@ -1,0 +1,33 @@
+<h2 class="text-xl font-bold mb-4">Create Branch</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  <input
+    name="name"
+    placeholder="Branch Name"
+    class="border p-2 mb-3 w-full"
+    required
+  />
+
+  <input
+    name="location"
+    placeholder="Location"
+    class="border p-2 mb-3 w-full"
+    required
+  />
+
+  <textarea
+    name="description"
+    placeholder="Description"
+    class="border p-2 mb-3 w-full"
+  ></textarea>
+
+  <input
+    name="amenities"
+    placeholder="Amenities (comma separated)"
+    class="border p-2 mb-3 w-full"
+  />
+
+  <input type="file" name="images" multiple class="border p-2 mb-3 w-full" />
+
+  <button class="bg-blue-600 text-white px-4 py-2">Save</button>
+</form>

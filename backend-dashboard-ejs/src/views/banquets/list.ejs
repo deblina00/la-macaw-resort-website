@@ -1,0 +1,40 @@
+<h2 class="text-xl font-bold mb-4">Banquets</h2>
+
+<a href="/admin/banquets/create"
+class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
+Add Banquet
+</a>
+
+<table class="w-full bg-white shadow">
+
+<tr class="bg-gray-200">
+<th class="p-2">Title</th>
+<th class="p-2">Branch</th>
+<th class="p-2">Capacity</th>
+<th class="p-2">Type</th>
+<th class="p-2">Actions</th>
+</tr>
+
+<% banquets.forEach(b => { %>
+
+<tr class="border-t text-center">
+
+<td class="p-2"><%= b.title %></td>
+<td class="p-2"><%= b.branchId?.name %></td>
+<td class="p-2"><%= b.capacity %></td>
+<td class="p-2"><%= b.type %></td>
+
+<td class="p-2">
+<a href="/admin/banquets/edit/<%= b._id %>" class="text-blue-500">Edit</a>
+
+<a href="/admin/banquets/delete/<%= b._id %>"
+class="text-red-500 ml-3">
+Delete
+</a>
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>

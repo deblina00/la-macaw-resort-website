@@ -1,0 +1,35 @@
+<h2>Edit Review</h2>
+
+<form method="POST">
+
+<input
+name="guestName"
+value="<%= review.guestName %>"
+class="border p-2 w-full mb-3"
+>
+
+<input
+type="number"
+name="rating"
+min="1"
+max="5"
+value="<%= review.rating %>"
+class="border p-2 w-full mb-3"
+>
+
+<input
+name="location"
+value="<%= review.location %>"
+class="border p-2 w-full mb-3"
+>
+
+<textarea
+name="comment"
+class="border p-2 w-full mb-3"
+><%= review.comment %></textarea>
+
+<button class="bg-blue-600 text-white px-4 py-2">
+Update
+</button>
+
+</form>

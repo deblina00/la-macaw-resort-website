@@ -1,0 +1,49 @@
+<h2>Create Banquet</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input
+name="title"
+placeholder="Banquet Title"
+class="border p-2 w-full mb-3"
+>
+
+<select name="branchId" class="border p-2 w-full mb-3">
+
+<% branches.forEach(branch => { %>
+
+<option value="<%= branch._id %>">
+<%= branch.name %>
+</option>
+
+<% }) %>
+
+</select>
+
+<input
+name="capacity"
+placeholder="Capacity"
+class="border p-2 w-full mb-3"
+>
+
+<select name="type" class="border p-2 w-full mb-3">
+
+<option value="Hall">Hall</option>
+<option value="Lawn">Lawn</option>
+
+</select>
+
+<input
+name="features"
+placeholder="Features (comma separated)"
+class="border p-2 w-full mb-3"
+>
+
+<input type="file" name="images" multiple
+class="border p-2 w-full mb-3">
+
+<button class="bg-blue-600 text-white px-4 py-2">
+Save
+</button>
+
+</form>
