@@ -4,4 +4,6 @@ export interface Offer {
   image: string;
   offerDetails: string;
   discountValue: number;
+  validityFrom: Date;
+  validityTo:Date;
 }

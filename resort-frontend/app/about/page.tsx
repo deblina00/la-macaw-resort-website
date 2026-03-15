@@ -2,9 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About La Macaw Resort | Luxury Resorts in Tajpur, Joypur & Purulia",
+  title: "About La Macaw Resort",
   description:
-    "Discover La Macaw Resort, a luxury hospitality brand in West Bengal with stunning resorts in Tajpur, Joypur and Purulia offering beach stays, eco retreats and hill escapes.",
+    "Discover La Macaw Resort's luxury hospitality experiences across Tajpur, Joypur and Purulia in West Bengal.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -104,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       {/* DESTINATIONS */}
-      <section className="bg-gray-900 text-white py-20">
+      <section className="bg-black text-white py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">

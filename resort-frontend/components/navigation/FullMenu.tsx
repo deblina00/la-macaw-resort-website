@@ -16,9 +16,10 @@ export default function FullMenu({close}:{close:()=>void}){
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/blogs">Blogs</Link>
-        <Link href="/contact">Contact</Link>
+      
         <Link href="/gallery">Gallery</Link>
         <Link href="/rooms">Rooms</Link>
+        <Link href="/contact">Contact</Link>
 
         <button className="border border-white px-6 py-3 w-40">
           BOOK NOW

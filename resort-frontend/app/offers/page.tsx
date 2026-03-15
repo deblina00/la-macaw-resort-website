@@ -1,5 +1,4 @@
-import OffersClient from "@/components/offer/OffersClient";
-
+import OffersClient from "@/app/offers/OffersClient";
 
 export const metadata = {
   title: "Special Resort Offers | La Macaw Resort",

@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import HeroSection from "@/components/Hero/HeroSection";
 import AboutPreview from "@/components/home/AboutPreview";
 import OffersBanner from "@/components/home/OffersBanner";
@@ -9,56 +11,25 @@ import ReviewsCarousel from "@/components/home/ReviewsCarousel";
 import GalleryPreview from "@/components/home/GalleryPreview";
 import BookNowBanner from "@/components/home/BookNowBanner";
 
+export const metadata: Metadata = {
+  title: "Luxury Resort in Tajpur, Joypur & Purulia",
+  description:
+    "Experience luxury stays, destination weddings, beach vacations and banquets at La Macaw Resort in Tajpur, Joypur and Purulia.",
+};
+
 export default function Home() {
   return (
-    <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Resort",
-            name: "La Macaw Resort",
-            url: "https://lamacawresort.com",
-            logo: "https://lamacawresort.com/logo.png",
-            description:
-              "Luxury resort with branches in Tajpur, Joypur and Purulia offering rooms, events, banquets and beach stays.",
-            address: {
-              "@type": "PostalAddress",
-              addressCountry: "IN",
-              addressRegion: "West Bengal",
-            },
-            amenityFeature: [
-              {
-                "@type": "LocationFeatureSpecification",
-                name: "Swimming Pool",
-              },
-              { "@type": "LocationFeatureSpecification", name: "Banquet Hall" },
-              { "@type": "LocationFeatureSpecification", name: "Beach Access" },
-            ],
-          }),
-        }}
-      />
-
+    <main>
       <HeroSection />
-
       <AboutPreview />
-
       <OffersBanner />
-
       <BranchShowcase />
-
       <ServicesOverview />
-
       <ResortStats />
-
       <EventsShowcase />
-
       <ReviewsCarousel />
-
       <GalleryPreview />
-
       <BookNowBanner />
-    </div>
+    </main>
   );
 }

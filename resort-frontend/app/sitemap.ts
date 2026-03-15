@@ -1,99 +1,93 @@
 import { MetadataRoute } from "next";
 import { Room } from "@/types/room";
-
-export const revalidate = 3600;
+import { branches } from "@/data/branches";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const base = "https://lamacawresort.com";
 
   let roomUrls: MetadataRoute.Sitemap = [];
 
   try {
-
-    const res = await fetch(
-      `${process.env.API_URL}/api/rooms`,
-      { next: { revalidate: 3600 } }
-    );
+    const res = await fetch(`${process.env.API_URL}/api/rooms`, {
+      next: { revalidate: 3600 },
+    });
 
     const rooms: Room[] = await res.json();
 
     roomUrls = rooms.map((room) => ({
-      url: `https://lamacawresort.com/rooms/${room._id}`,
-      lastModified: room.updatedAt
-        ? new Date(room.updatedAt)
-        : new Date(),
+      url: `${base}/rooms/${room._id}`,
+      lastModified: room.updatedAt ? new Date(room.updatedAt) : new Date(),
+      changeFrequency: "weekly" as
+        | "always"
+        | "hourly"
+        | "daily"
+        | "weekly"
+        | "monthly"
+        | "yearly"
+        | "never",
       priority: 0.8,
     }));
-
   } catch (error) {
-
     console.error("Sitemap room fetch failed:", error);
-
   }
 
-  return [
-    {
-      url: "https://lamacawresort.com",
+  const branchUrls: MetadataRoute.Sitemap = Object.keys(branches).map(
+    (slug) => ({
+      url: `${base}/branch/${slug}`,
       lastModified: new Date(),
+      changeFrequency: "weekly" as
+        | "always"
+        | "hourly"
+        | "daily"
+        | "weekly"
+        | "monthly"
+        | "yearly"
+        | "never",
+      priority: 0.8,
+    }),
+  );
+
+  const staticUrls: MetadataRoute.Sitemap = [
+    {
+      url: base,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as
+        | "always"
+        | "hourly"
+        | "daily"
+        | "weekly"
+        | "monthly"
+        | "yearly"
+        | "never",
       priority: 1,
     },
     {
-      url: "https://lamacawresort.com/about",
+      url: `${base}/rooms`,
       lastModified: new Date(),
-      priority: 0.7,
-    },
-    {
-      url: "https://lamacawresort.com/rooms",
-      lastModified: new Date(),
+      changeFrequency: "weekly" as
+        | "always"
+        | "hourly"
+        | "daily"
+        | "weekly"
+        | "monthly"
+        | "yearly"
+        | "never",
       priority: 0.9,
     },
     {
-      url: "https://lamacawresort.com/offers",
+      url: `${base}/contact`,
       lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: "https://lamacawresort.com/events",
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: "https://lamacawresort.com/gallery",
-      lastModified: new Date(),
-      priority: 0.7,
-    },
-    {
-      url: "https://lamacawresort.com/banquets",
-      lastModified: new Date(),
-      priority: 0.7,
-    },
-    {
-      url: "https://lamacawresort.com/contact",
-      lastModified: new Date(),
+      changeFrequency: "monthly" as
+        | "always"
+        | "hourly"
+        | "daily"
+        | "weekly"
+        | "monthly"
+        | "yearly"
+        | "never",
       priority: 0.6,
     },
-    {
-      url: "https://lamacawresort.com/b2b",
-      lastModified: new Date(),
-      priority: 0.6,
-    },
-
-    // branch pages (local SEO)
-    {
-      url: "https://lamacawresort.com/branch/tajpur",
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: "https://lamacawresort.com/branch/joypur",
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: "https://lamacawresort.com/branch/purulia",
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-
-    ...roomUrls,
   ];
+
+  return [...staticUrls, ...branchUrls, ...roomUrls];
 }

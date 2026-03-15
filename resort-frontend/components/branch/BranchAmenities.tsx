@@ -1,18 +1,49 @@
 import { Amenity } from "@/types/branch";
-import Image from "next/image";
-import { Wifi, Tv, Coffee, Wind, Utensils, ShieldCheck } from "lucide-react";
+import Image from "next/image";import {
+  Wifi,
+  Tv,
+  Coffee,
+  Wind,
+  Utensils,
+  ShieldCheck,
+  Waves,
+  Droplets,
+  PartyPopper,
+  Baby,
+  Car,
+  Trees,
+  Map,
+  Leaf,
+  Flame,
+  Mountain,
+  Landmark,
+  Compass,
+  LucideIcon,
+} from "lucide-react";
 
 type Props = {
   amenities: Amenity[];
 };
 
-const iconMap: any = {
+const iconMap: Record<string, LucideIcon> = {
   wifi: Wifi,
   tv: Tv,
   coffee: Coffee,
   wind: Wind,
   restaurant: Utensils,
   safe: ShieldCheck,
+  waves: Waves,
+  pool: Droplets,
+  party: PartyPopper,
+  baby: Baby,
+  car: Car,
+  trees: Trees,
+  map: Map,
+  leaf: Leaf,
+  flame: Flame,
+  mountain: Mountain,
+  landmark: Landmark,
+  compass: Compass,
 };
 
 export default function BranchAmenities({ amenities }: Props) {

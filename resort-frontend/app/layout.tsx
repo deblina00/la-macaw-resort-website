@@ -30,42 +30,46 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lamacawresort.com"),
 
   title: {
-    default: "La Macaw Resort | Luxury Resort in West Bengal",
+    default: "La Macaw Resort | Luxury Resorts in West Bengal",
     template: "%s | La Macaw Resort",
   },
 
   description:
-    "Experience luxury stays, banquets, destination weddings and beachside relaxation at La Macaw Resort. Locations in Tajpur, Joypur and Purulia.",
+    "Luxury beach, forest and hill resorts located in Tajpur, Joypur and Purulia offering premium rooms, destination weddings and banquets.",
 
   keywords: [
     "La Macaw Resort",
-    "resort in Tajpur",
-    "resort in Joypur",
-    "resort in Purulia",
-    "luxury resort West Bengal",
-    "beach resort Tajpur",
-    "destination wedding resort West Bengal",
-    "banquet hall Tajpur",
+    "Resort in Tajpur",
+    "Resort in Joypur",
+    "Resort in Purulia",
+    "Beach resort West Bengal",
+    "Luxury resort West Bengal",
+    "Destination wedding resort Tajpur",
+    "Banquet hall West Bengal",
   ],
 
+  authors: [{ name: "La Macaw Resort" }],
+  creator: "La Macaw Resort",
+  publisher: "La Macaw Resort",
+
   alternates: {
-    canonical: "https://lamacawresort.com",
+    canonical: "/",
   },
 
   openGraph: {
-    title: "La Macaw Resort",
-    description:
-      "Luxury resort offering premium stays, weddings, banquets and beach experiences in West Bengal.",
-    url: "https://lamacawresort.com",
-    siteName: "La Macaw Resort",
-    locale: "en_IN",
     type: "website",
+    locale: "en_IN",
+    url: "https://lamacawresort.com",
+    title: "La Macaw Resort | Luxury Resorts in West Bengal",
+    description:
+      "Luxury stays, destination weddings, and banquets across Tajpur, Joypur and Purulia.",
+    siteName: "La Macaw Resort",
     images: [
       {
         url: "/images/og-resort.jpg",
         width: 1200,
         height: 630,
-        alt: "Luxury stay at La Macaw Resort",
+        alt: "La Macaw Resort luxury stay",
       },
     ],
   },
@@ -73,22 +77,18 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "La Macaw Resort",
-    description: "Luxury Resort in West Bengal",
+    description: "Luxury Resort Experiences in West Bengal",
     images: ["/images/og-resort.jpg"],
-  },
-
-  verification: {
-    google: "google-site-verification-code",
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
 
   robots: {
     index: true,
     follow: true,
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -99,22 +99,25 @@ export default function RootLayout({
 }) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Resort",
+    "@type": "Hotel",
     name: "La Macaw Resort",
     url: "https://lamacawresort.com",
     logo: "https://lamacawresort.com/images/logo.png",
+    image: "https://lamacawresort.com/images/og-resort.jpg",
     description:
-      "Luxury resort with premium rooms, destination weddings, banquets and events in Tajpur, Joypur and Purulia.",
+      "Luxury resort with branches in Tajpur, Joypur and Purulia offering beach, forest and hill stays.",
+    telephone: "+91-9674407000",
     address: {
       "@type": "PostalAddress",
-      addressCountry: "India",
+      streetAddress: "Mani Casadona",
+      addressLocality: "Kolkata",
       addressRegion: "West Bengal",
+      postalCode: "700160",
+      addressCountry: "IN",
     },
-    amenityFeature: [
-      { "@type": "LocationFeatureSpecification", name: "Swimming Pool" },
-      { "@type": "LocationFeatureSpecification", name: "Luxury Rooms" },
-      { "@type": "LocationFeatureSpecification", name: "Banquet Hall" },
-      { "@type": "LocationFeatureSpecification", name: "Event Hosting" },
+    sameAs: [
+      "https://instagram.com/lamacawresort",
+      "https://facebook.com/lamacawresort",
     ],
   };
 
@@ -124,15 +127,12 @@ export default function RootLayout({
         <Script
           id="hotel-schema"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
 
         <HeaderTopBar />
         <Navbar />
 
-        {/* <main className="min-h-screen">{children}</main> */}
         <LenisProvider>{children}</LenisProvider>
 
         <Footer />

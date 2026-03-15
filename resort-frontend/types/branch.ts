@@ -1,8 +1,8 @@
 export type Amenity = {
   title: string;
-  // icon: string;
+  icon: string;
   desc?: string;
-  // image?: string;
+  image?: string;
 };
 
 export type FAQ = {

@@ -9,42 +9,50 @@ export const branches = {
     amenities: [
       {
         title: "Beach Access",
-        icon: "wifi",
+        icon: "waves",
         desc: "Just steps from Tajpur beach",
-        image: "/amenities/pool.jpg",
+        image: "/amenities/beach.jpg",
       },
       {
         title: "Swimming Pool",
-        icon: "tv",
+        icon: "pool",
         desc: "Outdoor relaxing pool",
         image: "/amenities/pool.jpg",
       },
       {
         title: "Restaurant",
-        icon: "tv",
+        icon: "restaurant",
         desc: "Multi cuisine dining",
-        image: "/amenities/pool.jpg",
+        image: "/amenities/restaurant.jpg",
       },
       {
         title: "Banquet Hall",
-        icon: "tv",
+        icon: "party",
         desc: "Perfect for weddings & events",
-        image: "/amenities/pool.jpg",
+        image: "/amenities/banquet.jpg",
       },
       {
         title: "Kids Play Area",
-        icon: "tv",
+        icon: "baby",
         desc: "Fun family activities",
-        image: "/amenities/pool.jpg",
+        image: "/amenities/kids.jpg",
       },
       {
         title: "Parking",
-        icon: "tv",
+        icon: "car",
         desc: "Secure parking facility",
-        image: "/amenities/pool.jpg",
+        image: "/amenities/parking.jpg",
       },
-      { title: "Free WiFi", icon: "wifi", image: "/amenities/pool.jpg" },
-      { title: "Air Conditioning", icon: "wind", image: "/amenities/pool.jpg" },
+      {
+        title: "Free WiFi",
+        icon: "wifi",
+        image: "/amenities/wifi.jpg",
+      },
+      {
+        title: "Air Conditioning",
+        icon: "wind",
+        image: "/amenities/ac.jpg",
+      },
     ],
 
     about: {
@@ -68,9 +76,9 @@ export const branches = {
 
     location: {
       address: `La Macaw Resort Tajpur
-      Tajpur Beach Road
-      Purba Medinipur
-      West Bengal`,
+Tajpur Beach Road
+Purba Medinipur
+West Bengal`,
       map: "tajpur beach",
     },
   },
@@ -83,11 +91,36 @@ export const branches = {
       "Eco-friendly forest resort near Joypur forest offering peaceful nature stays.",
 
     amenities: [
-      { title: "Forest View Rooms", desc: "Wake up to nature" },
-      { title: "Nature Walks", desc: "Guided jungle trails" },
-      { title: "Eco Friendly Stay", desc: "Sustainable hospitality" },
-      { title: "Restaurant", desc: "Authentic local cuisine" },
-      { title: "Bonfire Nights", desc: "Relax under the stars" },
+      {
+        title: "Forest View Rooms",
+        icon: "trees",
+        desc: "Wake up to nature",
+        image: "/amenities/forest.jpg",
+      },
+      {
+        title: "Nature Walks",
+        icon: "map",
+        desc: "Guided jungle trails",
+        image: "/amenities/nature-walk.jpg",
+      },
+      {
+        title: "Eco Friendly Stay",
+        icon: "leaf",
+        desc: "Sustainable hospitality",
+        image: "/amenities/eco.jpg",
+      },
+      {
+        title: "Restaurant",
+        icon: "restaurant",
+        desc: "Authentic local cuisine",
+        image: "/amenities/restaurant.jpg",
+      },
+      {
+        title: "Bonfire Nights",
+        icon: "flame",
+        desc: "Relax under the stars",
+        image: "/amenities/bonfire.jpg",
+      },
     ],
 
     about: {
@@ -108,9 +141,9 @@ export const branches = {
 
     location: {
       address: `La Macaw Aranyak Eco Resort
-      Joypur Forest Area
-      Bankura
-      West Bengal`,
+Joypur Forest Area
+Bankura
+West Bengal`,
       map: "joypur forest",
     },
   },
@@ -123,11 +156,36 @@ export const branches = {
       "Peaceful hill retreat near Futiyari Dam surrounded by scenic landscapes.",
 
     amenities: [
-      { title: "Hill View Rooms", desc: "Beautiful scenic views" },
-      { title: "Cultural Tours", desc: "Experience Purulia heritage" },
-      { title: "Adventure Trips", desc: "Explore Ayodhya hills" },
-      { title: "Bonfire Evenings", desc: "Perfect winter evenings" },
-      { title: "Restaurant", desc: "Local cuisine" },
+      {
+        title: "Hill View Rooms",
+        icon: "mountain",
+        desc: "Beautiful scenic views",
+        image: "/amenities/hills.jpg",
+      },
+      {
+        title: "Cultural Tours",
+        icon: "landmark",
+        desc: "Experience Purulia heritage",
+        image: "/amenities/culture.jpg",
+      },
+      {
+        title: "Adventure Trips",
+        icon: "compass",
+        desc: "Explore Ayodhya hills",
+        image: "/amenities/adventure.jpg",
+      },
+      {
+        title: "Bonfire Evenings",
+        icon: "flame",
+        desc: "Perfect winter evenings",
+        image: "/amenities/bonfire.jpg",
+      },
+      {
+        title: "Restaurant",
+        icon: "restaurant",
+        desc: "Local cuisine",
+        image: "/amenities/restaurant.jpg",
+      },
     ],
 
     about: {
@@ -147,9 +205,9 @@ export const branches = {
 
     location: {
       address: `La Macaw Resort Purulia
-      Near Futiyari Dam
-      Purulia
-      West Bengal`,
+Near Futiyari Dam
+Purulia
+West Bengal`,
       map: "purulia ayodhya hills",
     },
   },

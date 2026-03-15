@@ -52,10 +52,18 @@ export default function Navbar() {
         <div className="container flex items-center justify-between">
           {/* LEFT MENU */}
           <div className="hidden lg:flex items-center gap-8 text-sm font-medium">
+            {/* MOBILE BUTTON */}
+            <button
+              className=" text-white text-2xl"
+              onClick={() => setMobileMenu(!mobileMenu)}
+              aria-label="Toggle Menu"
+            >
+              {mobileMenu ? "✕" : "☰"}
+            </button>
             {navLink("/", "Home")}
             {navLink("/about", "About")}
             {navLink("/rooms", "Rooms")}
-            {navLink("/offers", "Offers")}
+            {/* {navLink("/offers", "Offers")} */}
             {navLink("/banquets", "Banquets")}
           </div>
 
@@ -89,7 +97,7 @@ export default function Navbar() {
 
           {/* MOBILE BUTTON */}
           <button
-            className="lg:hidden text-white text-2xl"
+            className=" lg:hidden text-white text-2xl"
             onClick={() => setMobileMenu(!mobileMenu)}
             aria-label="Toggle Menu"
           >
@@ -103,7 +111,7 @@ export default function Navbar() {
               {navLink("/", "Home")}
               {navLink("/about", "About")}
               {navLink("/rooms", "Rooms")}
-              {navLink("/offers", "Offers")}
+              {/* {navLink("/offers", "Offers")} */}
               {navLink("/banquets", "Banquets")}
 
               <button

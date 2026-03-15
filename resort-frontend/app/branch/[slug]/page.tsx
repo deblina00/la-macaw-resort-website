@@ -8,25 +8,53 @@ import BranchBanquet from "@/components/branch/BranchBanquet";
 import BranchFAQ from "@/components/branch/BranchFAQ";
 import BranchLocation from "@/components/branch/BranchLocation";
 import BranchExplore from "@/components/branch/BranchExplore";
-
-type Params = Promise<{
-  slug: keyof typeof branches;
-}>;
+import { Metadata } from "next";
 
 type Props = {
-  params: Params;
+  params: {
+    slug: keyof typeof branches;
+  };
 };
 
-export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  const branch = branches[slug];
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const branch = branches[params.slug];
+
+  if (!branch) {
+    // Return default metadata for unknown branch
+    return {
+      title: "Branch Not Found | La Macaw Resort",
+      description: "Explore our luxury resorts across West Bengal.",
+      alternates: {
+        canonical: `https://lamacawresort.com/branch`,
+      },
+    };
+  }
 
   return {
     title: `${branch.name} | Luxury Resort in West Bengal`,
-    description: branch.description
+    description: branch.description,
+    alternates: {
+      canonical: `https://lamacawresort.com/branch/${params.slug}`,
+    },
+    openGraph: {
+      title: `${branch.name} | Luxury Resort in West Bengal`,
+      description: branch.description,
+      url: `https://lamacawresort.com/branch/${params.slug}`,
+      siteName: "La Macaw Resort",
+      images: branch.heroImage
+        ? [
+            {
+              url: branch.heroImage,
+              width: 1200,
+              height: 630,
+            },
+          ]
+        : [],
+      locale: "en_IN",
+      type: "website",
+    },
   };
 }
-
 export function generateStaticParams() {
   return Object.keys(branches).map((slug) => ({ slug }));
 }
@@ -40,7 +68,6 @@ export default async function BranchPage({ params }: Props) {
 
   return (
     <main>
-
       <BranchHero branch={branch} />
 
       <BranchAmenities amenities={branch.amenities} />
@@ -56,7 +83,6 @@ export default async function BranchPage({ params }: Props) {
       <BranchFAQ faq={branch.faq} />
 
       <BranchLocation location={branch.location} />
-
     </main>
   );
 }
