@@ -6,5 +6,5 @@ const logger = require("./src/utils/logger");
 connectDB();
 
 app.listen(PORT, () => {
-  logger.info(`Server running on http://localhost:${PORT}`);
+  logger.info(`Server running on port ${PORT}`);
 });

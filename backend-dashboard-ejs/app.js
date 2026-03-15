@@ -9,7 +9,14 @@ const app = express();
 
 /* ---------------- GLOBAL MIDDLEWARE ---------------- */
 
-app.use(cors());
+const allowedOrigin = process.env.CORS_ORIGIN || "http://localhost:3000";
+
+app.use(
+  cors({
+    origin: allowedOrigin,
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
