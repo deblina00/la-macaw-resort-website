@@ -81,7 +81,7 @@ export default function AboutPage() {
       </section>
 
       {/* STORY */}
-      <section className="bg-black text-white py-20">
+      <section className="bg-[#0b0909] text-white py-20">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <h2 className="text-4xl font-cinzel mb-8">
             A Destination For Every Traveler
@@ -154,7 +154,7 @@ export default function AboutPage() {
         </div>
       </section>
       {/* VIDEO */}
-      <section className="bg-black text-white py-20">
+      <section className="bg-[#0b0909] text-white py-20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-cinzel mb-12">Experience La Macaw</h2>
 

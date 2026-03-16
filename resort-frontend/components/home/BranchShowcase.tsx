@@ -28,7 +28,7 @@ const branches = [
 
 export default function BranchShowcase() {
   return (
-    <section className="bg-black text-white py-20">
+    <section className="bg-[#0b0909] text-white py-20">
       <div className="container mx-auto px-6 text-center">
         <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
           — OUR DESTINATIONS —

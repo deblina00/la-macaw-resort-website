@@ -23,7 +23,7 @@ export default function ResortStats() {
   }, [inView]);
 
   return (
-    <section ref={ref} className="bg-black text-white py-20">
+    <section ref={ref} className="bg-[#0b0909] text-white py-20">
 
       <div className="container mx-auto px-6 text-center">
 

@@ -72,7 +72,17 @@ export const branches = {
         q: "Does the resort have a pool?",
         a: "Yes, we have a relaxing outdoor swimming pool.",
       },
+      {
+        q: "Is breakfast included with the stay?",
+        a: "Yes, complimentary breakfast is available for most room packages.",
+      },
+      {
+        q: "Can the resort host weddings or events?",
+        a: "Yes, the resort has banquet and outdoor event spaces suitable for weddings and celebrations.",
+      },
     ],
+
+    faqImages: ["/faq1.jpg", "/faq2.jpg", "/faq3.jpg"],
 
     location: {
       address: `La Macaw Resort Tajpur
@@ -155,7 +165,17 @@ West Bengal`,
         q: "Is the resort near Joypur forest?",
         a: "Yes, the resort is located close to the forest.",
       },
+      {
+        q: "Is breakfast included with the stay?",
+        a: "Yes, complimentary breakfast is available for most room packages.",
+      },
+      {
+        q: "Do you provide parking for guests?",
+        a: "Yes, secure parking is available for all guests staying at the resort.",
+      },
     ],
+
+    faqImages: ["/faq1.jpg", "/faq2.jpg", "/faq3.jpg"],
 
     location: {
       address: `La Macaw Aranyak Eco Resort
@@ -237,7 +257,21 @@ West Bengal`,
         q: "Is the resort near Ayodhya Hills?",
         a: "Yes, it is located close to Ayodhya Hills.",
       },
+      {
+        q: "Does the resort have a swimming pool?",
+        a: "No, La Macaw Purulia don't have a outdoor swimming pool yet.",
+      },
+      {
+        q: "Is breakfast included with the stay?",
+        a: "Yes, complimentary breakfast is available for most room packages.",
+      },
+      {
+        q: "Can the resort host weddings or events?",
+        a: "Yes, the resort has banquet and outdoor event spaces suitable for weddings and celebrations.",
+      },
     ],
+
+    faqImages: ["/faq1.jpg", "/faq2.jpg", "/faq3.jpg"],
 
     location: {
       address: `La Macaw Resort Purulia

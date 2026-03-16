@@ -66,7 +66,7 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* INTRO
       <section className="bg-black text-white py-20 text-center px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-cinzel mb-6">
@@ -78,159 +78,190 @@ export default function ContactClient() {
             planning and exceptional service tailored to your needs.
           </p>
         </div>
+      </section> */}
+
+      {/* GET IN TOUCH WITH US */}
+      <section className="bg-black text-white py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading row */}
+          <div className="grid lg:grid-cols-2 gap-10 items-center mb-16">
+            <div>
+              <p className="text-sm tracking-[0.3em] text-gray-400 mb-4 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-gray-500"></span>
+                Contact Us
+              </p>
+
+              <h2 className="font-cinzel text-4xl md:text-5xl leading-tight">
+                GET IN TOUCH WITH <br /> US
+              </h2>
+            </div>
+
+            <p className="text-gray-400 max-w-md">
+              Connect with our hospitality team for bookings, weddings,
+              corporate retreats, or special celebrations across our resort
+              destinations.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+              <p className="text-3xl mb-6">✉</p>
+              <h4 className="font-cinzel text-xl mb-4">MAIL US</h4>
+              <p className="text-gray-400 text-sm">sales.lmc2018@gmail.com</p>
+              <p className="text-gray-400 text-sm">lamacawresort@gmail.com</p>
+            </div>
+
+            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+              <p className="text-3xl mb-6">🏢</p>
+              <h4 className="font-cinzel text-xl mb-4">VISIT OUR OFFICE</h4>
+              <p className="text-gray-400 text-sm">
+                Mani Casadona, Newtown
+                <br />
+                Kolkata - 700160
+              </p>
+            </div>
+
+            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+              <p className="text-3xl mb-6">📍</p>
+              <h4 className="font-cinzel text-xl mb-4">VISIT OUR RESORT</h4>
+              <p className="text-gray-400 text-sm">
+                Tajpur / Joypur / Purulia
+                <br />
+                West Bengal
+              </p>
+            </div>
+
+            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+              <p className="text-3xl mb-6">📞</p>
+              <h4 className="font-cinzel text-xl mb-4">CALL US</h4>
+              <p className="text-gray-400 text-sm">+91 96744 07000</p>
+              <p className="text-gray-400 text-sm">+91 90512 11212</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CONTACT + FORM */}
-      <section className="bg-black text-white pb-24 px-6">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-16">
-          {/* CONTACT INFO */}
-          <div className="space-y-10">
-            <div className="border border-white/10 p-8 rounded-2xl bg-white/5 backdrop-blur">
-              <h3 className="text-2xl font-semibold mb-4">Kolkata Office</h3>
-              <p className="text-gray-400">
-                Mani Casadona, West Block. Unit No - 2WS5A, 2nd Floor, Action
-                Area II F, Newtown, Kolkata - 700160
-              </p>
-            </div>
+      <section className="bg-black text-white py-24 px-6">
+        {/* ENQUIRY FORM */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="font-cinzel text-4xl text-center mb-14">
+            LET’S CREATE YOUR NEXT ESCAPE
+          </h3>
 
-            <div className="border border-white/10 p-8 rounded-2xl bg-white/5">
-              <h3 className="text-2xl font-semibold mb-4">
-                Booking Assistance
-              </h3>
-              <p className="text-gray-400">+91 96744 07000</p>
-              <p className="text-gray-400 mt-2">
-                Booking Confirmation: +91 90512 11212
-              </p>
-            </div>
-
-            <div className="border border-white/10 p-8 rounded-2xl bg-white/5">
-              <h3 className="text-2xl font-semibold mb-4">Email Us</h3>
-              <p className="text-gray-400">sales.lmc2018@gmail.com</p>
-              <p className="text-gray-400">lamacawresort@gmail.com</p>
-              <p className="text-gray-400">hello@lamacaw.com</p>
-            </div>
-
-            <div className="border border-white/10 p-8 rounded-2xl bg-white/5">
-              <h3 className="text-2xl font-semibold mb-4">Follow Us</h3>
-              <p className="text-gray-400">Instagram • Facebook • YouTube</p>
-            </div>
-          </div>
-
-          {/* ENQUIRY FORM */}
-          <div className="border border-white/10 bg-white/5 backdrop-blur p-10 rounded-2xl">
-            <h3 className="text-3xl font-serif mb-6">Event Enquiry</h3>
-
-            <form onSubmit={submit} className="space-y-4">
-              {/* Name + Email */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  placeholder="Name"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                />
-                <input
-                  placeholder="Email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                />
-              </div>
-
-              {/* Phone + Branch */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  placeholder="Phone"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                />
-                <select
-                  value={form.branch}
-                  onChange={(e) => setForm({ ...form, branch: e.target.value })}
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                >
-                  <option value="">Select Branch</option>
-                  <option value="Tajpur">Tajpur</option>
-                  <option value="Joypur">Joypur</option>
-                  <option value="Purulia">Purulia</option>
-                </select>
-              </div>
-
-              {/* CheckIn + CheckOut */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  type="date"
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                  onChange={(e) =>
-                    setForm({ ...form, checkIn: e.target.value })
-                  }
-                />
-                <input
-                  type="date"
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                  onChange={(e) =>
-                    setForm({ ...form, checkOut: e.target.value })
-                  }
-                />
-              </div>
-
-              {/* Guests + Rooms */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <input
-                  placeholder="Guests"
-                  value={form.guests}
-                  onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                />
-                <input
-                  placeholder="Rooms"
-                  value={form.rooms}
-                  onChange={(e) => setForm({ ...form, rooms: e.target.value })}
-                  className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                />
-              </div>
-
-              {/* Banquet + Lawn */}
-              <div className="flex gap-6 text-gray-300">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={form.banquet}
-                    onChange={(e) =>
-                      setForm({ ...form, banquet: e.target.checked })
-                    }
-                  />
-                  Banquet
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={form.lawn}
-                    onChange={(e) =>
-                      setForm({ ...form, lawn: e.target.checked })
-                    }
-                  />
-                  Lawn
-                </label>
-              </div>
-
-              <textarea
-                rows={4}
-                placeholder="Message"
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
+          <form onSubmit={submit} className="space-y-4">
+            {/* Name + Email */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                placeholder="Name"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
               />
+              <input
+                placeholder="Email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+              />
+            </div>
 
-              <button
-                disabled={loading}
-                className="w-full bg-white text-black py-3 rounded-full hover:bg-gray-200 transition"
+            {/* Phone + Branch */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                placeholder="Phone"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+              />
+              <select
+                value={form.branch}
+                onChange={(e) => setForm({ ...form, branch: e.target.value })}
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
               >
-                {loading ? "Submitting..." : "Submit Enquiry"}
-              </button>
-            </form>
-          </div>
+                <option value="" className="text-black">
+                  Select Branch
+                </option>
+                <option value="Tajpur" className="text-black">
+                  Tajpur
+                </option>
+                <option value="Joypur" className="text-black">
+                  Joypur
+                </option>
+                <option value="Purulia" className="text-black">
+                  Purulia
+                </option>
+              </select>
+            </div>
+
+            {/* CheckIn + CheckOut */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                type="date"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
+              />
+              <input
+                type="date"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
+              />
+            </div>
+
+            {/* Guests + Rooms */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <input
+                placeholder="Guests"
+                value={form.guests}
+                onChange={(e) => setForm({ ...form, guests: e.target.value })}
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+              />
+              <input
+                placeholder="Rooms"
+                value={form.rooms}
+                onChange={(e) => setForm({ ...form, rooms: e.target.value })}
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+              />
+            </div>
+
+            {/* Banquet + Lawn */}
+            <div className="flex gap-6 text-gray-300">
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={form.banquet}
+                  onChange={(e) =>
+                    setForm({ ...form, banquet: e.target.checked })
+                  }
+                />
+                Banquet
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={form.lawn}
+                  onChange={(e) => setForm({ ...form, lawn: e.target.checked })}
+                />
+                Lawn
+              </label>
+            </div>
+
+            <textarea
+              rows={4}
+              placeholder="Message"
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+            />
+
+            <button
+              disabled={loading}
+              className="w-full border border-white py-3 tracking-widest hover:bg-white hover:text-black transition"
+            >
+              {loading ? "Submitting..." : "Submit Enquiry"}
+            </button>
+          </form>
         </div>
       </section>
     </>

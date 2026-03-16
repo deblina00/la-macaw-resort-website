@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AboutPreview() {
   return (
-    <section className="bg-black text-white py-24" id="about">
+    <section className="bg-[#0b0909] text-white py-24" id="about">
      <div className="container mx-auto px-6 grid lg:grid-cols-3 lg:grid-rows-[auto_1fr] gap-12 items-start">
         {/* LEFT IMAGE (spans full height) */}
         <div className="relative h-[600px] overflow-hidden lg:row-span-2">

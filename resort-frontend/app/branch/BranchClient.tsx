@@ -33,7 +33,7 @@ export default function BranchClient({ slug }: Props) {
 
       <BranchExplore currentSlug={slug} />
 
-      <BranchFAQ faq={branch.faq} />
+      <BranchFAQ faq={branch.faq} images={branch.faqImages} />
 
       <BranchLocation location={branch.location} />
     </main>
