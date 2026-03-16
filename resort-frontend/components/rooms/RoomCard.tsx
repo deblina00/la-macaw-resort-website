@@ -10,7 +10,6 @@ interface Props {
 export default function RoomCard({ room }: Props) {
   return (
     <div className="relative h-[520px] w-full overflow-hidden group">
-
       {/* ROOM IMAGE */}
       <Image
         src={room.gallery?.[0]}
@@ -24,14 +23,9 @@ export default function RoomCard({ room }: Props) {
 
       {/* CONTENT */}
       <div className="absolute bottom-0 left-0 w-full p-8 text-white">
+        <h3 className="text-2xl font-serif mb-2">{room.title}</h3>
 
-        <h3 className="text-2xl font-serif mb-2">
-          {room.title}
-        </h3>
-
-        <p className="text-gray-300 mb-6">
-          ₹{room.price} / Night
-        </p>
+        <p className="text-gray-300 mb-6">₹{room.price} / Night + Gst</p>
 
         {/* divider */}
         <div className="border-t border-white/30 mb-6"></div>
@@ -44,7 +38,6 @@ export default function RoomCard({ room }: Props) {
 
         {/* ROOM META */}
         <div className="flex gap-6 mt-6 text-sm text-gray-300">
-
           <div className="flex items-center gap-2">
             <BedDouble size={18} />
             <span>1 Beds</span>
@@ -52,13 +45,10 @@ export default function RoomCard({ room }: Props) {
 
           <div className="flex items-center gap-2">
             <Users size={18} />
-            <span>2 People</span>
+            <span>{room.capacity} People</span>
           </div>
-
         </div>
-
       </div>
-
     </div>
   );
 }

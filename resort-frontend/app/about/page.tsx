@@ -69,7 +69,7 @@ export default function AboutPage() {
             About La Macaw
           </p>
 
-          <h1 className="text-5xl md:text-6xl font-serif mb-6">
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6">
             Where Luxury Meets The Soul Of Bengal
           </h1>
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
       {/* STORY */}
       <section className="bg-black text-white py-20">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h2 className="text-4xl font-serif mb-8">
+          <h2 className="text-4xl font-cinzel mb-8">
             A Destination For Every Traveler
           </h2>
 
@@ -111,10 +111,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
-              Destinations
+              — DESTINATIONS —
             </p>
 
-            <h2 className="text-4xl font-serif">Our Resorts</h2>
+            <h2 className="text-4xl font-cinzel">Our Resorts</h2>
           </div>
 
           <div className="space-y-20">
@@ -126,7 +126,7 @@ export default function AboutPage() {
               >
                 {/* IMAGE */}
                 <div
-                  className={`relative h-[360px] overflow-hidden rounded-xl ${
+                  className={`relative h-[360px] overflow-hidden ${
                     i === 1 ? "md:order-2" : ""
                   }`}
                 >
@@ -144,7 +144,7 @@ export default function AboutPage() {
                     {b.location}
                   </p>
 
-                  <h3 className="text-3xl font-serif mb-4">{b.name}</h3>
+                  <h3 className="text-3xl font-cinzel mb-4">{b.name}</h3>
 
                   <p className="text-gray-300 leading-relaxed">{b.desc}</p>
                 </div>
@@ -156,7 +156,7 @@ export default function AboutPage() {
       {/* VIDEO */}
       <section className="bg-black text-white py-20">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-serif mb-12">Experience La Macaw</h2>
+          <h2 className="text-4xl font-cinzel mb-12">Experience La Macaw</h2>
 
           <div className="max-w-5xl h-[300px] mx-auto aspect-video">
             <iframe
@@ -171,9 +171,9 @@ export default function AboutPage() {
       </section>
 
       {/* VALUES */}
-      <section className="bg-gray-900 text-white py-24">
+      <section className="bg-black text-white py-24">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-serif mb-16">Our Values</h2>
+          <h2 className="text-4xl font-cinzel mb-16">Our Values</h2>
 
           <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
             <div>

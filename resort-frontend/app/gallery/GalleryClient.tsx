@@ -42,9 +42,11 @@ export default function GalleryClient() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative text-center px-6">
           <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
-            RESORT MOMENTS
+            — RESORT MOMENTS —
           </p>
-          <h1 className="text-4xl md:text-6xl font-serif mb-6">Our Gallery</h1>
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6">
+            OUR RESORT GALLERY
+          </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Explore beautiful moments captured across our luxury resort
             destinations and unforgettable guest experiences.

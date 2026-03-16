@@ -12,13 +12,15 @@ import Image from "next/image";import {
   Baby,
   Car,
   Trees,
-  Map,
+  Map,                                 
   Leaf,
   Flame,
   Mountain,
   Landmark,
   Compass,
   LucideIcon,
+  TowelRack,
+  HandPlatter,
 } from "lucide-react";
 
 type Props = {
@@ -29,6 +31,7 @@ const iconMap: Record<string, LucideIcon> = {
   wifi: Wifi,
   tv: Tv,
   coffee: Coffee,
+  service:TowelRack,
   wind: Wind,
   restaurant: Utensils,
   safe: ShieldCheck,
@@ -44,6 +47,7 @@ const iconMap: Record<string, LucideIcon> = {
   mountain: Mountain,
   landmark: Landmark,
   compass: Compass,
+  breakfast:HandPlatter,
 };
 
 export default function BranchAmenities({ amenities }: Props) {
@@ -53,11 +57,11 @@ export default function BranchAmenities({ amenities }: Props) {
         {/* TITLE */}
         <div className="text-center mb-16">
           <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
-            Amenities
+            — AMENITIES —
           </p>
 
-          <h2 className="text-4xl lg:text-5xl font-serif">
-            Our Hotel Amenities
+          <h2 className="text-4xl lg:text-5xl font-cinzel">
+            OUR AMENITIES & FACILITIES
           </h2>
         </div>
 
@@ -83,9 +87,9 @@ export default function BranchAmenities({ amenities }: Props) {
 
                 {/* DEFAULT CONTENT */}
                 <div className="absolute inset-0 bg-[#174c57] group-hover:bg-black/40 transition flex flex-col items-center justify-center text-center p-4">
-                  {Icon && <Icon size={28} className="mb-3 text-white" />}
+                  {Icon && <Icon size={28} className="mb-3 text-gray-300" />}
 
-                  <p className="text-xs tracking-widest uppercase">
+                  <p className="text-base tracking-widest uppercase text-gray-400">
                     {item.title}
                   </p>
                 </div>

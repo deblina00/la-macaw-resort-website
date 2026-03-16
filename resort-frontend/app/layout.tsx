@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeaderTopBar from "@/components/HeaderTopBar";
 import "./globals.css";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, Cinzel } from "next/font/google";
 import Script from "next/script";
 import { cn } from "@/lib/utils";
 import LenisProvider from "@/components/LenisProvider";
@@ -17,6 +17,13 @@ const playfair = Playfair_Display({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -122,7 +129,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={cn(playfair.variable, inter.variable)}>
+    <html
+      lang="en"
+      className={cn(playfair.variable, inter.variable, cinzel.variable)}
+    >
       <body className="bg-resort-bg text-resort-text antialiased">
         <Script
           id="hotel-schema"

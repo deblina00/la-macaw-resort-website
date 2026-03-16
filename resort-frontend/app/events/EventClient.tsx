@@ -29,14 +29,15 @@ export default function EventsClient() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative text-center px-6">
           <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
-            EVENTS & CELEBRATIONS
+            — EVENTS —
           </p>
-          <h1 className="text-4xl md:text-6xl font-serif mb-6">
-            Events & Celebrations
+          <h1 className="text-4xl md:text-6xl font-cinzel mb-6">
+            EVENTS & CELEBRATIONS
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Celebrate weddings, anniversaries, corporate gatherings and
-            unforgettable moments in the luxurious surroundings of La Macaw Resort.
+            unforgettable moments in the luxurious surroundings of La Macaw
+            Resort.
           </p>
         </div>
       </section>
@@ -44,11 +45,14 @@ export default function EventsClient() {
       {/* INTRO */}
       <section className="bg-black text-white py-24">
         <div className="container mx-auto text-center max-w-3xl px-6">
-          <h2 className="text-4xl font-serif mb-6">Create Unforgettable Memories</h2>
+          <h2 className="text-4xl font-cinzel mb-6">
+            CREATE UNFORGETTABLE MEMORIES
+          </h2>
           <p className="text-gray-400 leading-relaxed">
-            Whether you&apos;re planning an intimate celebration or a grand event,
-            La Macaw Resort provides stunning venues, world-class hospitality
-            and breathtaking natural surroundings to make every occasion extraordinary.
+            Whether you&apos;re planning an intimate celebration or a grand
+            event, La Macaw Resort provides stunning venues, world-class
+            hospitality and breathtaking natural surroundings to make every
+            occasion extraordinary.
           </p>
         </div>
       </section>

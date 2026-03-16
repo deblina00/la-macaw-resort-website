@@ -139,10 +139,10 @@ export default function OffersBanner() {
           {/* TEXT */}
           <div className="max-w-xl">
             <p className="uppercase text-sm tracking-widest text-gray-400 mb-3">
-              Limited Time Resort Offer
+              — SPECIAL OFFER —
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-serif mb-5">
+            <h2 className="text-3xl md:text-4xl font-cinzel mb-5">
               {offer.title}
             </h2>
 

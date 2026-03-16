@@ -29,30 +29,24 @@ const branches = [
 export default function BranchShowcase() {
   return (
     <section className="bg-black text-white py-20">
-
       <div className="container mx-auto px-6 text-center">
-
         <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
-          OUR DESTINATIONS
+          — OUR DESTINATIONS —
         </p>
 
-        <h2 className="text-4xl md:text-5xl font-serif mb-6">
-          Discover Our Retreats
+        <h2 className="text-4xl md:text-5xl font-cinzel mb-6">
+          DISCOVER OUR RETREATS
         </h2>
 
         <p className="text-gray-400 max-w-2xl mx-auto mb-16">
-          Each La Macaw resort offers a unique escape — from pristine beaches
-          to tranquil hills and serene lakesides.
+          Each La Macaw resort offers a unique escape — from pristine beaches to
+          tranquil hills and serene lakesides.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
-
           {branches.map((branch, i) => (
-
             <Link key={i} href={branch.href}>
-
               <div className="group relative h-[460px] overflow-hidden cursor-pointer">
-
                 {/* Image */}
                 <Image
                   src={branch.img}
@@ -66,15 +60,12 @@ export default function BranchShowcase() {
 
                 {/* Content */}
                 <div className="absolute bottom-0 p-7 text-left">
-
                   <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
                     <MapPin size={15} />
                     {branch.location}
                   </div>
 
-                  <h3 className="text-2xl font-serif mb-3">
-                    {branch.name}
-                  </h3>
+                  <h3 className="text-2xl font-serif mb-3">{branch.name}</h3>
 
                   <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition duration-500 mb-5">
                     {branch.desc}
@@ -84,19 +75,12 @@ export default function BranchShowcase() {
                     Explore Resort
                     <ArrowRight size={16} />
                   </div>
-
                 </div>
-
               </div>
-
             </Link>
-
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }

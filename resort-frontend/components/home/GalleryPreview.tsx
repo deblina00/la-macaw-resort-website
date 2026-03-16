@@ -24,11 +24,11 @@ export default function GalleryPreview() {
       <div className="container mx-auto px-6 text-center">
 
         <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
-          RESORT MOMENTS
+          — RESORT MOMENTS —
         </p>
 
-        <h2 className="text-4xl md:text-5xl font-serif mb-6">
-          Explore Our Gallery
+        <h2 className="text-4xl md:text-5xl font-cinzel mb-6">
+          EXPLORE OUR RESORT GALLERY
         </h2>
 
         <p className="text-gray-400 max-w-2xl mx-auto mb-10">

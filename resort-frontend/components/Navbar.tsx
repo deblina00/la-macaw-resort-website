@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import BranchModal from "@/components/branch/BranchModal";
+import MegaMenuOverlay from "@/components/navigation/MegaMenuOverlay";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -48,23 +49,26 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="absolute top-0 left-0 w-full z-50 bg-transparent py-9">
-        <div className="container flex items-center justify-between">
-          {/* LEFT MENU */}
-          <div className="hidden lg:flex items-center gap-8 text-sm font-medium">
-            {/* MOBILE BUTTON */}
+      <nav className="absolute top-8 md:top-10 left-0 w-full z-40 bg-transparent">
+        <div className="container flex items-center justify-between py-6 text-white">
+          {/* LEFT SECTION */}
+          <div className="flex items-center gap-10">
+            {/* MENU BUTTON */}
             <button
-              className=" text-white text-2xl"
+              className="text-white text-2xl"
               onClick={() => setMobileMenu(!mobileMenu)}
               aria-label="Toggle Menu"
             >
               {mobileMenu ? "✕" : "☰"}
             </button>
-            {navLink("/", "Home")}
-            {navLink("/about", "About")}
-            {navLink("/rooms", "Rooms")}
-            {/* {navLink("/offers", "Offers")} */}
-            {navLink("/banquets", "Banquets")}
+
+            {/* DESKTOP LINKS */}
+            <div className="hidden lg:flex items-center gap-8 text-sm tracking-wide font-medium">
+              {navLink("/", "Home")}
+              {navLink("/about", "About")}
+              {navLink("/rooms", "Rooms")}
+              {/* {navLink("/banquets", "Banquets")} */}
+            </div>
           </div>
 
           {/* LOGO */}
@@ -81,56 +85,20 @@ export default function Navbar() {
           </div>
 
           {/* RIGHT MENU */}
-          <div className="hidden lg:flex items-center gap-8 text-sm font-medium">
+          <div className="hidden lg:flex items-center gap-8 text-sm tracking-wide font-medium">
             <button
               onClick={() => setOpenBranches(true)}
-              className="text-white hover:text-resort-secondary transition"
+              className="hover:text-resort-secondary transition"
             >
               Branches
             </button>
-
-            {navLink("/gallery", "Gallery")}
-            {navLink("/events", "Events")}
+            {navLink("/banquets", "Banquets")}
+            {/* {navLink("/gallery", "Gallery")} */}
+            {/* {navLink("/events", "Events")} */}
             {navLink("/b2b", "B2B")}
             {navLink("/contact", "Contact")}
           </div>
-
-          {/* MOBILE BUTTON */}
-          <button
-            className=" lg:hidden text-white text-2xl"
-            onClick={() => setMobileMenu(!mobileMenu)}
-            aria-label="Toggle Menu"
-          >
-            {mobileMenu ? "✕" : "☰"}
-          </button>
         </div>
-        {/* MOBILE MENU */}
-        {mobileMenu && (
-          <div className="lg:hidden bg-black text-white border-t border-white/10">
-            <div className="container flex flex-col py-6 gap-4 text-sm">
-              {navLink("/", "Home")}
-              {navLink("/about", "About")}
-              {navLink("/rooms", "Rooms")}
-              {/* {navLink("/offers", "Offers")} */}
-              {navLink("/banquets", "Banquets")}
-
-              <button
-                onClick={() => {
-                  setOpenBranches(true);
-                  setMobileMenu(false);
-                }}
-                className="text-left hover:text-resort-secondary transition"
-              >
-                Branches
-              </button>
-
-              {navLink("/gallery", "Gallery")}
-              {navLink("/events", "Events")}
-              {navLink("/b2b", "B2B")}
-              {navLink("/contact", "Contact")}
-            </div>
-          </div>
-        )}
       </nav>
 
       <BranchModal
@@ -138,6 +106,12 @@ export default function Navbar() {
         onClose={() => setOpenBranches(false)}
         branches={branches}
         currentPath={pathname}
+      />
+      <MegaMenuOverlay
+        open={mobileMenu}
+        close={() => setMobileMenu(false)}
+        navLink={navLink}
+        openBranches={() => setOpenBranches(true)}
       />
     </>
   );

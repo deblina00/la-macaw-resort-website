@@ -25,11 +25,11 @@ export default async function BranchRooms({ branchId }: Props) {
 
     <div className="text-center mb-16">
       <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
-        Accommodation
+       — ACCOMODATION —
       </p>
 
-      <h2 className="text-4xl font-serif">
-        Our Rooms
+      <h2 className="text-4xl font-cinzel">
+        OUR RESORT ROOMS
       </h2>
     </div>
 

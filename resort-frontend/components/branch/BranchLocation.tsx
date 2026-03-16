@@ -14,11 +14,11 @@ export default function BranchLocation({ location }: Props) {
         <div>
 
           <p className="tracking-[0.3em] text-gray-400 text-sm mb-4">
-            LOCATION
+           — LOCATION —
           </p>
 
-          <h2 className="text-4xl font-serif mb-6">
-            Where You’ll Find Us
+          <h2 className="text-4xl font-cinzel mb-6">
+            WHERE YOU’LL FIND US
           </h2>
 
           <p className="text-gray-400 whitespace-pre-line leading-relaxed">

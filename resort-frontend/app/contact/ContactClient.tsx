@@ -54,14 +54,14 @@ export default function ContactClient() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative text-center px-6">
           <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
-            CONTACT LA MACAW
+            — CONTACT LA MACAW —
           </p>
-          <h1 className="text-4xl md:text-6xl font-serif mb-6">
-            Plan Your Perfect Stay
+          <h1 className="text-4xl md:text-6xl font-cinzel mb-6">
+            PLAN YOUR PERFECT STAY
           </h1>
           <p className="max-w-2xl mx-auto text-gray-300">
-            Whether you&apos;re planning a relaxing getaway, destination wedding,
-            or corporate retreat, our team is ready to assist you.
+            Whether you&apos;re planning a relaxing getaway, destination
+            wedding, or corporate retreat, our team is ready to assist you.
           </p>
         </div>
       </section>
@@ -69,13 +69,13 @@ export default function ContactClient() {
       {/* INTRO */}
       <section className="bg-black text-white py-20 text-center px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6">
-            Let’s Create Your Next Escape
+          <h2 className="text-3xl md:text-4xl font-cinzel mb-6">
+            LET’S CREATE YOUR NEXT ESCAPE
           </h2>
           <p className="text-gray-400 leading-relaxed">
-            Connect with our hospitality specialists for room bookings,
-            resort events, weddings, or group travel experiences. We ensure
-            seamless planning and exceptional service tailored to your needs.
+            Connect with our hospitality specialists for room bookings, resort
+            events, weddings, or group travel experiences. We ensure seamless
+            planning and exceptional service tailored to your needs.
           </p>
         </div>
       </section>
@@ -88,15 +88,19 @@ export default function ContactClient() {
             <div className="border border-white/10 p-8 rounded-2xl bg-white/5 backdrop-blur">
               <h3 className="text-2xl font-semibold mb-4">Kolkata Office</h3>
               <p className="text-gray-400">
-                Mani Casadona, West Block. Unit No - 2WS5A,
-                2nd Floor, Action Area II F, Newtown, Kolkata - 700160
+                Mani Casadona, West Block. Unit No - 2WS5A, 2nd Floor, Action
+                Area II F, Newtown, Kolkata - 700160
               </p>
             </div>
 
             <div className="border border-white/10 p-8 rounded-2xl bg-white/5">
-              <h3 className="text-2xl font-semibold mb-4">Booking Assistance</h3>
+              <h3 className="text-2xl font-semibold mb-4">
+                Booking Assistance
+              </h3>
               <p className="text-gray-400">+91 96744 07000</p>
-              <p className="text-gray-400 mt-2">Booking Confirmation: +91 90512 11212</p>
+              <p className="text-gray-400 mt-2">
+                Booking Confirmation: +91 90512 11212
+              </p>
             </div>
 
             <div className="border border-white/10 p-8 rounded-2xl bg-white/5">
@@ -158,12 +162,16 @@ export default function ContactClient() {
                 <input
                   type="date"
                   className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                  onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, checkIn: e.target.value })
+                  }
                 />
                 <input
                   type="date"
                   className="bg-black/40 border border-white/10 rounded-lg p-3 w-full"
-                  onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, checkOut: e.target.value })
+                  }
                 />
               </div>
 
@@ -189,7 +197,9 @@ export default function ContactClient() {
                   <input
                     type="checkbox"
                     checked={form.banquet}
-                    onChange={(e) => setForm({ ...form, banquet: e.target.checked })}
+                    onChange={(e) =>
+                      setForm({ ...form, banquet: e.target.checked })
+                    }
                   />
                   Banquet
                 </label>
@@ -197,7 +207,9 @@ export default function ContactClient() {
                   <input
                     type="checkbox"
                     checked={form.lawn}
-                    onChange={(e) => setForm({ ...form, lawn: e.target.checked })}
+                    onChange={(e) =>
+                      setForm({ ...form, lawn: e.target.checked })
+                    }
                   />
                   Lawn
                 </label>

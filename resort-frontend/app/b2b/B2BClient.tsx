@@ -48,10 +48,10 @@ export default function B2BClient() {
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative text-center px-6">
           <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
-            BUSINESS PARTNERSHIP
+            — BUSINESS PARTNERSHIP —
           </p>
-          <h1 className="text-4xl md:text-6xl font-serif mb-6">
-            B2B Collaboration
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6">
+            B2B COLLABORATIONS
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Partner with La Macaw Resort to deliver unforgettable travel
@@ -68,14 +68,14 @@ export default function B2BClient() {
             <h2 className="text-4xl font-serif mb-6 mt-10">Partner With Us</h2>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Join hands with La Macaw Resort to create exceptional travel
-              experiences for your clients. Our resorts combine luxury,
-              comfort and breathtaking surroundings to ensure every stay
-              becomes a memorable journey.
+              experiences for your clients. Our resorts combine luxury, comfort
+              and breathtaking surroundings to ensure every stay becomes a
+              memorable journey.
             </p>
             <p className="text-gray-400 mb-10 leading-relaxed">
-              As a B2B partner, you gain access to exclusive rates,
-              dedicated support and customized packages tailored for travel
-              agencies and corporate planners.
+              As a B2B partner, you gain access to exclusive rates, dedicated
+              support and customized packages tailored for travel agencies and
+              corporate planners.
             </p>
 
             {/* CONTACT BOX */}
@@ -86,12 +86,15 @@ export default function B2BClient() {
               </p>
               <div className="space-y-4 text-gray-400">
                 <p>
-                  <strong>Phone</strong><br />
+                  <strong>Phone</strong>
+                  <br />
                   +91 90519 50030 | 92309 75069
                 </p>
                 <p>
-                  <strong>Email</strong><br />
-                  sales.lmc2018@gmail.com<br />
+                  <strong>Email</strong>
+                  <br />
+                  sales.lmc2018@gmail.com
+                  <br />
                   lamacawresort@gmail.com
                 </p>
               </div>
@@ -150,7 +153,9 @@ export default function B2BClient() {
                 <input
                   placeholder="Pincode"
                   value={form.pincode}
-                  onChange={(e) => setForm({ ...form, pincode: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, pincode: e.target.value })
+                  }
                   className="bg-black/40 border border-white/10 p-3 w-full"
                 />
               </div>

@@ -37,11 +37,11 @@ export default function ServicesOverview() {
       <div className="container mx-auto px-6 text-center">
 
         <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
-          RESORT EXPERIENCES
+          — OUR FACILITIES — 
         </p>
 
-        <h2 className="text-4xl md:text-5xl font-serif mb-4">
-          Luxury Amenities & Experiences
+        <h2 className="text-4xl md:text-5xl font-cinzel mb-4">
+          LUXURY AMENITIES & EXPERIENCES
         </h2>
 
         <p className="text-gray-400 max-w-2xl mx-auto mb-10">

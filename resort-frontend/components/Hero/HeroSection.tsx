@@ -46,21 +46,23 @@ export default function HeroSection() {
 
       {/* CONTENT */}
       <div className="relative container h-full flex flex-col justify-center items-center text-center">
-        <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl leading-tight max-w-5xl">
+        <h1 className="font-cinzel text-3xl md:text-5xl lg:text-6xl tracking-[0.12em] leading-[1.15] max-w-5xl">
           HOSPITALITY, NATURE,
           <br />
           AND ELEGANCE
           <br />
           BEAUTIFULLY BLENDED
         </h1>
+       
+       <div className="w-96 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent mt-6 shadow-[0_0_12px_rgba(255,255,255,0.4)]"></div>
 
-        <p className="mt-6 max-w-2xl text-lg text-gray-200">
+        <p className="mt-2 max-w-xl text-sm text-gray-200">
           Experience luxury stays, destination weddings and unforgettable
           getaways across Tajpur beach, Joypur forest and Purulia hills.
         </p>
 
         <Link href="/rooms">
-          <button className="mt-8 border border-white px-8 py-3 hover:bg-white hover:text-black transition">
+          <button className="mt-8 border border-white px-10 py-2 hover:bg-white hover:text-black transition">
             VIEW DETAILS
           </button>
         </Link>

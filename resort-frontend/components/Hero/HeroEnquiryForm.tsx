@@ -9,8 +9,8 @@ export default function HeroEnquiryForm() {
     phone: "",
     checkIn: "",
     checkOut: "",
-    guests: 2,
-    rooms: 1,
+    guests: "",
+    rooms: "",
     branch: "Tajpur",
   };
 
@@ -18,7 +18,7 @@ export default function HeroEnquiryForm() {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -29,12 +29,12 @@ export default function HeroEnquiryForm() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/enquiry/guest`,
+        `${process.env.NEXT_PUBLIC_API_URL}/enquiry/guest`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
-        }
+        },
       );
 
       const data = await res.json();
@@ -45,7 +45,6 @@ export default function HeroEnquiryForm() {
 
       alert("Enquiry sent successfully");
       setForm(initialForm);
-
     } catch {
       alert("Something went wrong");
     }
@@ -55,18 +54,16 @@ export default function HeroEnquiryForm() {
 
   return (
     <div className="absolute bottom-20 left-1/2 -translate-x-1/2 translate-y-1/2 w-[95%] max-w-7xl">
-
       <form
         onSubmit={submit}
-        className="bg-black/70 backdrop-blur-xl border border-white/10 rounded-lg shadow-xl p-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 gap-4 text-white"
+        className="hidden lg:flex items-center gap-4 px-7 py-7 bg-white/20 backdrop-blur-2xl border border-white/20 shadow-xl text-white"
       >
-
         <input
           name="name"
           placeholder="Name"
           value={form.name}
           onChange={handleChange}
-          className="col-span-2 md:col-span-1 px-3 py-2 rounded bg-white text-black"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
         />
 
         <input
@@ -75,7 +72,7 @@ export default function HeroEnquiryForm() {
           type="email"
           value={form.email}
           onChange={handleChange}
-          className="col-span-2 md:col-span-1 px-3 py-2 rounded bg-white text-black"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
         />
 
         <input
@@ -83,7 +80,7 @@ export default function HeroEnquiryForm() {
           placeholder="Phone"
           value={form.phone}
           onChange={handleChange}
-          className="col-span-2 md:col-span-1 px-3 py-2 rounded bg-white text-black"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
         />
 
         <input
@@ -91,7 +88,7 @@ export default function HeroEnquiryForm() {
           name="checkIn"
           value={form.checkIn}
           onChange={handleChange}
-          className="px-3 py-2 rounded bg-white text-black"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-whiteplaceholder-white/70 text-sm"
         />
 
         <input
@@ -99,45 +96,45 @@ export default function HeroEnquiryForm() {
           name="checkOut"
           value={form.checkOut}
           onChange={handleChange}
-          className="px-3 py-2 rounded bg-white text-black"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70 text-sm"
         />
 
         <input
           type="number"
           name="rooms"
+          placeholder="Rooms"
           value={form.rooms}
           onChange={handleChange}
-          className="px-3 py-2 rounded bg-white text-black"
+          className="w-[90px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
         />
 
         <input
           type="number"
           name="guests"
+          placeholder="Guests"
           value={form.guests}
           onChange={handleChange}
-          className="px-3 py-2 rounded bg-white text-black"
+          className="w-[90px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
         />
 
         <select
           name="branch"
           value={form.branch}
           onChange={handleChange}
-          className="px-3 py-2 rounded bg-white text-black"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
         >
-          <option>Tajpur</option>
-          <option>Joypur</option>
-          <option>Purulia</option>
+          <option className="text-black">Tajpur</option>
+          <option className="text-black">Joypur</option>
+          <option className="text-black">Purulia</option>
         </select>
 
         <button
           disabled={loading}
-          className="bg-resort-secondary hover:bg-resort-accent text-black font-semibold px-6 py-2 rounded"
+          className="border border-white px-8 py-2 font-semibold tracking-wide hover:bg-white hover:text-black transition"
         >
           {loading ? "Sending..." : "SEND"}
         </button>
-
       </form>
-
     </div>
   );
 }

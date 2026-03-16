@@ -20,14 +20,14 @@ export default function BookNowBanner() {
       <div className="relative container mx-auto px-6 text-center">
 
         <p className="text-sm tracking-[0.35em] text-gray-300 mb-4">
-          PLAN YOUR ESCAPE
+          — PLAN YOUR ESCAPE —
         </p>
 
-        <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight">
-          Book Your Dream Stay
+        <h2 className="text-3xl md:text-5xl font-cinzel mb-6 leading-tight">
+          BOOK YOUR DREAM STAY
         </h2>
 
-        <p className="max-w-2xl mx-auto text-gray-300 mb-10 text-lg">
+        <p className="max-w-2xl mx-auto text-gray-300 mb-10 text-base">
           Discover the perfect blend of luxury, nature, and unforgettable
           hospitality across our beautiful resort destinations.
         </p>

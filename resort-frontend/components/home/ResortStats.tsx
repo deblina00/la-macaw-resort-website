@@ -28,11 +28,11 @@ export default function ResortStats() {
       <div className="container mx-auto px-6 text-center">
 
         <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
-          OUR ACHIEVEMENTS
+         — RESORT AT A GLANCE —
         </p>
 
-        <h2 className="text-3xl md:text-4xl font-serif mb-10">
-          Trusted by Thousands of Guests
+        <h2 className="text-3xl md:text-4xl font-cinzel mb-10">
+          DELIVERING EXCELLENCE, ONE STAY AT A TIME
         </h2>
 
       </div>
@@ -44,7 +44,7 @@ export default function ResortStats() {
           <div key={i} className="relative">
 
             {/* BIG NUMBER */}
-            <div className="text-5xl md:text-7xl font-serif font-light text-white">
+            <div className="text-5xl md:text-7xl font-cinzel font-light text-white">
 
               {start ? (
                 <CountUp end={stat.value} duration={2.5} separator="," />
@@ -52,7 +52,7 @@ export default function ResortStats() {
                 0
               )}
 
-              <span className="text-yellow-400">+</span>
+              <span className="text-yellow-600">+</span>
 
             </div>
 

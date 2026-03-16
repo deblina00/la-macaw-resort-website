@@ -40,9 +40,9 @@ export default function RoomsClient() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative text-center">
           <p className="uppercase tracking-widest text-sm mb-4 text-gray-300">
-            Accommodation
+            Accommodation 
           </p>
-          <h1 className="text-5xl font-serif">Our Resort Rooms</h1>
+          <h1 className="text-5xl font-cinzel">Our Resort Rooms</h1>
         </div>
       </section>
 

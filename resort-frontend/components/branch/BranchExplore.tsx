@@ -17,11 +17,11 @@ export default function BranchExplore({ currentSlug }: Props) {
         <div className="text-center mb-16">
 
           <p className="tracking-[0.3em] text-gray-400 text-sm mb-3">
-            DISCOVER MORE
+           — DISCOVER MORE —
           </p>
 
-          <h2 className="text-4xl font-serif">
-            Explore Other Destinations
+          <h2 className="text-4xl font-cinzel">
+            EXPLORE OTHER DESTINATIONS
           </h2>
 
           <p className="text-gray-400 max-w-2xl mx-auto mt-4">
@@ -41,7 +41,7 @@ export default function BranchExplore({ currentSlug }: Props) {
 
               <Link key={key} href={`/branch/${key}`}>
 
-                <div className="relative h-[380px] rounded-2xl overflow-hidden group cursor-pointer">
+                <div className="relative h-[380px] overflow-hidden group cursor-pointer">
 
                   {/* IMAGE */}
                   <Image

@@ -18,13 +18,13 @@ export default function BranchHero({ branch }: Props) {
       <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative text-center max-w-2xl">
-        <h1 className="text-5xl font-semibold mb-4">{branch.name}</h1>
+        <h1 className="text-5xl font-semibold mb-2 mt-10 font-cinzel">{branch.name}</h1>
 
         <p className="text-lg">{branch.description}</p>
 
         <Link
           href="/rooms"
-          className="inline-block mt-6 bg-white text-black px-6 py-3 rounded-lg"
+          className="inline-block mt-6 bg-white text-black px-6 py-3"
         >
           Book Your Stay
         </Link>

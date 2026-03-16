@@ -28,11 +28,11 @@ export default function ReviewsCarousel() {
     <section className="bg-black text-white py-20">
       <div className="container mx-auto px-6 text-center">
         <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
-          GUEST EXPERIENCES
+           — TESTIMONIALS —
         </p>
 
-        <h2 className="text-4xl md:text-5xl font-serif mb-10">
-          What Our Guests Say
+        <h2 className="text-4xl md:text-5xl font-cinzel mb-10">
+          REVIEW FROM OUR GUESTS
         </h2>
       </div>
 
