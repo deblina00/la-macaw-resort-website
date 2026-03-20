@@ -27,6 +27,9 @@ export default function HeroEnquiryForm() {
     e.preventDefault();
     setLoading(true);
 
+    // ✅ Open blank tab immediately (user-triggered)
+    const newWindow = window.open("", "_blank");
+
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/enquiry/guest`,
@@ -39,13 +42,21 @@ export default function HeroEnquiryForm() {
 
       const data = await res.json();
 
-      if (data.whatsappLink) {
-        window.open(data.whatsappLink, "_blank");
+      // if (data.whatsappLink) {
+      //   window.open(data.whatsappLink, "_blank");
+      // }
+
+      // ✅ Redirect the already opened tab
+      if (data.whatsappLink && newWindow) {
+        newWindow.location.href = data.whatsappLink;
+      } else if (newWindow) {
+        newWindow.close(); // cleanup if no link
       }
 
       alert("Enquiry sent successfully");
       setForm(initialForm);
     } catch {
+      if (newWindow) newWindow.close();
       alert("Something went wrong");
     }
 
