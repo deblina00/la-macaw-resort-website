@@ -39,7 +39,8 @@ exports.guestEnquiry = async (req, res) => {
   try {
     await sendGuestEnquiryEmail(enquiry);
   } catch (err) {
-    console.error("Email failed:", err.message);
+    // console.error("Email failed:", err.message);
+    console.error("Email failed FULL:", err);
   }
 
   /* WHATSAPP ADMIN */
