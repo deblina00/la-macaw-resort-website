@@ -1,14 +1,48 @@
 const Gallery = require("../models/Gallery");
 
+// exports.listGallery = async (req, res) => {
+//   try {
+//     const images = await Gallery.find().sort({ createdAt: -1 });
+
+//     res.render("gallery/list", {
+//       title: "Gallery",
+//       images,
+//     });
+//   } catch (err) {
+//     res.status(500).send(err.message);
+//   }
+// };
+
 exports.listGallery = async (req, res) => {
   try {
-    const images = await Gallery.find().sort({ createdAt: -1 });
+    const page = parseInt(req.query.page) || 1;
+    const limit = 6;
+    const skip = (page - 1) * limit;
+
+    const category = req.query.category;
+
+    let query = {};
+
+    if (category) {
+      query.category = category;
+    }
+
+    const totalImages = await Gallery.countDocuments(query);
+
+    const images = await Gallery.find(query)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    const totalPages = Math.ceil(totalImages / limit);
 
     res.render("gallery/list", {
       title: "Gallery",
-      images
+      images,
+      currentPage: page,
+      totalPages,
+      category,
     });
-
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -16,7 +50,7 @@ exports.listGallery = async (req, res) => {
 
 exports.uploadPage = (req, res) => {
   res.render("gallery/upload", {
-    title: "Upload Gallery Image"
+    title: "Upload Gallery Image",
   });
 };
 
@@ -24,18 +58,17 @@ exports.uploadImage = async (req, res) => {
   try {
     if (!req.file) {
       return res.render("gallery/upload", {
-        error: "Image is required"
+        error: "Image is required",
       });
     }
 
     await Gallery.create({
       title: req.body.title,
       category: req.body.category,
-      image: req.file.path
+      image: req.file.path,
     });
 
     res.redirect("/admin/gallery");
-
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -46,7 +79,6 @@ exports.deleteImage = async (req, res) => {
     await Gallery.findByIdAndDelete(req.params.id);
 
     res.redirect("/admin/gallery");
-
   } catch (err) {
     res.status(500).send(err.message);
   }

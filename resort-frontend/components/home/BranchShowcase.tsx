@@ -67,11 +67,11 @@ export default function BranchShowcase() {
 
                   <h3 className="text-2xl font-serif mb-3">{branch.name}</h3>
 
-                  <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition duration-500 mb-5">
+                  <p className="text-gray-300 text-sm mb-5">
                     {branch.desc}
                   </p>
 
-                  <div className="flex items-center gap-2 text-sm font-semibold opacity-0 group-hover:opacity-100 transition duration-500">
+                  <div className="flex items-center gap-2 text-sm font-semibold  group-hover:opacity-100 transition duration-500">
                     Explore Resort
                     <ArrowRight size={16} />
                   </div>

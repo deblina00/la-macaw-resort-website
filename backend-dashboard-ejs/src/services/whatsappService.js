@@ -164,7 +164,11 @@ const generateWhatsAppLink = (data) => {
 
   const encoded = encodeURIComponent(message);
 
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+  // return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+  const number = WHATSAPP_NUMBER.replace("+", "");
+
+  return `https://wa.me/${number}?text=${encoded}`;
 };
 
 module.exports = {

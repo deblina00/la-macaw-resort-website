@@ -2,41 +2,91 @@
 
 <form method="POST" enctype="multipart/form-data">
 
-<input
-name="title"
-value="<%= offer.title %>"
-class="border p-2 w-full mb-3"
->
+  <!-- TITLE -->
+  <input
+    name="title"
+    value="<%= offer.title %>"
+    class="border p-2 w-full mb-4"
+  >
 
-<textarea
-name="offerDetails"
-class="border p-2 w-full mb-3"
-><%= offer.offerDetails %></textarea>
+  <!-- POPUP IMAGE -->
+  <label class="font-semibold">Current Popup Banner</label><br>
+  <% if (offer.popupImage) { %>
+    <img src="<%= offer.popupImage %>" class="w-64 mb-2">
+  <% } %>
 
-<input
-name="discountValue"
-value="<%= offer.discountValue %>"
-class="border p-2 w-full mb-3"
->
+  <label>Change Popup Image</label>
+  <input
+    type="file"
+    name="popupImage"
+    class="border p-2 w-full mb-6"
+  >
 
-<input
-type="date"
-name="validityFrom"
-value="<%= offer.validity?.from?.toISOString().substring(0,10) %>"
-class="border p-2 w-full mb-3"
->
+  <!-- BRANCH OFFERS -->
+  <h3 class="font-bold mb-3">Branch Offers</h3>
 
-<input
-type="date"
-name="validityTo"
-value="<%= offer.validity?.to?.toISOString().substring(0,10) %>"
-class="border p-2 w-full mb-3"
->
+  <% offer.branchOffers.forEach((b, i) => { %>
 
-<input type="file" name="image" class="border p-2 w-full mb-3">
+    <div class="border p-4 mb-5">
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Update
-</button>
+      <h4 class="font-semibold mb-2"><%= b.branch %></h4>
+
+      <input type="hidden"
+        name="branchOffers[<%= i %>][branch]"
+        value="<%= b.branch %>"
+      >
+
+      <!-- PRICE -->
+      <input
+        name="branchOffers[<%= i %>][price]"
+        value="<%= b.price %>"
+        placeholder="Price"
+        class="border p-2 w-full mb-2"
+      >
+
+      <!-- DETAILS -->
+      <textarea
+        name="branchOffers[<%= i %>][details]"
+        class="border p-2 w-full mb-2"
+      ><%= b.details %></textarea>
+
+      <!-- VALIDITY -->
+      <label>From</label>
+      <input
+        type="date"
+        name="branchOffers[<%= i %>][validityFrom]"
+        value="<%= b.validity?.from?.toISOString().substring(0,10) %>"
+        class="border p-2 w-full mb-2"
+      >
+
+      <label>To</label>
+      <input
+        type="date"
+        name="branchOffers[<%= i %>][validityTo]"
+        value="<%= b.validity?.to?.toISOString().substring(0,10) %>"
+        class="border p-2 w-full mb-2"
+      >
+
+      <!-- CURRENT IMAGE -->
+      <label>Current Banner</label><br>
+      <% if (b.bannerImage) { %>
+        <img src="<%= b.bannerImage %>" class="w-48 mb-2">
+      <% } %>
+
+      <!-- NEW IMAGE -->
+      <label>Change Banner Image</label>
+      <input
+        type="file"
+        name="branchImages"
+        class="border p-2 w-full"
+      >
+
+    </div>
+
+  <% }) %>
+
+  <button class="bg-blue-600 text-white px-4 py-2">
+    Update
+  </button>
 
 </form>

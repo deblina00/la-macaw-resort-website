@@ -5,13 +5,41 @@ const {
   updateRoomSchema,
 } = require("../validations/roomValidation");
 
-exports.listRooms = async (req, res) => {
-  const rooms = await Room.find().populate("branchId").sort({ createdAt: -1 });
+// exports.listRooms = async (req, res) => {
+//   const rooms = await Room.find().populate("branchId").sort({ createdAt: -1 });
 
-  res.render("rooms/list", {
-    title: "Rooms",
-    rooms,
-  });
+//   res.render("rooms/list", {
+//     title: "Rooms",
+//     rooms,
+//   });
+// };
+
+exports.listRooms = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10; // rooms per page
+    const skip = (page - 1) * limit;
+
+    const totalRooms = await Room.countDocuments();
+
+    const rooms = await Room.find()
+      .populate("branchId")
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    const totalPages = Math.ceil(totalRooms / limit);
+
+    res.render("rooms/list", {
+      title: "Rooms",
+      rooms,
+      currentPage: page,
+      totalPages,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
 };
 
 exports.createRoomPage = async (req, res) => {

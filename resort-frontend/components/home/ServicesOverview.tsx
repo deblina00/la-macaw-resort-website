@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+// import { ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -86,14 +86,14 @@ export default function ServicesOverview() {
                   className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
                 >
 
-                  <h3 className="text-4xl md:text-5xl font-serif mb-4">
+                  <h3 className="text-5xl md:text-6xl font-serif mb-4">
                     {service.title}
                   </h3>
 
-                  <div className="flex items-center gap-2 text-sm tracking-widest uppercase">
+                  {/* <div className="flex items-center gap-2 text-sm tracking-widest uppercase">
                     Discover Experience
                     <ArrowRight size={16} />
-                  </div>
+                  </div> */}
 
                 </motion.div>
               )}

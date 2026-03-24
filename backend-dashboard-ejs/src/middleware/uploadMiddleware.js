@@ -7,37 +7,37 @@ const createStorage = (folder) => {
     cloudinary: cloudinary,
     params: {
       folder: `la-macaw/${folder}`,
-      allowed_formats: ["jpg", "jpeg", "png", "webp"]
-    }
+      allowed_formats: ["jpg", "jpeg", "png", "webp"],
+    },
   });
 };
 
 const uploadRooms = multer({
-  storage: createStorage("rooms")
+  storage: createStorage("rooms"),
 });
 
 const uploadGallery = multer({
-  storage: createStorage("gallery")
+  storage: createStorage("gallery"),
 });
 
 const uploadBranches = multer({
-  storage: createStorage("branches")
+  storage: createStorage("branches"),
 });
 
 const uploadOffers = multer({
-  storage: createStorage("offers")
+  storage: createStorage("offers"),
 });
 
 const uploadBanquets = multer({
-  storage: createStorage("banquets")
+  storage: createStorage("banquets"),
 });
 
 const uploadEvents = multer({
-  storage: createStorage("events")
+  storage: createStorage("events"),
 });
 
 const uploadReviews = multer({
-  storage: createStorage("reviews")
+  storage: createStorage("reviews"),
 });
 
 module.exports = {
@@ -47,5 +47,5 @@ module.exports = {
   uploadOffers,
   uploadBanquets,
   uploadEvents,
-  uploadReviews
+  uploadReviews,
 };

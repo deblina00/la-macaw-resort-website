@@ -1,7 +1,7 @@
 const Offer = require("../models/Offer");
 const {
   createOfferSchema,
-  updateOfferSchema
+  updateOfferSchema,
 } = require("../validations/offerValidation");
 
 exports.listOffers = async (req, res) => {
@@ -9,50 +9,72 @@ exports.listOffers = async (req, res) => {
 
   res.render("offers/list", {
     title: "Offers",
-    offers
+    offers,
   });
 };
 
 exports.createOfferPage = (req, res) => {
   res.render("offers/create", {
-    title: "Create Offer"
+    title: "Create Offer",
   });
 };
 
 exports.createOffer = async (req, res) => {
   try {
-    const body = req.body || {};
+    const body = req.body;
 
     const { error } = createOfferSchema.validate(body);
-
     if (error) {
-      return res.render("offers/create", {
-        title: "Create Offer",
-        error: error.details[0].message
-      });
+      return res.send(error.details[0].message);
     }
 
-    const image = req.file?.path;
+    const popupImage = req.files["popupImage"]?.[0]?.path;
+    const branchImages = req.files["branchImages"] || [];
+
+    // ✅ required image validation (important)
+    if (!popupImage) {
+      return res.send("Popup image is required");
+    }
+
+    if (branchImages.length < body.branchOffers.length) {
+      return res.send("All branch images are required");
+    }
+
+    const branchOffers = body.branchOffers.map((b, index) => ({
+      branch: b.branch,
+      price: b.price,
+      details: b.details,
+      validity: {
+        from: b.validityFrom,
+        to: b.validityTo,
+      },
+      bannerImage: branchImages[index]?.path,
+    }));
 
     await Offer.create({
       title: body.title,
-      offerDetails: body.offerDetails,
-      discountValue: body.discountValue,
-
-      validity: {
-        from: body.validityFrom,
-        to: body.validityTo
-      },
-
-      image
+      popupImage,
+      branchOffers,
+      isActive: true,
     });
 
     res.redirect("/admin/offers");
-
   } catch (err) {
     console.error(err);
-    res.status(500).send(err.message);
+    res.send(err.message);
   }
+};
+
+// 👉 GET for frontend
+exports.getOffers = async (req, res) => {
+  const offers = await Offer.find({ isActive: true });
+  res.json(offers);
+};
+
+// 👉 POPUP API
+exports.getPopupOffer = async (req, res) => {
+  const offer = await Offer.findOne({ isActive: true }).sort({ createdAt: -1 });
+  res.json(offer);
 };
 
 exports.editOfferPage = async (req, res) => {
@@ -60,50 +82,56 @@ exports.editOfferPage = async (req, res) => {
 
   res.render("offers/edit", {
     title: "Edit Offer",
-    offer
+    offer,
   });
 };
 
 exports.updateOffer = async (req, res) => {
   try {
-    const body = req.body || {};
+    const offer = await Offer.findById(req.params.id);
+    if (!offer) return res.send("Offer not found");
 
+    const body = req.body;
+
+    // ✅ VALIDATION (was missing)
     const { error } = updateOfferSchema.validate(body);
-
     if (error) {
-      const offer = await Offer.findById(req.params.id);
-
-      return res.render("offers/edit", {
-        title: "Edit Offer",
-        error: error.details[0].message,
-        offer
-      });
+      return res.send(error.details[0].message);
     }
 
-    const updateData = {
-      title: body.title,
-      offerDetails: body.offerDetails,
-      discountValue: body.discountValue
-    };
+    // popup image update (optional)
+    if (req.files?.popupImage) {
+      offer.popupImage = req.files.popupImage[0].path;
+    }
 
-    if (body.validityFrom && body.validityTo) {
-      updateData.validity = {
-        from: body.validityFrom,
-        to: body.validityTo
+    const branchImages = req.files?.branchImages || [];
+
+    // update branches
+    offer.branchOffers = offer.branchOffers.map((b, i) => {
+      const updated = body.branchOffers?.[i];
+
+      if (!updated) return b; // fallback safety
+
+      return {
+        branch: b.branch,
+        price: updated.price || b.price,
+        details: updated.details || b.details,
+        validity: {
+          from: updated.validityFrom || b.validity.from,
+          to: updated.validityTo || b.validity.to,
+        },
+        bannerImage: branchImages[i]?.path || b.bannerImage,
       };
-    }
+    });
 
-    if (req.file) {
-      updateData.image = req.file.path;
-    }
+    offer.title = body.title || offer.title;
 
-    await Offer.findByIdAndUpdate(req.params.id, updateData);
+    await offer.save();
 
     res.redirect("/admin/offers");
-
   } catch (err) {
     console.error(err);
-    res.status(500).send(err.message);
+    res.send(err.message);
   }
 };
 

@@ -29,7 +29,14 @@ export default function ContactClient() {
     try {
       const res = await api.post("/enquiry/event", form);
 
-      if (res.data.whatsappLink) window.open(res.data.whatsappLink, "_blank");
+      // if (res.data.whatsappLink) window.open(res.data.whatsappLink, "_blank");
+
+      if (res.data.whatsappLink) {
+        const link = document.createElement("a");
+        link.href = res.data.whatsappLink;
+        link.target = "_blank";
+        link.click();
+      }
 
       alert("Enquiry submitted successfully");
       setForm(initialForm);

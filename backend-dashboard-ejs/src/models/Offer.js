@@ -1,31 +1,55 @@
 const mongoose = require("mongoose");
 
-const OfferSchema = new mongoose.Schema(
-{
-  title: {
+const BranchOfferSchema = new mongoose.Schema({
+  branch: {
     type: String,
-    required: true
+    enum: ["Tajpur", "Joypur", "Purulia"],
+    required: true,
   },
 
-  offerDetails: {
-    type: String
+  price: {
+    type: Number,
+    required: true,
   },
 
-  discountValue: {
-    type: Number
+  bannerImage: {
+    type: String,
+    required: true,
+  },
+
+  details: {
+    type: String,
   },
 
   validity: {
     from: Date,
-    to: Date
+    to: Date,
   },
-
-  image: {
-    type: String
-  }
-},
-{
-  timestamps: true
 });
+
+const OfferSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+
+    // 👉 popup banner (neutral)
+    popupImage: {
+      type: String,
+      required: true,
+    },
+
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+
+    branchOffers: [BranchOfferSchema],
+  },
+  {
+    timestamps: true,
+  }
+);
 
 module.exports = mongoose.model("Offer", OfferSchema);

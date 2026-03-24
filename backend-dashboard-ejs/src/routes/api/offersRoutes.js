@@ -1,15 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Offer = require("../../models/Offer");
+const {
+  getOffers,
+  getPopupOffer,
+} = require("../../controllers/offerController");
 
-router.get("/", async (req, res) => {
-  const offers = await Offer.find();
-  res.json(offers);
-});
-
-router.get("/:id", async (req, res) => {
-  const offer = await Offer.findById(req.params.id);
-  res.json(offer);
-});
+router.get("/", getOffers);
+router.get("/popup", getPopupOffer);
 
 module.exports = router;

@@ -5,6 +5,20 @@ class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
 Add Review
 </a>
 
+<form method="GET" class="mb-4">
+
+<select name="rating" class="border px-3 py-2">
+  <option value="">All Ratings</option>
+  <option value="5">5 Star</option>
+  <option value="4">4 Star</option>
+</select>
+
+<button class="bg-blue-600 text-white px-4 py-2">
+Filter
+</button>
+
+</form>
+
 <table class="w-full bg-white shadow">
 
 <tr class="bg-gray-200">
@@ -46,3 +60,31 @@ Delete
 <% }) %>
 
 </table>
+
+<!-- Pagination -->
+
+<div class="mt-6 flex justify-center">
+
+  <% if (currentPage > 1) { %>
+    <a href="?page=<%= currentPage - 1 %>"
+       class="px-3 py-1 border mx-1">
+       Previous
+    </a>
+  <% } %>
+
+  <% for (let i = 1; i <= totalPages; i++) { %>
+    <a href="?page=<%= i %>"
+       class="px-3 py-1 border mx-1 
+       <%= currentPage === i ? 'bg-black text-white' : '' %>">
+       <%= i %>
+    </a>
+  <% } %>
+
+  <% if (currentPage < totalPages) { %>
+    <a href="?page=<%= currentPage + 1 %>"
+       class="px-3 py-1 border mx-1">
+       Next
+    </a>
+  <% } %>
+
+</div>

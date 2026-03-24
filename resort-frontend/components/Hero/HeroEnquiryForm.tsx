@@ -26,7 +26,6 @@ export default function HeroEnquiryForm() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
 
     try {
       const res = await fetch(
@@ -38,10 +37,24 @@ export default function HeroEnquiryForm() {
         },
       );
 
+      if (!res.ok) {
+        alert("Failed to send enquiry");
+        return;
+      }
+
       const data = await res.json();
 
+      // const data = await res.json();
+
+      // if (data.whatsappLink) {
+      //   window.open(data.whatsappLink, "_blank");
+      // }
+
       if (data.whatsappLink) {
-        window.open(data.whatsappLink, "_blank");
+        const link = document.createElement("a");
+        link.href = data.whatsappLink;
+        link.target = "_blank";
+        link.click();
       }
 
       alert("Enquiry sent successfully");
@@ -54,7 +67,7 @@ export default function HeroEnquiryForm() {
   };
 
   return (
-    <div className="absolute bottom-20 left-1/2 -translate-x-1/2 translate-y-1/2 w-[95%] max-w-7xl">
+    <div className="absolute z-30 bottom-20 left-1/2 -translate-x-1/2 translate-y-1/2 w-[95%] max-w-7xl">
       <form
         onSubmit={submit}
         className="hidden lg:flex items-center gap-4 px-7 py-7 bg-white/20 backdrop-blur-2xl border border-white/20 shadow-xl text-white"
@@ -89,7 +102,7 @@ export default function HeroEnquiryForm() {
           name="checkIn"
           value={form.checkIn}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-whiteplaceholder-white/70 text-sm"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70 text-sm"
         />
 
         <input

@@ -1,23 +1,216 @@
-<h2 class="text-2xl font-bold mb-4">Dashboard</h2>
+<h2 class="text-2xl font-bold mb-5">
+Admin Dashboard
+</h2>
 
-<div class="grid grid-cols-4 gap-4">
-  <div class="bg-white p-6 shadow rounded">
-    Branches
-    <h3 class="text-xl">10</h3>
+<!-- Stats Cards -->
+
+<div class="grid grid-cols-3 md:grid-cols-6 gap-5">
+
+  <div class="bg-white flex justify-between items-center p-3 shadow rounded">
+    <p class="text-gray-500">Branches</p>
+    <h3 class="text-2xl font-bold">
+      <%= stats.branches %>
+    </h3>
   </div>
 
-  <div class="bg-white p-6 shadow rounded">
-    Rooms
-    <h3 class="text-xl">120</h3>
+  <div class="bg-white flex justify-between items-center p-3 shadow rounded">
+    <p class="text-gray-500">Rooms</p>
+    <h3 class="text-2xl font-bold">
+      <%= stats.rooms %>
+    </h3>
   </div>
 
-  <div class="bg-white p-6 shadow rounded">
-    Bookings
-    <h3 class="text-xl">300</h3>
+  <div class="bg-white flex justify-between items-center p-3 shadow rounded">
+    <p class="text-gray-500">Offers</p>
+    <h3 class="text-2xl font-bold">
+      <%= stats.offers %>
+    </h3>
   </div>
 
-  <div class="bg-white p-6 shadow rounded">
-    Reviews
-    <h3 class="text-xl">40</h3>
+  <div class="bg-white flex justify-between items-center p-3 shadow rounded">
+    <p class="text-gray-500">Enquiries</p>
+    <h3 class="text-2xl font-bold">
+      <%= stats.enquiries %>
+    </h3>
+  </div>
+
+  <div class="bg-white flex justify-between items-center p-3 shadow rounded">
+    <p class="text-gray-500">Events</p>
+    <h3 class="text-2xl font-bold">
+      <%= stats.events %>
+    </h3>
+  </div>
+
+  <div class="bg-white flex justify-between items-center p-3 shadow rounded">
+    <p class="text-gray-500">Reviews</p>
+    <h3 class="text-2xl font-bold">
+      <%= stats.reviews %>
+    </h3>
+  </div>
+
+</div>
+
+<!-- Graph Section -->
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
+
+  <!-- Monthly Enquiries -->
+
+<div class="bg-white p-4 shadow rounded h-[260px]">
+  <h3 class="text-lg font-bold mb-2">
+    Monthly Enquiries
+  </h3>
+
+  <div class="h-[200px]">
+    <canvas id="enquiryChart"></canvas>
   </div>
 </div>
+
+  <!-- Enquiry Type -->
+
+<div class="bg-white p-4 shadow rounded h-[260px]">
+  <h3 class="text-lg font-bold mb-2">
+    Enquiry Type
+  </h3>
+
+  <div class="h-[200px]">
+    <canvas id="typeChart"></canvas>
+  </div>
+</div>
+
+</div>
+
+<!-- Latest Activity -->
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+
+  <!-- Latest Enquiries -->
+
+  <div class="bg-white p-4 shadow rounded">
+
+    <h3 class="text-lg font-bold mb-3">
+      Latest Enquiries
+    </h3>
+
+    <table class="w-full">
+
+      <tr class="bg-gray-200">
+        <th class="p-1">Name</th>
+        <th class="p-1">Phone</th>
+        <th class="p-1">Type</th>
+      </tr>
+
+      <% latestEnquiries.forEach(e => { %>
+
+      <tr class="border-t">
+        <td class="p-1 text-sm"><%= e.name %></td>
+        <td class="p-1 text-sm"><%= e.phone %></td>
+        <td class="p-1 text-sm"><%= e.enquiryType %></td>
+      </tr>
+
+      <% }) %>
+
+    </table>
+
+  </div>
+
+  <!-- Latest Reviews -->
+
+  <div class="bg-white p-4 shadow rounded">
+
+    <h3 class="text-lg font-bold mb-3">
+      Latest Reviews
+    </h3>
+
+    <table class="w-full">
+
+      <tr class="bg-gray-200">
+        <th class="p-1">Guest</th>
+        <th class="p-1">Rating</th>
+        <th class="p-1">Location</th>
+      </tr>
+
+      <% latestReviews.forEach(r => { %>
+
+      <tr class="border-t">
+        <td class="p-1 text-sm"><%= r.guestName %></td>
+        <td class="p-1 text-sm"><%= r.rating %> ⭐</td>
+        <td class="p-1 text-sm"><%= r.location %></td>
+      </tr>
+
+      <% }) %>
+
+    </table>
+
+  </div>
+
+</div>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const enquiryGraph = JSON.parse('<%- JSON.stringify(enquiryGraph) %>');
+const typeLabels = JSON.parse('<%- JSON.stringify(typeLabels) %>');
+const typeData = JSON.parse('<%- JSON.stringify(typeData) %>');
+
+</script>
+
+<script>
+
+/* Monthly Enquiry Chart */
+
+new Chart(
+  document.getElementById("enquiryChart"),
+  {
+    type: "bar",
+    data: {
+      labels: [
+        "Jan","Feb","Mar","Apr","May","Jun",
+        "Jul","Aug","Sep","Oct","Nov","Dec"
+      ],
+      datasets: [{
+        label: "Enquiries",
+        data: enquiryGraph,
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true
+        }
+      }
+    }
+  }
+);
+
+/* Enquiry Type Pie */
+
+new Chart(
+  document.getElementById("typeChart"),
+{
+    type: "doughnut",
+    data: {
+      labels: typeLabels,
+      datasets: [{
+        data: typeData
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom"
+        }
+      }
+    }
+  }
+);
+
+</script>

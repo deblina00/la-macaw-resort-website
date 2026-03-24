@@ -1,45 +1,43 @@
-<h2 class="text-xl font-bold mb-4">Ongoing Offers</h2>
+<h2 class="text-xl font-bold mb-4">Offers</h2>
 
 <a href="/admin/offers/create"
 class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
 Add Offer
 </a>
 
-<table class="w-full bg-white shadow">
-
-<tr class="bg-gray-200">
-<th class="p-2">Title</th>
-<th class="p-2">Discount</th>
-<th class="p-2">Validity</th>
-<th class="p-2">Actions</th>
-</tr>
-
 <% offers.forEach(o => { %>
 
-<tr class="border-t">
+  <div class="border p-4 mb-6 bg-white shadow">
 
-<td class="p-2"><%= o.title %></td>
+    <h3 class="text-lg font-bold mb-2"><%= o.title %></h3>
 
-<td class="p-2"><%= o.discountValue %>%</td>
+    <img src="<%= o.popupImage %>" class="w-64 mb-4"/>
 
-<td class="p-2">
-<%= o.validity?.from?.toDateString() %>
--
-<%= o.validity?.to?.toDateString() %>
-</td>
+    <% o.branchOffers.forEach(b => { %>
 
-<td class="p-2">
+      <div class="border p-3 mb-3">
 
-<a href="/admin/offers/edit/<%= o._id %>"
-class="text-blue-500">Edit</a>
+        <strong><%= b.branch %></strong><br>
 
-<a href="/admin/offers/delete/<%= o._id %>"
-class="text-red-500 ml-3">Delete</a>
+        Price: ₹<%= b.price %><br>
 
-</td>
+        Validity:
+       <%= b.validity?.from ? new Date(b.validity.from).toDateString() : "" %>
+        -
+       <%= b.validity?.to ? new Date(b.validity.to).toDateString() : "" %>
 
-</tr>
+        <img src="<%= b.bannerImage %>" class="w-48 mt-2"/>
+
+      </div>
+
+    <% }) %>
+
+    <a href="/admin/offers/edit/<%= o._id %>"
+    class="text-blue-500">Edit</a>
+
+    <a href="/admin/offers/delete/<%= o._id %>"
+    class="text-red-500 ml-3">Delete</a>
+
+  </div>
 
 <% }) %>
-
-</table>

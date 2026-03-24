@@ -14,13 +14,40 @@ const {
 
 const { generateWhatsAppLink } = require("../services/whatsappService");
 
-exports.listEnquiries = async (req, res) => {
-  const enquiries = await Enquiry.find().sort({ createdAt: -1 });
+// exports.listEnquiries = async (req, res) => {
+//   const enquiries = await Enquiry.find().sort({ createdAt: -1 });
 
-  res.render("enquiries/list", {
-    title: "Guest Enquiries",
-    enquiries,
-  });
+//   res.render("enquiries/list", {
+//     title: "Guest Enquiries",
+//     enquiries,
+//   });
+// };
+
+exports.listEnquiries = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1; // current page
+    const limit = 10; // enquiries per page
+    const skip = (page - 1) * limit;
+
+    const total = await Enquiry.countDocuments();
+
+    const enquiries = await Enquiry.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    const totalPages = Math.ceil(total / limit);
+
+    res.render("enquiries/list", {
+      title: "Guest Enquiries",
+      enquiries,
+      currentPage: page,
+      totalPages,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
 };
 
 exports.guestEnquiry = async (req, res) => {
@@ -65,7 +92,13 @@ exports.b2bEnquiry = async (req, res) => {
     enquiryType: "b2b",
   });
 
+  // await sendB2BEnquiryEmail(enquiry);
+
+  try {
   await sendB2BEnquiryEmail(enquiry);
+} catch (err) {
+  console.error("Email failed:", err);
+}
 
   res.json({
     success: true,
@@ -85,7 +118,13 @@ exports.eventEnquiry = async (req, res) => {
     enquiryType: "event",
   });
 
-  await sendEventEnquiryEmail(enquiry);
+  // await sendEventEnquiryEmail(enquiry);
+
+  try {
+    await sendEventEnquiryEmail(enquiry);
+  } catch (err) {
+    console.error("Email failed:", err);
+  }
 
   const whatsappLink = generateWhatsAppLink(enquiry);
 

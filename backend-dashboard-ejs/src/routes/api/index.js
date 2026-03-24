@@ -9,6 +9,7 @@ const galleryRoutes = require("./galleryRoutes");
 const enquiryRoutes = require("./enquiryRoutes");
 const reviewsRoutes = require("./reviewsRoutes");
 const eventRoutes = require("./eventRoutes");
+const careerRoutes = require("./careerRoutes");
 
 router.use("/rooms", roomsRoutes);
 router.use("/branches", branchesRoutes);
@@ -18,5 +19,6 @@ router.use("/gallery", galleryRoutes);
 router.use("/enquiry", enquiryRoutes);
 router.use("/reviews", reviewsRoutes);
 router.use("/events", eventRoutes);
+router.use("/career", careerRoutes);
 
 module.exports = router;

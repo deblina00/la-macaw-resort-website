@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function AboutPreview() {
   return (
     <section className="bg-[#0b0909] text-white py-24" id="about">
-     <div className="container mx-auto px-6 grid lg:grid-cols-3 lg:grid-rows-[auto_1fr] gap-12 items-start">
+      <div className="container mx-auto px-6 grid lg:grid-cols-3 lg:grid-rows-[auto_1fr] gap-12 items-start">
         {/* LEFT IMAGE (spans full height) */}
         <div className="relative h-[600px] overflow-hidden lg:row-span-2">
           <Image
@@ -46,7 +46,16 @@ export default function AboutPreview() {
 
           <Link href="/rooms">
             <button className="border border-white px-8 py-3 hover:bg-white hover:text-black transition">
-              VIEW ROOMS
+              {/* shimmer effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-700 blur-md" />
+
+              {/* text */}
+              <span className="relative z-10 group-hover:text-black transition duration-300">
+                VIEW DETAILS
+              </span>
+
+              {/* fill animation */}
+              <span className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500" />
             </button>
           </Link>
         </div>

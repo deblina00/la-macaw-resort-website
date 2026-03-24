@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const {
-  EMAIL_HOST,
-  EMAIL_PORT,
+  // EMAIL_HOST,
+  // EMAIL_PORT,
   EMAIL_USER,
   EMAIL_PASS,
 } = require("../config/env");
@@ -10,14 +10,32 @@ const formatDate = require("../utils/formatDate");
 
 /* ---------------- TRANSPORTER ---------------- */
 
+// const transporter = nodemailer.createTransport({
+//   host: EMAIL_HOST,
+//   port: EMAIL_PORT,
+//   secure: false,
+//   auth: {
+//     user: EMAIL_USER,
+//     pass: EMAIL_PASS,
+//   },
+// });
+
 const transporter = nodemailer.createTransport({
-  host: EMAIL_HOST,
-  port: EMAIL_PORT,
-  secure: false,
+  service: "gmail",
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS,
   },
+});
+
+/* -------- VERIFY SMTP CONNECTION -------- */
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log("SMTP Error:", error);
+  } else {
+    console.log("SMTP Server is ready");
+  }
 });
 
 const sendMail = async (subject, html) => {
@@ -157,6 +175,54 @@ const buildEventTemplate = (data) => `
 </div>
 `;
 
+/* ---------------- CAREER TEMPLATE ---------------- */
+
+const buildCareerTemplate = (data) => `
+<div style="font-family:Arial;background:#f4f4f4;padding:30px">
+
+<table width="600" align="center" style="background:#fff;border-radius:8px">
+
+<tr>
+<td style="background:#000;color:#fff;padding:20px;text-align:center">
+<h2>La Macaw Resort</h2>
+<p>New Career Application</p>
+</td>
+</tr>
+
+<tr>
+<td style="padding:25px">
+
+<p><b>Name:</b> ${data.name}</p>
+<p><b>Email:</b> ${data.email}</p>
+<p><b>Phone:</b> ${data.phone}</p>
+
+<hr>
+
+<p><b>Position:</b> ${data.position}</p>
+<p><b>Location:</b> ${data.location}</p>
+
+<hr>
+
+<p><b>CV:</b> 
+  ${
+    data.cvUrl
+      ? `<a href="${data.cvUrl}" target="_blank">View CV</a>`
+      : "Not uploaded"
+  }
+</p>
+
+<hr>
+
+<p><b>Message:</b></p>
+<p>${data.comments || "-"}</p>
+
+</td>
+</tr>
+
+</table>
+</div>
+`;
+
 /* ---------------- EXPORT EMAIL SENDERS ---------------- */
 
 const sendGuestEnquiryEmail = async (data) => {
@@ -177,8 +243,19 @@ const sendEventEnquiryEmail = async (data) => {
   );
 };
 
+const sendCareerEmail = async (data) => {
+  await transporter.sendMail({
+    from: `"La Macaw Resort" <${EMAIL_USER}>`,
+    to: EMAIL_USER,
+    subject: `New Job Application – ${data.position}`,
+    html: buildCareerTemplate(data),
+    attachments: [],
+  });
+};
+
 module.exports = {
   sendGuestEnquiryEmail,
   sendB2BEnquiryEmail,
   sendEventEnquiryEmail,
+  sendCareerEmail,
 };

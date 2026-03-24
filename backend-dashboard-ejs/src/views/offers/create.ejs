@@ -2,46 +2,52 @@
 
 <form method="POST" enctype="multipart/form-data">
 
-<input
-name="title"
-placeholder="Offer Title"
-class="border p-2 w-full mb-3"
->
+  <input name="title" placeholder="Offer Title"
+  class="border p-2 w-full mb-3">
 
-<textarea
-name="offerDetails"
-placeholder="Offer Details"
-class="border p-2 w-full mb-3"
-></textarea>
+  <label>Popup Banner</label>
+  <input type="file" name="popupImage"
+  class="border p-2 w-full mb-4">
 
-<input
-name="discountValue"
-placeholder="Discount %"
-class="border p-2 w-full mb-3"
->
+  <h3 class="font-bold mb-2">Branch Offers</h3>
 
-<label>Valid From</label>
-<input
-type="date"
-name="validityFrom"
-class="border p-2 w-full mb-3"
->
+  <% ["Tajpur","Joypur","Purulia"].forEach((branch, i) => { %>
 
-<label>Valid To</label>
-<input
-type="date"
-name="validityTo"
-class="border p-2 w-full mb-3"
->
+    <div class="border p-4 mb-4">
 
-<input
-type="file"
-name="image"
-class="border p-2 w-full mb-3"
->
+      <h4 class="font-semibold"><%= branch %></h4>
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Save
-</button>
+      <input type="hidden" name="branchOffers[<%= i %>][branch]" value="<%= branch %>">
+
+      <input name="branchOffers[<%= i %>][price]"
+      placeholder="Price"
+      class="border p-2 w-full mb-2">
+
+      <textarea name="branchOffers[<%= i %>][details]"
+      placeholder="Details"
+      class="border p-2 w-full mb-2"></textarea>
+
+      <label>From</label>
+      <input type="date"
+      name="branchOffers[<%= i %>][validityFrom]"
+      class="border p-2 w-full mb-2">
+
+      <label>To</label>
+      <input type="date"
+      name="branchOffers[<%= i %>][validityTo]"
+      class="border p-2 w-full mb-2">
+
+      <label>Banner Image</label>
+      <input type="file"
+      name="branchImages"
+      class="border p-2 w-full">
+
+    </div>
+
+  <% }) %>
+
+  <button class="bg-blue-600 text-white px-4 py-2">
+    Save
+  </button>
 
 </form>

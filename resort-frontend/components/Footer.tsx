@@ -76,6 +76,11 @@ export default function Footer() {
                 Events
               </Link>
             </li>
+            <li>
+              <Link href="/careers" className="hover:text-white transition">
+                Careers
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -104,6 +109,11 @@ export default function Footer() {
             <li>
               <Link href="/b2b" className="hover:text-white transition">
                 B2B
+              </Link>
+            </li>
+            <li>
+              <Link href="/offers" className="hover:text-white transition">
+                Offers
               </Link>
             </li>
           </ul>

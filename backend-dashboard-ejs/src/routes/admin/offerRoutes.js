@@ -13,13 +13,19 @@ const {
   deleteOffer,
 } = require("../../controllers/offerController");
 
+// multiple uploads
+const multiUpload = uploadOffers.fields([
+  { name: "popupImage", maxCount: 1 },
+  { name: "branchImages", maxCount: 5 },
+]);
+
 router.get("/", auth, listOffers);
 
 router.get("/create", auth, createOfferPage);
-router.post("/create", auth, uploadOffers.single("image"), createOffer);
+router.post("/create", auth, multiUpload, createOffer);
 
 router.get("/edit/:id", auth, editOfferPage);
-router.post("/edit/:id", auth, uploadOffers.single("image"), updateOffer);
+router.post("/edit/:id", auth, multiUpload, updateOffer);
 
 router.get("/delete/:id", auth, deleteOffer);
 

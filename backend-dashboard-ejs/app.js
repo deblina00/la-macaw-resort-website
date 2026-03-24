@@ -46,8 +46,15 @@ app.use("/admin", adminRoutes);
 
 /* ---------------- ROOT ---------------- */
 
+// app.get("/", (req, res) => {
+//   res.send("La Macaw Resort API Running");
+// });
+
 app.get("/", (req, res) => {
-  res.send("La Macaw Resort API Running");
+  res.render("home", {
+    layout: false,
+    title: "Admin Home",
+  });
 });
 
 module.exports = app;
