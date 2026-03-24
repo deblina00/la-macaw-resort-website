@@ -56,7 +56,7 @@ const sendMail = async (subject, html) => {
   try {
     await resend.emails.send({
       // from: `La Macaw Resort <${EMAIL_USER}>`,
-      from: "onboarding@resend.dev",
+      from: "La Macaw Resort <onboarding@resend.dev>",
       to: EMAIL_USER,
       subject,
       html,
