@@ -54,15 +54,15 @@ const resend = new Resend(RESEND_API_KEY);
 
 const sendMail = async (subject, html) => {
   try {
-    await resend.emails.send({
+    const response = await resend.emails.send({
       // from: `La Macaw Resort <${EMAIL_USER}>`,
-      from: "La Macaw Resort <onboarding@resend.dev>",
+      from: "onboarding@resend.dev",
       to: EMAIL_USER,
       subject,
       html,
     });
 
-    console.log("Email sent successfully");
+    console.log("Resend response:", response);
   } catch (err) {
     console.log("Email failed:", err);
   }
