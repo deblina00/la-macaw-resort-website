@@ -1,10 +1,13 @@
-const nodemailer = require("nodemailer");
-const {
-  // EMAIL_HOST,
-  // EMAIL_PORT,
-  EMAIL_USER,
-  EMAIL_PASS,
-} = require("../config/env");
+// const nodemailer = require("nodemailer");
+// const {
+//   // EMAIL_HOST,
+//   // EMAIL_PORT,
+//   EMAIL_USER,
+//   EMAIL_PASS,
+// } = require("../config/env");
+
+const { Resend } = require("resend");
+const { RESEND_API_KEY, EMAIL_USER } = require("../config/env");
 
 const formatDate = require("../utils/formatDate");
 
@@ -20,31 +23,49 @@ const formatDate = require("../utils/formatDate");
 //   },
 // });
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: EMAIL_USER,
+//     pass: EMAIL_PASS,
+//   },
+// });
 
 /* -------- VERIFY SMTP CONNECTION -------- */
 
-transporter.verify((error, success) => {
-  if (error) {
-    console.log("SMTP Error:", error);
-  } else {
-    console.log("SMTP Server is ready");
-  }
-});
+// transporter.verify((error, success) => {
+//   if (error) {
+//     console.log("SMTP Error:", error);
+//   } else {
+//     console.log("SMTP Server is ready");
+//   }
+// });
+
+// const sendMail = async (subject, html) => {
+//   await transporter.sendMail({
+//     from: `"La Macaw Resort" <${EMAIL_USER}>`,
+//     to: EMAIL_USER,
+//     subject,
+//     html,
+//   });
+// };
+
+const resend = new Resend(RESEND_API_KEY);
 
 const sendMail = async (subject, html) => {
-  await transporter.sendMail({
-    from: `"La Macaw Resort" <${EMAIL_USER}>`,
-    to: EMAIL_USER,
-    subject,
-    html,
-  });
+  try {
+    await resend.emails.send({
+      // from: `La Macaw Resort <${EMAIL_USER}>`,
+      from: "onboarding@resend.dev",
+      to: EMAIL_USER,
+      subject,
+      html,
+    });
+
+    console.log("Email sent successfully");
+  } catch (err) {
+    console.log("Email failed:", err);
+  }
 };
 
 /* ---------------- GUEST TEMPLATE ---------------- */

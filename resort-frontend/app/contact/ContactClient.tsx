@@ -73,20 +73,6 @@ export default function ContactClient() {
         </div>
       </section>
 
-      {/* INTRO
-      <section className="bg-black text-white py-20 text-center px-6">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-cinzel mb-6">
-            LET’S CREATE YOUR NEXT ESCAPE
-          </h2>
-          <p className="text-gray-400 leading-relaxed">
-            Connect with our hospitality specialists for room bookings, resort
-            events, weddings, or group travel experiences. We ensure seamless
-            planning and exceptional service tailored to your needs.
-          </p>
-        </div>
-      </section> */}
-
       {/* GET IN TOUCH WITH US */}
       <section className="bg-black text-white py-24 px-6">
         <div className="max-w-7xl mx-auto">
