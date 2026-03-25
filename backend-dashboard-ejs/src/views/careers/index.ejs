@@ -1,0 +1,45 @@
+<h2 class="text-xl font-bold mb-4">Careers</h2>
+
+<a href="/admin/careers/applications" class="bg-green-600 text-white px-4 py-2">
+  See Applications
+</a>
+
+<% if (typeof error !== "undefined") { %>
+<p class="text-red-500 mt-2"><%= error %></p>
+<% } %>
+
+<form action="/admin/careers/create" method="POST" class="mt-4 space-y-2">
+  <input name="title" placeholder="Job Title" required class="border p-2 w-full" />
+  <input name="location" placeholder="Location" class="border p-2 w-full" />
+  <input name="department" placeholder="Department" class="border p-2 w-full" />
+  <textarea name="description" placeholder="Description" class="border p-2 w-full"></textarea>
+
+  <button class="bg-black text-white px-4 py-2">Create</button>
+</form>
+
+<table class="w-full bg-white mt-6">
+  <tr>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+  <% jobs.forEach(job => { %>
+  <tr class="text-center">
+    <td><%= job.title %></td>
+    <td><%= job.status %></td>
+
+    <td>
+      <a href="/admin/careers/edit/<%= job._id %>" class="text-blue-500">Edit</a>
+
+      <a href="/admin/careers/delete/<%= job._id %>" class="text-red-500 ml-2">
+        Delete
+      </a>
+
+      <a href="/admin/careers/toggle/<%= job._id %>" class="ml-2">
+        Toggle
+      </a>
+    </td>
+  </tr>
+  <% }) %>
+</table>

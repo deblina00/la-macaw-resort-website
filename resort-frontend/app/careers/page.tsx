@@ -1,14 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+type Job = {
+  _id: string;
+  title: string;
+  location?: string;
+};
 
 type CareerForm = {
   name?: string;
   email?: string;
   phone?: string;
   position?: string;
-  location?: string;
+  jobId?: string; // ✅ ADD
+  address?: string; // ✅ NEW
   comments?: string;
 };
 
@@ -16,16 +23,23 @@ export default function CareersPage() {
   const [form, setForm] = useState<CareerForm>({});
   const [file, setFile] = useState<File | null>(null);
   const [open, setOpen] = useState(false);
+  const [jobs, setJobs] = useState<Job[]>([]);
 
-  const jobs = [
-    "Commi I/II/III – All Section",
-    "F&B – Captain / Steward",
-    "Plumber / Electrician",
-    "Sales Manager for MICE",
-  ];
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/career`);
+      const data = await res.json();
+      setJobs(data);
+    };
 
-  const handleApplyClick = (job: string) => {
-    setForm({ position: job });
+    fetchJobs();
+  }, []);
+
+  const handleApplyClick = (job: Job) => {
+    setForm({
+      position: job.title,
+      jobId: job._id, // ✅ ADD THIS
+    });
     setOpen(true);
   };
 
@@ -38,18 +52,6 @@ export default function CareersPage() {
     });
 
     if (file) fd.append("cv", file);
-
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/career/apply`, {
-    //   method: "POST",
-    //   body: fd,
-    // });
-
-    //     if (res.ok) {
-    //   alert("Application submitted");
-    //   setOpen(false);
-    //   setForm({});
-    //   setFile(null);
-    // }
 
     try {
       const res = await fetch(
@@ -93,22 +95,38 @@ export default function CareersPage() {
 
       {/* JOB LIST */}
       <section className="bg-black text-white py-20">
-        <div className="container mx-auto px-6 max-w-5xl space-y-6">
-          {jobs.map((job, i) => (
-            <div
-              key={i}
-              className="border border-white/10 p-6 flex justify-between items-center hover:border-yellow-600 transition"
-            >
-              <p>{job}</p>
+        <div className="container mx-auto px-6 max-w-5xl">
+          {jobs.length === 0 ? (
+            <div className="text-center py-20 border border-white/10">
+              <h2 className="text-3xl font-cinzel mb-4">
+                Opportunities Coming Soon
+              </h2>
 
-              <button
-                onClick={() => handleApplyClick(job)}
-                className="border border-yellow-600 text-yellow-500 px-5 py-2 hover:bg-yellow-600 hover:text-black transition"
-              >
-                Apply
-              </button>
+              <p className="text-gray-400">
+                We are always looking for passionate individuals to join our
+                team. While there are no openings at the moment, exciting
+                opportunities may be available soon.
+              </p>
             </div>
-          ))}
+          ) : (
+            <div className="space-y-6">
+              {jobs.map((job) => (
+                <div
+                  key={job._id}
+                  className="border border-white/10 p-6 flex justify-between items-center hover:border-yellow-600 transition"
+                >
+                  <p>{job.title}</p>
+
+                  <button
+                    onClick={() => handleApplyClick(job)}
+                    className="border border-yellow-600 text-yellow-500 px-5 py-2 hover:bg-yellow-600 hover:text-black transition"
+                  >
+                    Apply
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -156,20 +174,16 @@ export default function CareersPage() {
                 }
               />
 
-              <select
+              <textarea
+                placeholder="Your Address"
+                required
+                rows={3}
                 className="w-full bg-transparent border border-white/20 p-3 focus:border-yellow-600 outline-none"
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setForm({ ...form, location: e.target.value })
-                }
-              >
-                <option className="text-black">Select Location</option>
-                <option className="text-black">Tajpur</option>
-                <option className="text-black">Joypur</option>
-                <option className="text-black">Purulia</option>
-              </select>
-
+                onChange={(e) => setForm({ ...form, address: e.target.value })}
+              />
               <input
                 type="file"
+                required
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   if (e.target.files && e.target.files[0]) {
                     setFile(e.target.files[0]);

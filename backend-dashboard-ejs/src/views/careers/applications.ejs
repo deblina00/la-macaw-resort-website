@@ -1,0 +1,48 @@
+<h2 class="text-xl font-bold mb-4">Applications</h2>
+
+<form method="GET">
+  <select name="jobId" class="border p-2">
+    <option value="">All Jobs</option>
+    <% jobs.forEach(job => { %>
+      <option value="<%= job._id %>"><%= job.title %></option>
+    <% }) %>
+  </select>
+
+  <button class="bg-black text-white px-3 py-1">Filter</button>
+</form>
+
+<table class="w-full mt-6 bg-white text-sm">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Position</th>
+    <th>Address</th>
+    <th>CV</th>
+    <th>Date</th>
+  </tr>
+
+  <% apps.forEach(app => { %>
+  <tr class="text-center">
+    <td><%= app.name %></td>
+    <td><%= app.email %></td>
+    <td><%= app.position %></td>
+    <td><%= app.address %></td>
+
+    <td>
+      <% if (app.cvUrl) { %>
+
+        <a href="<%= app.cvUrl.replace('/upload/', '/upload/fl_attachment/') %>" target="_blank" class="ml-2 text-green-600">
+      Download
+    </a>
+
+
+      <% } else { %>
+        No CV
+      <% } %>
+    </td>
+
+     <td><%= new Date(app.createdAt).toLocaleDateString() %></td>
+     
+  </tr>
+  <% }) %>
+</table>

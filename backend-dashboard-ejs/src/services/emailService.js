@@ -220,14 +220,16 @@ const buildCareerTemplate = (data) => `
 <hr>
 
 <p><b>Position:</b> ${data.position}</p>
-<p><b>Location:</b> ${data.location}</p>
+<p><b>Address:</b> ${data.address}</p>
 
 <hr>
 
 <p><b>CV:</b> 
   ${
     data.cvUrl
-      ? `<a href="${data.cvUrl}" target="_blank">View CV</a>`
+      ? `<a href="${data.cvUrl.replace("/upload/", "/upload/fl_attachment/")}" target="_blank" style="color:#d4af37;">
+        Download CV
+      </a>`
       : "Not uploaded"
   }
 </p>
@@ -265,13 +267,10 @@ const sendEventEnquiryEmail = async (data) => {
 };
 
 const sendCareerEmail = async (data) => {
-  await transporter.sendMail({
-    from: `"La Macaw Resort" <${EMAIL_USER}>`,
-    to: EMAIL_USER,
-    subject: `New Job Application – ${data.position}`,
-    html: buildCareerTemplate(data),
-    attachments: [],
-  });
+  await sendMail(
+    `New Job Application – ${data.position}`,
+    buildCareerTemplate(data),
+  );
 };
 
 module.exports = {

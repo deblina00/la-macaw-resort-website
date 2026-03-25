@@ -76,7 +76,7 @@ export default function MegaMenuOverlay({
           }}
           className="lg:hidden"
         >
-          Branch
+          Properties
         </button>
 
         <div onClick={close}>{navLink("/gallery", "Gallery")}</div>

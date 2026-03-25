@@ -90,7 +90,7 @@ export default function Navbar() {
               onClick={() => setOpenBranches(true)}
               className="hover:text-resort-secondary transition"
             >
-              Branches
+              Properties
             </button>
             {navLink("/banquets", "Banquets")}
             {/* {navLink("/gallery", "Gallery")} */}

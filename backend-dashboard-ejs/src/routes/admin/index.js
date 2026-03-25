@@ -11,6 +11,7 @@ const galleryRoutes = require("./galleryRoutes");
 const enquiryRoutes = require("./enquiryRoutes");
 const reviewRoutes = require("./reviewRoutes");
 const eventRoutes = require("./eventRoutes");
+const careerRoutes = require("./careerRoutes");
 
 router.use("/", authRoutes);
 router.use("/dashboard", dashboardRoutes);
@@ -22,5 +23,6 @@ router.use("/gallery", galleryRoutes);
 router.use("/enquiries", enquiryRoutes);
 router.use("/reviews", reviewRoutes);
 router.use("/events", eventRoutes);
+router.use("/careers", careerRoutes);
 
 module.exports = router;
