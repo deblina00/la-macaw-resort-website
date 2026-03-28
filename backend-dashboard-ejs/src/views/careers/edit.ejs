@@ -1,16 +1,105 @@
-<h2>Edit Job</h2>
+<div class="mb-6">
+
+  <h2 class="text-2xl font-bold">
+    Edit Job
+  </h2>
+
+  <p class="text-gray-500 text-sm">
+    Update job details
+  </p>
+
+</div>
+
 
 <% if (typeof error !== "undefined") { %>
-<p class="text-red-500"><%= error %></p>
+
+  <div class="bg-red-100 text-red-600 p-3 rounded mb-4">
+    <%= error %>
+  </div>
+
 <% } %>
 
-<form method="POST">
-  <input name="title" value="<%= job.title %>" required class="border p-2 w-full" />
-  <input name="location" value="<%= job.location %>" class="border p-2 w-full" />
 
-  <textarea name="description" class="border p-2 w-full">
-<%= job.description %>
-</textarea>
+<div class="card max-w-2xl">
 
-  <button class="bg-black text-white px-4 py-2 mt-3">Update</button>
+<form method="POST" class="space-y-4">
+
+  <div>
+
+    <label class="block text-sm mb-1">
+      Job Title
+    </label>
+
+    <input
+      name="title"
+      value="<%= job.title %>"
+      required
+      class="w-full border p-3 rounded"
+    />
+
+  </div>
+
+
+  <div>
+
+    <label class="block text-sm mb-1">
+      Location
+    </label>
+
+    <input
+      name="location"
+      value="<%= job.location %>"
+      class="w-full border p-3 rounded"
+    />
+
+  </div>
+
+
+  <div>
+
+    <label class="block text-sm mb-1">
+      Department
+    </label>
+
+    <input
+      name="department"
+      value="<%= job.department %>"
+      class="w-full border p-3 rounded"
+    />
+
+  </div>
+
+
+  <div>
+
+    <label class="block text-sm mb-1">
+      Description
+    </label>
+
+    <textarea
+      name="description"
+      class="w-full border p-3 rounded"
+      rows="5"
+    ><%= job.description %></textarea>
+
+  </div>
+
+
+  <div class="flex gap-3 pt-4">
+
+    <button class="btn-primary">
+      Update Job
+    </button>
+
+    <a
+      href="/admin/careers"
+      class="px-4 py-2 border rounded"
+    >
+      Cancel
+    </a>
+
+  </div>
+
 </form>
+
+</div>

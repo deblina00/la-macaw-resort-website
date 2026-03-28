@@ -1,48 +1,118 @@
-<h2 class="text-xl font-bold mb-4">Applications</h2>
+<div class="flex justify-between items-center mb-6">
 
-<form method="GET">
-  <select name="jobId" class="border p-2">
+  <div>
+<h2 class="text-2xl font-bold">
+      Job Applications
+    </h2>
+ <p class="text-gray-500 text-sm">
+      View and manage candidate applications
+    </p>
+  </div>
+
+   <a
+    href="/admin/careers"
+    class="px-4 py-2 border rounded"
+  >
+    Back to Jobs
+  </a>
+
+  </div>
+
+
+<!-- Filter -->
+
+<div class="card mb-6">
+
+<form method="GET" class="flex gap-3 items-center">
+  <select name="jobId" class="border p-2 rounded">
     <option value="">All Jobs</option>
     <% jobs.forEach(job => { %>
       <option value="<%= job._id %>"><%= job.title %></option>
     <% }) %>
   </select>
 
-  <button class="bg-black text-white px-3 py-1">Filter</button>
+ <button class="btn-primary">
+      Filter
+    </button>
+
+     <a
+      href="/admin/careers/applications"
+      class="px-4 py-2 border rounded"
+    >
+      Reset
+    </a>
 </form>
 
-<table class="w-full mt-6 bg-white text-sm">
+</div>
+
+<!-- Applications Table -->
+
+<div class="card">
+
+  <table class="w-full text-sm">
+
+    <thead class="bg-gray-100">
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Position</th>
-    <th>Address</th>
-    <th>CV</th>
-    <th>Date</th>
+        <th class="p-3 text-left">Name</th>
+        <th class="p-3 text-left">Email</th>
+        <th class="p-3 text-left">Position</th>
+        <th class="p-3 text-left">Address</th>
+        <th class="p-3 text-left">CV</th>
+        <th class="p-3 text-left">Date</th>
   </tr>
+     </thead>
+
+           <% if(apps.length === 0){ %>
+
+        <tr>
+          <td colspan="6" class="text-center p-6 text-gray-500">
+            No applications found
+          </td>
+        </tr>
+
+      <% } %>
+
 
   <% apps.forEach(app => { %>
-  <tr class="text-center">
-    <td><%= app.name %></td>
-    <td><%= app.email %></td>
-    <td><%= app.position %></td>
-    <td><%= app.address %></td>
+  <tr class="border-t">
 
-    <td>
+     <td class="p-3">
+            <%= app.name %>
+          </td>
+
+          <td class="p-3">
+            <%= app.email %>
+          </td>
+
+          <td class="p-3">
+            <%= app.position %>
+          </td>
+
+          <td class="p-3">
+            <%= app.address %>
+          </td>
+
+       <td class="p-3">
       <% if (app.cvUrl) { %>
 
-        <a href="<%= app.cvUrl.replace('/upload/', '/upload/fl_attachment/') %>" target="_blank" class="ml-2 text-green-600">
+        <a href="<%= app.cvUrl.replace('/upload/', '/upload/fl_attachment/') %>" target="_blank" class="text-green-600 hover:underline">
       Download
     </a>
 
 
       <% } else { %>
-        No CV
+       <span class="text-gray-400">
+                No CV
+              </span>
       <% } %>
-    </td>
+       </td>
 
-     <td><%= new Date(app.createdAt).toLocaleDateString() %></td>
+          <td class="p-3 text-gray-500">
+            <%= new Date(app.createdAt).toLocaleDateString() %>
+          </td>
      
   </tr>
   <% }) %>
+      </tbody>
 </table>
+</div>

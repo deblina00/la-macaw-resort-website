@@ -1,66 +1,147 @@
-<h2>Edit Banquet</h2>
+<div class="mb-6">
 
-<form method="POST" enctype="multipart/form-data">
+  <h2 class="text-2xl font-bold">
+    Edit Banquet
+  </h2>
 
-<input
-name="title"
-value="<%= banquet.title %>"
-class="border p-2 w-full mb-3"
->
+  <p class="text-gray-500 text-sm">
+    Update banquet details
+  </p>
 
-<select name="branchId" class="border p-2 w-full mb-3">
-
-<% branches.forEach(branch => { %>
-
-<option value="<%= branch._id %>"
-<%= banquet.branchId == branch._id ? "selected" : "" %>>
-
-<%= branch.name %>
-
-</option>
-
-<% }) %>
-
-</select>
-
-<input
-name="totalArea"
-value="<%= banquet.totalArea %>"
-class="border p-2 w-full mb-3"
->
+</div>
 
 
-<input
-name="capacity"
-value="<%= banquet.capacity %>"
-class="border p-2 w-full mb-3"
->
+<div class="card max-w-2xl">
 
-<select name="type" class="border p-2 w-full mb-3">
+<form method="POST" enctype="multipart/form-data" class="space-y-4">
 
-<option value="Hall"
-<%= banquet.type === "Hall" ? "selected" : "" %>>
-Hall
-</option>
+  <div>
 
-<option value="Lawn"
-<%= banquet.type === "Lawn" ? "selected" : "" %>>
-Lawn
-</option>
+    <label class="block text-sm mb-1">
+      Banquet Title
+    </label>
 
-</select>
+    <input
+      name="title"
+      value="<%= banquet.title %>"
+      class="w-full border p-3 rounded"
+    />
 
-<input
-name="features"
-value="<%= banquet.features?.join(', ') %>"
-class="border p-2 w-full mb-3"
->
+  </div>
 
-<input type="file" name="images" multiple
-class="border p-2 w-full mb-3">
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Update
-</button>
+  <div>
+
+    <label class="block text-sm mb-1">
+      Branch
+    </label>
+
+    <select
+      name="branchId"
+      class="w-full border p-3 rounded"
+    >
+
+      <% branches.forEach(branch => { %>
+
+        <option
+          value="<%= branch._id %>"
+          <%= banquet.branchId == branch._id ? "selected" : "" %>
+        >
+          <%= branch.name %>
+        </option>
+
+      <% }) %>
+
+    </select>
+
+  </div>
+
+
+  <div class="grid md:grid-cols-2 gap-4">
+
+    <input
+      name="totalArea"
+      value="<%= banquet.totalArea %>"
+      class="border p-3 rounded"
+      placeholder="Area"
+    />
+
+    <input
+      name="capacity"
+      value="<%= banquet.capacity %>"
+      class="border p-3 rounded"
+      placeholder="Capacity"
+    />
+
+  </div>
+
+
+  <div>
+
+    <select name="type" class="w-full border p-3 rounded">
+
+      <option
+        value="Hall"
+        <%= banquet.type === "Hall" ? "selected" : "" %>
+      >
+        Hall
+      </option>
+
+      <option
+        value="Lawn"
+        <%= banquet.type === "Lawn" ? "selected" : "" %>
+      >
+        Lawn
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div>
+
+    <input
+      name="features"
+      value="<%= banquet.features?.join(', ') %>"
+      class="w-full border p-3 rounded"
+      placeholder="Features"
+    />
+
+  </div>
+
+
+  <div>
+
+    <label class="text-sm">
+      Upload New Images
+    </label>
+
+    <input
+      type="file"
+      name="images"
+      multiple
+      class="border p-2 rounded w-full"
+    />
+
+  </div>
+
+
+  <div class="flex gap-3 pt-4">
+
+    <button class="btn-primary">
+      Update Banquet
+    </button>
+
+    <a
+      href="/admin/banquets"
+      class="px-4 py-2 border rounded"
+    >
+      Cancel
+    </a>
+
+  </div>
 
 </form>
+
+</div>

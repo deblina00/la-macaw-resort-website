@@ -4,18 +4,37 @@
     <title>
       <%= typeof title !== "undefined" ? title : "Admin Dashboard" %>
     </title>
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/admin.build.css" />
   </head>
 
   <body class="bg-gray-100">
     <div class="flex">
-      <!-- Sidebar -->
       <%- include('sidebar') %>
 
-      <main class="p-6 flex-1 max-w-7xl mx-auto"><%- body %></main>
-    </div>
+      <div class="flex-1">
+        <!-- Topbar -->
+        <header
+          class="bg-white shadow-sm px-6 py-4 flex justify-between items-center"
+        >
+          <h1 class="text-lg font-semibold">
+            <%= typeof title !== "undefined" ? title : "Dashboard" %>
+          </h1>
 
-    <script src="/js/admin.js"></script>
+          <div class="flex items-center gap-4">
+            <span class="text-sm text-gray-500"> Welcome Admin </span>
+
+            <div
+              class="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center"
+            >
+              A
+            </div>
+          </div>
+        </header>
+
+        <!-- Content -->
+        <main class="p-6"><%- body %></main>
+      </div>
+    </div>
   </body>
 </html>

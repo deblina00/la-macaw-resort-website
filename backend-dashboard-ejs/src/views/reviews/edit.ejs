@@ -1,10 +1,11 @@
-<h2>Edit Review</h2>
+<h2 class="text-xl font-bold mb-4">Edit Review</h2>
 
-<form method="POST">
+<form method="POST" class="bg-white p-6 shadow w-1/2">
 
 <input
 name="guestName"
 value="<%= review.guestName %>"
+required
 class="border p-2 w-full mb-3"
 >
 
@@ -13,6 +14,7 @@ type="number"
 name="rating"
 min="1"
 max="5"
+required
 value="<%= review.rating %>"
 class="border p-2 w-full mb-3"
 >
@@ -20,11 +22,13 @@ class="border p-2 w-full mb-3"
 <input
 name="location"
 value="<%= review.location %>"
+required
 class="border p-2 w-full mb-3"
 >
 
 <textarea
 name="comment"
+required
 class="border p-2 w-full mb-3"
 ><%= review.comment %></textarea>
 

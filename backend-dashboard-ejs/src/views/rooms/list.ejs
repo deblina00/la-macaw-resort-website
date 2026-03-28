@@ -1,64 +1,122 @@
-<h2 class="text-xl font-bold mb-4">Rooms</h2>
+<div class="flex justify-between items-center mb-6">
 
-<a href="/admin/rooms/create" class="bg-green-600 text-white px-4 py-2">Add Room</a>
+  <div>
+    <h2 class="text-2xl font-bold">Rooms</h2>
+    <p class="text-gray-500 text-sm">
+      Manage resort rooms and pricing
+    </p>
+  </div>
 
-<table class="w-full bg-white mt-4">
+  <a href="/admin/rooms/create" class="btn-primary">
+    + Add Room
+  </a>
 
-<tr>
-<th>Room</th>
-<th>Branch</th>
-<th>Price</th>
-<th>Actions</th>
-</tr>
+</div>
 
-<% rooms.forEach(room=>{ %>
 
-<tr class="text-center">
-<td><%= room.title %></td>
-<td><%= room.branchId?.name %></td>
-<td><%= room.price %></td>
+<!-- Table Card -->
 
-<td class="p-2">
-<a href="/admin/rooms/edit/<%= room._id %>" class="text-blue-500">
-Edit
-</a>
+<div class="card">
 
-<a href="/admin/rooms/delete/<%= room._id %>"
-class="text-red-500 ml-3">
-Delete
-</a>
-</td>
+  <table class="table">
 
-</tr>
+    <thead>
+      <tr>
+        <th>Room</th>
+        <th>Branch</th>
+        <th>Price</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
 
-<% }) %>
+    <tbody>
 
-</table>
+      <% if(rooms.length === 0){ %>
+
+        <tr>
+          <td colspan="4" class="text-center text-gray-500 py-6">
+            No rooms found
+          </td>
+        </tr>
+
+      <% } %>
+
+      <% rooms.forEach(room => { %>
+
+      <tr>
+
+        <td class="font-semibold">
+          <%= room.title %>
+        </td>
+
+        <td>
+          <%= room.branchId?.name || "N/A" %>
+        </td>
+
+        <td class="text-emerald-600 font-semibold">
+          ₹ <%= room.price %>
+        </td>
+
+        <td class="text-center space-x-3">
+
+          <a
+            href="/admin/rooms/edit/<%= room._id %>"
+            class="text-blue-600 hover:underline"
+          >
+            Edit
+          </a>
+
+          <a
+            href="/admin/rooms/delete/<%= room._id %>"
+            onclick="return confirm('Delete this room?')"
+            class="text-red-600 hover:underline"
+          >
+            Delete
+          </a>
+
+        </td>
+
+      </tr>
+
+      <% }) %>
+
+    </tbody>
+
+  </table>
+
+</div>
+
 
 <!-- Pagination -->
 
-<div class="mt-6 flex justify-center">
+<div class="flex justify-center mt-6">
 
-  <% if (currentPage > 1) { %>
-    <a href="?page=<%= currentPage - 1 %>"
-       class="px-3 py-1 border mx-1">
-       Previous
-    </a>
-  <% } %>
+  <div class="flex gap-2">
 
-  <% for(let i = 1; i <= totalPages; i++) { %>
-    <a href="?page=<%= i %>"
-       class="px-3 py-1 border mx-1 
-       <%= currentPage === i ? 'bg-black text-white' : '' %>">
-       <%= i %>
-    </a>
-  <% } %>
+    <% if (currentPage > 1) { %>
+      <a href="?page=<%= currentPage - 1 %>" class="pagination">
+        Previous
+      </a>
+    <% } %>
 
-  <% if (currentPage < totalPages) { %>
-    <a href="?page=<%= currentPage + 1 %>"
-       class="px-3 py-1 border mx-1">
-       Next
-    </a>
-  <% } %>
+    <% for(let i = 1; i <= totalPages; i++) { %>
+
+      <a
+        href="?page=<%= i %>"
+        class="px-3 py-1 border rounded 
+        <%= currentPage === i ? 'bg-emerald-600 text-white' : 'hover:bg-gray-200' %>"
+      >
+        <%= i %>
+      </a>
+
+    <% } %>
+
+    <% if (currentPage < totalPages) { %>
+      <a href="?page=<%= currentPage + 1 %>" class="pagination">
+        Next
+      </a>
+    <% } %>
+
+  </div>
 
 </div>

@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-font-family: Arial, sans-serif;
+/* Resort Theme */
+
+body {
+  @apply bg-gray-100 text-gray-800;
+  font-family: "Inter", sans-serif;
 }
 
-table{
-border-collapse: collapse;
+/* Card */
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-gray-100 p-5;
 }
 
-table th, table td{
-padding:10px;
-border:1px solid #ddd;
+/* Button */
+.btn-primary {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition;
+}
+
+/* Table */
+.table {
+  @apply w-full text-sm;
+}
+
+.table th {
+  @apply bg-gray-100 text-left p-3 font-semibold;
+}
+
+.table td {
+  @apply p-3 border-t;
 }
 
 .pagination {
-  margin-top: 20px;
+  @apply px-3 py-1 border rounded hover:bg-gray-200;
 }
 
+/* Pagination */
 .pagination a {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  margin: 3px;
-  text-decoration: none;
-  color: black;
+  @apply px-3 py-1 border rounded-lg hover:bg-gray-200;
 }
 
 .pagination a.active {
-  background: #333;
-  color: white;
+  @apply bg-emerald-600 text-white;
 }

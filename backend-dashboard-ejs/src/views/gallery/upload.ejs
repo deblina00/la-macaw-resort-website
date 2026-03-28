@@ -1,38 +1,113 @@
-<h2>Upload Image</h2>
+<div class="mb-6">
 
-<form method="POST" enctype="multipart/form-data">
+  <h2 class="text-2xl font-bold">
+    Upload Image
+  </h2>
 
-<input
-name="title"
-placeholder="Image Title"
-class="border p-2 w-full mb-3"
->
+  <p class="text-gray-500 text-sm">
+    Add new images to resort gallery
+  </p>
 
-<select
-name="category"
-class="border p-2 w-full mb-3"
->
+</div>
 
-<option value="">Select Category</option>
 
-<option value="rooms">Rooms</option>
-<option value="events">Events</option>
-<option value="banquets">Banquets</option>
-<option value="tajpur">Tajpur</option>
-<option value="joypur">Joypur</option>
-<option value="purulia">Purulia</option>
+<div class="card max-w-2xl">
 
-</select>
+<form method="POST" enctype="multipart/form-data" class="space-y-4">
 
-<input
-type="file"
-name="image"
-class="border p-2 w-full mb-3"
-required
->
+  <div>
+    <label class="block text-sm mb-1">
+      Image Title
+    </label>
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Upload
-</button>
+    <input
+      name="title"
+      class="w-full border p-3 rounded"
+      placeholder="Pool Area"
+    >
+  </div>
+
+
+  <div>
+    <label class="block text-sm mb-1">
+      Category
+    </label>
+
+    <select
+      name="category"
+      class="w-full border p-3 rounded"
+      required
+    >
+
+      <option value="">Select Category</option>
+
+      <option value="rooms">Rooms</option>
+      <option value="events">Events</option>
+      <option value="banquets">Banquets</option>
+      <option value="tajpur">Tajpur</option>
+      <option value="joypur">Joypur</option>
+      <option value="purulia">Purulia</option>
+
+    </select>
+
+  </div>
+
+
+  <div>
+    <label class="block text-sm mb-1">
+      Upload Image
+    </label>
+
+    <input
+      type="file"
+      name="image"
+      class="w-full border p-2 rounded"
+      required
+    >
+  </div>
+
+
+  <!-- Preview -->
+
+  <div>
+    <img
+      id="preview"
+      class="hidden w-48 rounded shadow"
+    >
+  </div>
+
+
+  <div class="flex gap-3 pt-4">
+
+    <button class="btn-primary">
+      Upload Image
+    </button>
+
+    <a href="/admin/gallery" class="border px-4 py-2 rounded">
+      Cancel
+    </a>
+
+  </div>
 
 </form>
+
+</div>
+
+
+<script>
+
+const fileInput = document.querySelector('input[name="image"]');
+const preview = document.getElementById('preview');
+
+fileInput.addEventListener('change', function(){
+
+  const file = this.files[0];
+
+  if(file){
+    preview.src = URL.createObjectURL(file);
+    preview.classList.remove('hidden');
+  }
+
+});
+
+</script>

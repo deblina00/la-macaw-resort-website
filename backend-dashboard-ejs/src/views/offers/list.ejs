@@ -1,43 +1,128 @@
-<h2 class="text-xl font-bold mb-4">Offers</h2>
+<div class="flex justify-between items-center mb-6">
 
-<a href="/admin/offers/create"
-class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
-Add Offer
-</a>
+  <div>
+    <h2 class="text-2xl font-bold">
+      Offers Management
+    </h2>
+
+    <p class="text-gray-500 text-sm">
+      Manage resort offers and promotions
+    </p>
+  </div>
+
+  <a
+    href="/admin/offers/create"
+    class="btn-primary"
+  >
+    + Add Offer
+  </a>
+
+</div>
+
+
+<div class="space-y-6">
+
+<% if(offers.length === 0){ %>
+
+  <div class="card text-center text-gray-500 p-6">
+    No offers available
+  </div>
+
+<% } %>
+
 
 <% offers.forEach(o => { %>
 
-  <div class="border p-4 mb-6 bg-white shadow">
+  <div class="card">
 
-    <h3 class="text-lg font-bold mb-2"><%= o.title %></h3>
+    <div class="flex justify-between items-center mb-4">
 
-    <img src="<%= o.popupImage %>" class="w-64 mb-4"/>
+      <h3 class="text-lg font-bold">
+        <%= o.title %>
+      </h3>
 
-    <% o.branchOffers.forEach(b => { %>
+      <div class="space-x-4">
 
-      <div class="border p-3 mb-3">
+        <a
+          href="/admin/offers/edit/<%= o._id %>"
+          class="text-blue-600 hover:underline"
+        >
+          Edit
+        </a>
 
-        <strong><%= b.branch %></strong><br>
-
-        Price: ₹<%= b.price %><br>
-
-        Validity:
-       <%= b.validity?.from ? new Date(b.validity.from).toDateString() : "" %>
-        -
-       <%= b.validity?.to ? new Date(b.validity.to).toDateString() : "" %>
-
-        <img src="<%= b.bannerImage %>" class="w-48 mt-2"/>
+        <a
+          href="/admin/offers/delete/<%= o._id %>"
+          onclick="return confirm('Delete this offer?')"
+          class="text-red-600 hover:underline"
+        >
+          Delete
+        </a>
 
       </div>
 
-    <% }) %>
+    </div>
 
-    <a href="/admin/offers/edit/<%= o._id %>"
-    class="text-blue-500">Edit</a>
 
-    <a href="/admin/offers/delete/<%= o._id %>"
-    class="text-red-500 ml-3">Delete</a>
+    <!-- Popup Banner -->
+
+    <% if(o.popupImage){ %>
+
+      <img
+        src="<%= o.popupImage %>"
+        class="w-64 rounded mb-4"
+      >
+
+    <% } %>
+
+
+    <!-- Branch Offers -->
+
+    <div class="grid md:grid-cols-3 gap-4">
+
+      <% o.branchOffers.forEach(b => { %>
+
+        <div class="border rounded p-4">
+
+          <h4 class="font-semibold mb-2">
+            <%= b.branch %>
+          </h4>
+
+          <p class="text-sm">
+            Price: ₹<%= b.price %>
+          </p>
+
+          <p class="text-sm text-gray-500">
+
+            <%= b.validity?.from
+              ? new Date(b.validity.from).toDateString()
+              : "-" %>
+
+            -
+
+            <%= b.validity?.to
+              ? new Date(b.validity.to).toDateString()
+              : "-" %>
+
+          </p>
+
+
+          <% if(b.bannerImage){ %>
+
+            <img
+              src="<%= b.bannerImage %>"
+              class="w-full h-32 object-cover mt-3 rounded"
+            >
+
+          <% } %>
+
+        </div>
+
+      <% }) %>
+
+    </div>
 
   </div>
 
 <% }) %>
+
+</div>

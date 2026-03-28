@@ -1,13 +1,24 @@
-<h2 class="text-xl font-bold mb-4">Reviews</h2>
+<div class="flex justify-between items-center mb-6">
+
+  <div>
+    <h2 class="text-2xl font-bold">
+      Guests Reviews
+    </h2>
+
+    <!-- <p class="text-gray-500 text-sm">
+      Manage weddings, corporate events, and private parties
+    </p> -->
+  </div>
 
 <a href="/admin/reviews/create"
-class="bg-green-600 text-white px-4 py-2 mb-4 inline-block">
-Add Review
+class="btn-primary">
++ Add Review
 </a>
 
-<form method="GET" class="mb-4">
+<form method="GET" class="mb-4 flex gap-3">
 
 <select name="rating" class="border px-3 py-2">
+
   <option value="">All Ratings</option>
   <option value="5">5 Star</option>
   <option value="4">4 Star</option>
@@ -18,30 +29,44 @@ Filter
 </button>
 
 </form>
+</div>
 
-<table class="w-full bg-white shadow">
+<div class="card">
 
-<tr class="bg-gray-200">
-<th class="p-2">Guest</th>
-<th class="p-2">Rating</th>
-<th class="p-2">Comment</th>
-<th class="p-2">Location</th>
-<th class="p-2">Action</th>
+<table class="w-full text-sm">
+<thead class="bg-gray-100">
+
+<tr>
+<th class="p-3 text-left">Guest</th>
+<th class="p-3 text-left">Rating</th>
+<th class="p-3 text-left">Comment</th>
+<th class="p-3 text-left">Location</th>
+<th class="p-3 text-left">Action</th>
 </tr>
+
+ </thead>
+
+    <tbody>
 
 <% reviews.forEach(review => { %>
 
-<tr class="border-t">
+<tr>
 
 <td class="p-2"><%= review.guestName %></td>
 
-<td class="p-2"><%= review.rating %> ⭐</td>
-
-<td class="p-2"><%= review.comment %></td>
-
-<td class="p-2"><%= review.location %></td>
+<td class="p-2">
+  <%= review.rating %> ⭐
+</td>
 
 <td class="p-2">
+  <%= review.comment %>
+</td>
+
+<td class="p-2">
+  <%= review.location %>
+</td>
+
+<td class="p-3">
 
 <a href="/admin/reviews/edit/<%= review._id %>"
 class="text-blue-500">
@@ -49,7 +74,8 @@ Edit
 </a>
 
 <a href="/admin/reviews/delete/<%= review._id %>"
-class="text-red-500 ml-3">
+class="text-red-500 ml-3"
+onclick="return confirm('Delete this review?')">
 Delete
 </a>
 
@@ -59,15 +85,21 @@ Delete
 
 <% }) %>
 
+   </tbody>
+
 </table>
+
+</div>
 
 <!-- Pagination -->
 
-<div class="mt-6 flex justify-center">
+<div class="flex justify-center mt-6">
+
+  <div class="flex gap-2">
 
   <% if (currentPage > 1) { %>
     <a href="?page=<%= currentPage - 1 %>"
-       class="px-3 py-1 border mx-1">
+       class="px-3 py-1 border rounded hover:bg-gray-200">
        Previous
     </a>
   <% } %>
@@ -75,16 +107,17 @@ Delete
   <% for (let i = 1; i <= totalPages; i++) { %>
     <a href="?page=<%= i %>"
        class="px-3 py-1 border mx-1 
-       <%= currentPage === i ? 'bg-black text-white' : '' %>">
+       <%= currentPage === i ? 'bg-emerald-600 text-white' : 'hover:bg-gray-200' %>">
        <%= i %>
     </a>
   <% } %>
 
   <% if (currentPage < totalPages) { %>
     <a href="?page=<%= currentPage + 1 %>"
-       class="px-3 py-1 border mx-1">
+        class="px-3 py-1 border rounded hover:bg-gray-200">
        Next
     </a>
   <% } %>
+  </div>
 
 </div>

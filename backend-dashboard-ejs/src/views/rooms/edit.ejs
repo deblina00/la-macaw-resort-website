@@ -1,59 +1,147 @@
-<h2>Edit Room</h2>
+<div class="mb-6">
 
-<form method="POST" enctype="multipart/form-data">
+  <h2 class="text-2xl font-bold">
+    Edit Room
+  </h2>
 
-<input
-name="title"
-value="<%= room.title %>"
-class="border p-2 w-full mb-3"
->
+  <p class="text-gray-500 text-sm">
+    Update room details
+  </p>
 
-<select name="branchId" class="border p-2 w-full mb-3">
+</div>
 
-<% branches.forEach(branch => { %>
 
-<option value="<%= branch._id %>"
-<%= room.branchId == branch._id ? "selected" : "" %>>
-<%= branch.name %>
-</option>
+<div class="card max-w-3xl">
 
-<% }) %>
+<form method="POST" enctype="multipart/form-data" class="space-y-4">
 
-</select>
+  <div class="grid grid-cols-3 gap-4">
+  <div>
+    <label class="block text-sm mb-1">Room Title</label>
 
-<input
-name="price"
-value="<%= room.price %>"
-class="border p-2 w-full mb-3"
->
-<input
-name="totalBed"
-value="<%= room.totalBed %>"
-class="border p-2 w-full mb-3"
->
+    <input
+      name="title"
+      value="<%= room.title %>"
+      class="w-full border p-3 rounded"
+    >
+  </div>
 
-<input
-name="capacity"
-value="<%= room.capacity %>"
-class="border p-2 w-full mb-3"
->
 
-<input
-name="amenities"
-value="<%= room.amenities?.join(', ') %>"
-class="border p-2 w-full mb-3"
->
+  <div>
+    <label class="block text-sm mb-1">Branch</label>
 
-<textarea
-name="description"
-class="border p-2 w-full mb-3"
-><%= room.description %></textarea>
+    <select name="branchId" class="w-full border p-3 rounded">
 
-<input type="file" name="gallery" multiple
-class="border p-2 w-full mb-3">
+      <% branches.forEach(branch => { %>
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Update
-</button>
+      <option
+        value="<%= branch._id %>"
+        <%= room.branchId == branch._id ? "selected" : "" %>
+      >
+        <%= branch.name %>
+      </option>
+
+      <% }) %>
+
+    </select>
+  </div>
+
+  <div>
+    <label class="block text-sm mb-1">
+      Upload New Images
+    </label>
+
+    <input
+      type="file"
+      name="gallery"
+      multiple
+      class="border p-2 rounded w-full"
+    >
+  </div>
+</div>
+
+  <div class="grid grid-cols-3 gap-4">
+
+    <input
+      name="price"
+      value="<%= room.price %>"
+      class="border p-3 rounded"
+      placeholder="Price"
+    >
+
+    <input
+      name="totalBed"
+      value="<%= room.totalBed %>"
+      class="border p-3 rounded"
+      placeholder="Beds"
+    >
+
+    <input
+      name="capacity"
+      value="<%= room.capacity %>"
+      class="border p-3 rounded"
+      placeholder="Capacity"
+    >
+
+  </div>
+
+
+  <input
+    name="amenities"
+    value="<%= room.amenities?.join(', ') %>"
+    class="border p-3 rounded w-full"
+  >
+
+
+  <textarea
+    name="description"
+    class="border p-3 rounded w-full h-32"
+  ><%= room.description %></textarea>
+
+
+  <!-- Existing Images -->
+
+  <% if(room.gallery && room.gallery.length > 0){ %>
+
+  <div>
+
+    <label class="block text-sm mb-2">
+      Current Images
+    </label>
+
+    <div class="grid grid-cols-4 gap-3">
+
+      <% room.gallery.forEach(img => { %>
+
+        <img
+          src="<%= img %>"
+          class="h-20 w-full object-cover rounded"
+        >
+
+      <% }) %>
+
+    </div>
+
+  </div>
+
+  <% } %>
+
+
+  
+
+
+  <div class="flex gap-3 pt-4">
+
+    <button class="btn-primary">
+      Update Room
+    </button>
+
+    <a href="/admin/rooms" class="border px-4 py-2 rounded">
+      Cancel
+    </a>
+
+  </div>
 
 </form>
+
+</div>

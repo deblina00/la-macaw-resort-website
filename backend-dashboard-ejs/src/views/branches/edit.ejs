@@ -1,41 +1,126 @@
-<h2 class="text-xl font-bold mb-4">Edit Branch</h2>
+<div class="mb-6">
 
-<form method="POST" enctype="multipart/form-data">
+  <h2 class="text-2xl font-bold">
+    Edit Branch
+  </h2>
 
-<input
-name="name"
-value="<%= branch.name %>"
-class="border p-2 mb-3 w-full"
-required
->
+  <p class="text-gray-500 text-sm">
+    Update branch details
+  </p>
 
-<input
-name="location"
-value="<%= branch.location %>"
-class="border p-2 mb-3 w-full"
-required
->
+</div>
 
-<textarea
-name="description"
-class="border p-2 mb-3 w-full"
-><%= branch.description %></textarea>
 
-<input
-name="amenities"
-value="<%= branch.amenities?.join(', ') %>"
-class="border p-2 mb-3 w-full"
->
+<div class="card max-w-3xl">
 
-<input
-type="file"
-name="images"
-multiple
-class="border p-2 mb-3 w-full"
->
+<form method="POST" enctype="multipart/form-data" class="space-y-4">
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Update
-</button>
+  <div class="grid grid-cols-3 gap-4">
+  <div>
+    <label class="block text-sm mb-1">Branch Name</label>
+
+    <input
+      name="name"
+      value="<%= branch.name %>"
+      class="w-full border p-3 rounded"
+      required
+    >
+  </div>
+
+
+  <div>
+    <label class="block text-sm mb-1">Location</label>
+
+    <input
+      name="location"
+      value="<%= branch.location %>"
+      class="w-full border p-3 rounded"
+      required
+    >
+  </div>
+
+  <div>
+    <label class="block text-sm mb-1">
+      Upload New Images
+    </label>
+
+    <input
+      type="file"
+      name="images"
+      multiple
+      class="border p-2 rounded w-full"
+    >
+  </div>
+
+
+</div>
+
+
+  <div>
+    <label class="block text-sm mb-1">Description</label>
+
+    <textarea
+      name="description"
+      class="w-full border p-3 rounded h-32"
+    ><%= branch.description %></textarea>
+  </div>
+
+
+  <div>
+    <label class="block text-sm mb-1">
+      Amenities
+    </label>
+
+    <input
+      name="amenities"
+      value="<%= branch.amenities?.join(', ') %>"
+      class="w-full border p-3 rounded"
+    >
+  </div>
+
+
+  <!-- Existing Images -->
+
+  <% if(branch.images && branch.images.length > 0){ %>
+
+  <div>
+
+    <label class="block text-sm mb-2">
+      Current Images
+    </label>
+
+    <div class="grid grid-cols-4 gap-3">
+
+      <% branch.images.forEach(img => { %>
+
+        <img
+          src="<%= img %>"
+          class="h-20 w-full object-cover rounded"
+        >
+
+      <% }) %>
+
+    </div>
+
+  </div>
+
+  <% } %>
+
+
+  
+
+  <div class="flex gap-3 pt-4">
+
+    <button class="btn-primary">
+      Update Branch
+    </button>
+
+    <a href="/admin/branches" class="px-4 py-2 border rounded">
+      Cancel
+    </a>
+
+  </div>
 
 </form>
+
+</div>

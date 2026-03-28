@@ -1,45 +1,171 @@
-<h2 class="text-xl font-bold mb-4">Careers</h2>
+<div class="flex justify-between items-center mb-6">
 
-<a href="/admin/careers/applications" class="bg-green-600 text-white px-4 py-2">
-  See Applications
-</a>
+  <div>
+    <h2 class="text-2xl font-bold">
+      Careers Management
+    </h2>
+
+    <p class="text-gray-500 text-sm">
+      Create and manage job openings
+    </p>
+  </div>
+
+  <a
+    href="/admin/careers/applications"
+    class="btn-primary"
+  >
+    View Applications
+  </a>
+
+</div>
+
+
+<!-- Error -->
 
 <% if (typeof error !== "undefined") { %>
-<p class="text-red-500 mt-2"><%= error %></p>
+  <div class="bg-red-100 text-red-600 p-3 rounded mb-4">
+    <%= error %>
+  </div>
 <% } %>
 
-<form action="/admin/careers/create" method="POST" class="mt-4 space-y-2">
-  <input name="title" placeholder="Job Title" required class="border p-2 w-full" />
-  <input name="location" placeholder="Location" class="border p-2 w-full" />
-  <input name="department" placeholder="Department" class="border p-2 w-full" />
-  <textarea name="description" placeholder="Description" class="border p-2 w-full"></textarea>
 
-  <button class="bg-black text-white px-4 py-2">Create</button>
-</form>
+<!-- Create Job Card -->
 
-<table class="w-full bg-white mt-6">
-  <tr>
-    <th>Title</th>
-    <th>Status</th>
-    <th>Actions</th>
-  </tr>
+<div class="card mb-6">
 
-  <% jobs.forEach(job => { %>
-  <tr class="text-center">
-    <td><%= job.title %></td>
-    <td><%= job.status %></td>
+  <h3 class="text-lg font-semibold mb-4">
+    Create New Job
+  </h3>
 
-    <td>
-      <a href="/admin/careers/edit/<%= job._id %>" class="text-blue-500">Edit</a>
+  <form
+    action="/admin/careers/create"
+    method="POST"
+    class="grid md:grid-cols-2 gap-4"
+  >
 
-      <a href="/admin/careers/delete/<%= job._id %>" class="text-red-500 ml-2">
-        Delete
-      </a>
+    <input
+      name="title"
+      placeholder="Job Title"
+      required
+      class="border p-3 rounded"
+    />
 
-      <a href="/admin/careers/toggle/<%= job._id %>" class="ml-2">
-        Toggle
-      </a>
-    </td>
-  </tr>
-  <% }) %>
-</table>
+    <input
+      name="location"
+      placeholder="Location"
+      class="border p-3 rounded"
+    />
+
+    <input
+      name="department"
+      placeholder="Department"
+      class="border p-3 rounded"
+    />
+
+    <select
+      name="status"
+      class="border p-3 rounded"
+    >
+      <option value="active">Active</option>
+      <option value="closed">Closed</option>
+    </select>
+
+    <textarea
+      name="description"
+      placeholder="Job Description"
+      class="border p-3 rounded md:col-span-2"
+    ></textarea>
+
+    <button class="btn-primary md:col-span-2">
+      Create Job
+    </button>
+
+  </form>
+
+</div>
+
+
+<!-- Jobs Table -->
+
+<div class="card">
+
+  <h3 class="text-lg font-semibold mb-4">
+    Job Listings
+  </h3>
+
+  <table class="w-full text-sm">
+
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="p-3 text-left">Title</th>
+        <th class="p-3 text-left">Location</th>
+        <th class="p-3 text-left">Department</th>
+        <th class="p-3 text-left">Status</th>
+        <th class="p-3 text-center">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% jobs.forEach(job => { %>
+
+        <tr class="border-t">
+
+          <td class="p-3 font-medium">
+            <%= job.title %>
+          </td>
+
+          <td class="p-3">
+            <%= job.location || "-" %>
+          </td>
+
+          <td class="p-3">
+            <%= job.department || "-" %>
+          </td>
+
+          <td class="p-3">
+
+            <span class="
+              px-2 py-1 text-xs rounded
+              <%= job.status === 'active' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600' %>
+            ">
+              <%= job.status %>
+            </span>
+
+          </td>
+
+          <td class="p-3 text-center space-x-3">
+
+            <a
+              href="/admin/careers/edit/<%= job._id %>"
+              class="text-blue-600 hover:underline"
+            >
+              Edit
+            </a>
+
+            <a
+              href="/admin/careers/delete/<%= job._id %>"
+              onclick="return confirm('Delete this job?')"
+              class="text-red-600 hover:underline"
+            >
+              Delete
+            </a>
+
+            <a
+              href="/admin/careers/toggle/<%= job._id %>"
+              class="text-gray-700 hover:underline"
+            >
+              Toggle
+            </a>
+
+          </td>
+
+        </tr>
+
+      <% }) %>
+
+    </tbody>
+
+  </table>
+
+</div>

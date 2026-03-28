@@ -1,92 +1,131 @@
-<h2>Edit Offer</h2>
+<div class="mb-6">
 
-<form method="POST" enctype="multipart/form-data">
+  <h2 class="text-2xl font-bold">
+    Edit Offer
+  </h2>
+
+  <p class="text-gray-500 text-sm">
+    Update promotional offer
+  </p>
+
+</div>
+
+
+<div class="card max-w-3xl">
+
+<form method="POST" enctype="multipart/form-data" class="space-y-6">
 
   <!-- TITLE -->
+
   <input
     name="title"
     value="<%= offer.title %>"
-    class="border p-2 w-full mb-4"
+    class="w-full border p-3 rounded"
   >
 
-  <!-- POPUP IMAGE -->
-  <label class="font-semibold">Current Popup Banner</label><br>
-  <% if (offer.popupImage) { %>
-    <img src="<%= offer.popupImage %>" class="w-64 mb-2">
-  <% } %>
 
-  <label>Change Popup Image</label>
-  <input
-    type="file"
-    name="popupImage"
-    class="border p-2 w-full mb-6"
-  >
+  <!-- POPUP -->
+
+  <div>
+
+    <label class="font-semibold">
+      Current Popup Banner
+    </label>
+
+    <% if (offer.popupImage) { %>
+
+      <img
+        src="<%= offer.popupImage %>"
+        class="w-64 mt-2 rounded"
+      >
+
+    <% } %>
+
+    <input
+      type="file"
+      name="popupImage"
+      class="border p-3 rounded w-full mt-3"
+    >
+
+  </div>
+
 
   <!-- BRANCH OFFERS -->
-  <h3 class="font-bold mb-3">Branch Offers</h3>
+
+  <h3 class="font-semibold">
+    Branch Offers
+  </h3>
+
 
   <% offer.branchOffers.forEach((b, i) => { %>
 
-    <div class="border p-4 mb-5">
+    <div class="border rounded p-4">
 
-      <h4 class="font-semibold mb-2"><%= b.branch %></h4>
+      <h4 class="font-semibold mb-3">
+        <%= b.branch %>
+      </h4>
 
-      <input type="hidden"
+      <input
+        type="hidden"
         name="branchOffers[<%= i %>][branch]"
         value="<%= b.branch %>"
       >
 
-      <!-- PRICE -->
       <input
         name="branchOffers[<%= i %>][price]"
         value="<%= b.price %>"
-        placeholder="Price"
-        class="border p-2 w-full mb-2"
+        class="border p-3 rounded w-full mb-2"
       >
 
-      <!-- DETAILS -->
       <textarea
         name="branchOffers[<%= i %>][details]"
-        class="border p-2 w-full mb-2"
+        class="border p-3 rounded w-full mb-2"
       ><%= b.details %></textarea>
 
-      <!-- VALIDITY -->
-      <label>From</label>
-      <input
-        type="date"
-        name="branchOffers[<%= i %>][validityFrom]"
-        value="<%= b.validity?.from?.toISOString().substring(0,10) %>"
-        class="border p-2 w-full mb-2"
-      >
 
-      <label>To</label>
-      <input
-        type="date"
-        name="branchOffers[<%= i %>][validityTo]"
-        value="<%= b.validity?.to?.toISOString().substring(0,10) %>"
-        class="border p-2 w-full mb-2"
-      >
+      <div class="grid md:grid-cols-2 gap-4">
 
-      <!-- CURRENT IMAGE -->
-      <label>Current Banner</label><br>
+        <input
+          type="date"
+          name="branchOffers[<%= i %>][validityFrom]"
+          value="<%= b.validity?.from?.toISOString().substring(0,10) %>"
+          class="border p-3 rounded"
+        >
+
+        <input
+          type="date"
+          name="branchOffers[<%= i %>][validityTo]"
+          value="<%= b.validity?.to?.toISOString().substring(0,10) %>"
+          class="border p-3 rounded"
+        >
+
+      </div>
+
+
       <% if (b.bannerImage) { %>
-        <img src="<%= b.bannerImage %>" class="w-48 mb-2">
+
+        <img
+          src="<%= b.bannerImage %>"
+          class="w-48 mt-3 rounded"
+        >
+
       <% } %>
 
-      <!-- NEW IMAGE -->
-      <label>Change Banner Image</label>
       <input
         type="file"
         name="branchImages"
-        class="border p-2 w-full"
+        class="border p-3 rounded w-full mt-3"
       >
 
     </div>
 
   <% }) %>
 
-  <button class="bg-blue-600 text-white px-4 py-2">
-    Update
+
+  <button class="btn-primary">
+    Update Offer
   </button>
 
 </form>
+
+</div>
