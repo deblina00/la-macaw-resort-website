@@ -4,39 +4,44 @@ const BanquetSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     branchId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Branch",
-      required: true
+      required: true,
+    },
+
+    totalArea: {
+      type: Number,
+      required: true,
     },
 
     capacity: {
-      type: Number
+      type: Number,
     },
 
     type: {
       type: String,
-      enum: ["Hall", "Lawn"]
+      enum: ["Hall", "Lawn"],
     },
 
     features: [
       {
-        type: String
-      }
+        type: String,
+      },
     ],
 
     images: [
       {
-        type: String
-      }
-    ]
+        type: String,
+      },
+    ],
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
 module.exports = mongoose.model("Banquet", BanquetSchema);

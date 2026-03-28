@@ -70,14 +70,14 @@ export default function HeroEnquiryForm() {
     <div className="absolute z-30 bottom-20 left-1/2 -translate-x-1/2 translate-y-1/2 w-[95%] max-w-7xl">
       <form
         onSubmit={submit}
-        className="hidden lg:flex items-center gap-4 px-7 py-7 bg-white/20 backdrop-blur-2xl border border-white/20 shadow-xl text-white"
+        className="hidden lg:flex items-center gap-4 px-7 py-7 bg-black/60 backdrop-blur-xl border border-resort-gold/20 shadow-xl text-white"
       >
         <input
           name="name"
           placeholder="Name"
           value={form.name}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70"
         />
 
         <input
@@ -86,7 +86,7 @@ export default function HeroEnquiryForm() {
           type="email"
           value={form.email}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70"
         />
 
         <input
@@ -94,7 +94,7 @@ export default function HeroEnquiryForm() {
           placeholder="Phone"
           value={form.phone}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70"
         />
 
         <input
@@ -102,7 +102,7 @@ export default function HeroEnquiryForm() {
           name="checkIn"
           value={form.checkIn}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70 text-sm"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70 text-sm"
         />
 
         <input
@@ -110,7 +110,7 @@ export default function HeroEnquiryForm() {
           name="checkOut"
           value={form.checkOut}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70 text-sm"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70 text-sm"
         />
 
         <input
@@ -119,7 +119,7 @@ export default function HeroEnquiryForm() {
           placeholder="Rooms"
           value={form.rooms}
           onChange={handleChange}
-          className="w-[90px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
+          className="w-[90px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70"
         />
 
         <input
@@ -128,14 +128,14 @@ export default function HeroEnquiryForm() {
           placeholder="Guests"
           value={form.guests}
           onChange={handleChange}
-          className="w-[90px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
+          className="w-[90px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70"
         />
 
         <select
           name="branch"
           value={form.branch}
           onChange={handleChange}
-          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/40 focus:border-white placeholder-white/70"
+          className="flex-1 min-w-[120px] bg-transparent px-3 py-2 focus:outline-none border-b border-white/30 focus:border-resort-gold placeholder-white/70"
         >
           <option className="text-black">Tajpur</option>
           <option className="text-black">Joypur</option>
@@ -144,7 +144,8 @@ export default function HeroEnquiryForm() {
 
         <button
           disabled={loading}
-          className="border border-white px-8 py-2 font-semibold tracking-wide hover:bg-white hover:text-black transition"
+          className="bg-resort-gold text-black px-8 py-2 font-semibold tracking-wide hover:bg-resort-goldHover 
+          transition"
         >
           {loading ? "Sending..." : "SEND"}
         </button>

@@ -85,8 +85,15 @@ export default function CareersPage() {
         />
         <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative text-center">
-          <h1 className="text-5xl font-cinzel mb-4">Join La Macaw Resort</h1>
+        <div className="relative text-center max-w-2xl px-6">
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
+            — Career —
+          </p>
+
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
+            Join La Macaw Resort
+          </h1>
+
           <p className="text-gray-300">
             Build your future with luxury hospitality
           </p>
@@ -94,7 +101,7 @@ export default function CareersPage() {
       </section>
 
       {/* JOB LIST */}
-      <section className="bg-black text-white py-20">
+      <section className="bg-[#0a0a0a] text-white py-20">
         <div className="container mx-auto px-6 max-w-5xl">
           {jobs.length === 0 ? (
             <div className="text-center py-20 border border-white/10">
@@ -113,13 +120,13 @@ export default function CareersPage() {
               {jobs.map((job) => (
                 <div
                   key={job._id}
-                  className="border border-white/10 p-6 flex justify-between items-center hover:border-yellow-600 transition"
+                  className="border border-white/10 p-6 flex justify-between items-center hover:border-resort-gold transition"
                 >
                   <p>{job.title}</p>
 
                   <button
                     onClick={() => handleApplyClick(job)}
-                    className="border border-yellow-600 text-yellow-500 px-5 py-2 hover:bg-yellow-600 hover:text-black transition"
+                    className="border border-resort-gold text-resort-gold px-5 py-2 hover:bg-resort-gold hover:text-black transition"
                   >
                     Apply
                   </button>
@@ -133,7 +140,7 @@ export default function CareersPage() {
       {/* MODAL */}
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
-          <div className="bg-[#0b0909] text-white w-full max-w-2xl p-8 border border-white/10 relative animate-fadeIn">
+          <div className="bg-[#0b0909] text-white w-full max-w-lg p-6 border border-white/10 relative animate-fadeIn max-h-[90vh] overflow-y-auto">
             {/* CLOSE BUTTON */}
             <button
               onClick={() => setOpen(false)}
@@ -142,15 +149,15 @@ export default function CareersPage() {
               ✕
             </button>
 
-            <h2 className="text-3xl font-cinzel mb-6 text-center">
+            <h2 className="text-2xl font-cinzel mb-6 text-center">
               Apply for {form.position}
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 placeholder="Full Name"
                 required
-                className="w-full bg-transparent border border-white/20 p-3 focus:border-yellow-600 outline-none"
+                className="w-full bg-transparent border border-white/20 px-3 py-2.5 text-sm focus:border-resort-gold outline-none"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setForm({ ...form, name: e.target.value })
                 }
@@ -159,7 +166,7 @@ export default function CareersPage() {
               <input
                 placeholder="Email"
                 required
-                className="w-full bg-transparent border border-white/20 p-3 focus:border-yellow-600 outline-none"
+                className="w-full bg-transparent border border-white/20 px-3 py-2.5 text-sm focus:border-resort-gold outline-none"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setForm({ ...form, email: e.target.value })
                 }
@@ -168,7 +175,7 @@ export default function CareersPage() {
               <input
                 placeholder="Phone"
                 required
-                className="w-full bg-transparent border border-white/20 p-3 focus:border-yellow-600 outline-none"
+                className="w-full bg-transparent border border-white/20 px-3 py-2.5 text-sm focus:border-resort-gold outline-none"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setForm({ ...form, phone: e.target.value })
                 }
@@ -178,7 +185,7 @@ export default function CareersPage() {
                 placeholder="Your Address"
                 required
                 rows={3}
-                className="w-full bg-transparent border border-white/20 p-3 focus:border-yellow-600 outline-none"
+                className="w-full bg-transparent border border-white/20 px-3 py-2.5 text-sm focus:border-resort-gold outline-none"
                 onChange={(e) => setForm({ ...form, address: e.target.value })}
               />
               <input
@@ -194,13 +201,22 @@ export default function CareersPage() {
               <textarea
                 placeholder="Comments"
                 rows={4}
-                className="w-full bg-transparent border border-white/20 p-3 focus:border-yellow-600 outline-none"
+                className="w-full bg-transparent border border-white/20 px-3 py-2.5 text-sm focus:border-resort-gold outline-none"
                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                   setForm({ ...form, comments: e.target.value })
                 }
               />
 
-              <button className="w-full bg-yellow-600 text-black py-3 font-semibold hover:bg-yellow-500 transition">
+              <button
+                className="w-full inline-block
+                px-8 py-3 
+                border border-resort-gold 
+                text-resort-gold 
+                tracking-widest text-sm
+                hover:bg-resort-gold 
+                hover:text-black 
+                transition-all duration-300"
+              >
                 Submit Application
               </button>
             </form>

@@ -7,6 +7,7 @@ import { Playfair_Display, Inter, Cinzel } from "next/font/google";
 import Script from "next/script";
 import { cn } from "@/lib/utils";
 import LenisProvider from "@/components/LenisProvider";
+import FloatingActions from "@/components/FloatingActions";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ const cinzel = Cinzel({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0F3D2E",
+  themeColor: "#0B0B0B",
 };
 
 export const metadata: Metadata = {
@@ -133,7 +134,7 @@ export default function RootLayout({
       lang="en"
       className={cn(playfair.variable, inter.variable, cinzel.variable)}
     >
-      <body className="bg-resort-bg text-resort-text antialiased">
+      <body className="bg-resort-offWhite text-resort-textDark antialiased pb-16 md:pb-0">
         <Script
           id="hotel-schema"
           type="application/ld+json"
@@ -144,7 +145,7 @@ export default function RootLayout({
         <Navbar />
 
         <LenisProvider>{children}</LenisProvider>
-
+        <FloatingActions />
         <Footer />
       </body>
     </html>

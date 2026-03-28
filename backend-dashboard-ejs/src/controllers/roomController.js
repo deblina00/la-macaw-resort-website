@@ -77,6 +77,7 @@ exports.createRoom = async (req, res) => {
       branchId: body.branchId,
       price: body.price,
       capacity: body.capacity,
+      totalBed: body.totalBed,
       amenities,
       gallery,
       description: body.description,
@@ -129,6 +130,7 @@ exports.updateRoom = async (req, res) => {
       branchId: body.branchId,
       price: body.price,
       capacity: body.capacity,
+      totalBed: body.totalBed,
       amenities,
       description: body.description,
     };

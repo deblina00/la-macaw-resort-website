@@ -123,3 +123,78 @@ body {
 .font-cinzel {
   font-family: var(--font-cinzel);
 }
+
+/* ===== PREMIUM DESIGN TOKENS ===== */
+
+:root {
+  --gold: #d4af37;
+  --gold-soft: #e6c767;
+  --black: #000000;
+  --black-soft: #0a0a0a;
+  --black-warm: #111111;
+  --white-soft: #f5f5f5;
+}
+
+/* ===== BUTTON SYSTEM ===== */
+
+.btn-gold {
+  @apply px-8 py-3 border border-resort-gold text-resort-gold 
+  tracking-wide uppercase text-sm transition-all duration-300;
+}
+
+.btn-gold:hover {
+  @apply bg-resort-gold text-black;
+}
+
+.btn-outline {
+  @apply px-8 py-3 border border-white/30 text-white 
+  tracking-wide uppercase text-sm transition-all duration-300;
+}
+
+.btn-outline:hover {
+  @apply bg-white text-black;
+}
+
+/* ===== SECTION SYSTEM ===== */
+
+.section-dark {
+  @apply bg-black text-white py-24;
+}
+
+.section-soft {
+  @apply bg-[#0a0a0a] text-white py-24;
+}
+
+/* ===== CARD SYSTEM ===== */
+
+.card-premium {
+  @apply border border-white/10 bg-white/5 backdrop-blur-md 
+  transition-all duration-300;
+}
+
+.card-premium:hover {
+  @apply border-resort-gold;
+}
+
+/* ===== TEXT SYSTEM ===== */
+
+.heading-gold {
+  @apply text-resort-gold font-cinzel tracking-wide;
+}
+
+.subtle-text {
+  @apply text-gray-400;
+}
+
+/* Smooth hover feel */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Image hover premium zoom */
+.img-hover {
+  @apply transition duration-700;
+}
+.img-hover:hover {
+  transform: scale(1.08);
+}

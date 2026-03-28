@@ -6,8 +6,8 @@ import { useInView } from "react-intersection-observer";
 
 export default function ResortStats() {
   const stats = [
-    { label: "Total Reviews", value: 83 },
-    { label: "Years of Experience", value: 8 },
+    { label: "Total Reviews", value: 1500 },
+    { label: "Years of Experience", value: 7 },
     { label: "Happy Guests", value: 6700 },
     { label: "Successful Events", value: 100 },
   ];
@@ -23,55 +23,49 @@ export default function ResortStats() {
   }, [inView]);
 
   return (
-    <section ref={ref} className="bg-[#0b0909] text-white py-20">
-
+    <section ref={ref} className="bg-resort-black text-white py-20">
+      {/* HEADER */}
       <div className="container mx-auto px-6 text-center">
-
-        <p className="text-sm tracking-[0.35em] text-gray-400 mb-3">
-         — RESORT AT A GLANCE —
+        {/* LABEL */}
+        <p className="text-xs tracking-[0.4em] text-resort-gold mb-4 uppercase">
+        — Resort At A Glance —
         </p>
 
-        <h2 className="text-3xl md:text-4xl font-cinzel mb-10">
-          DELIVERING EXCELLENCE, ONE STAY AT A TIME
+        {/* HEADING */}
+        <h2 className="text-3xl md:text-5xl font-cinzel tracking-[0.1em] mb-10">
+          DELIVERING EXCELLENCE
+          <br />
+          ONE STAY AT A TIME
         </h2>
-
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-20 text-center">
-
+      {/* STATS GRID */}
+      <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-10 text-center">
         {stats.map((stat, i) => (
-
           <div key={i} className="relative">
-
-            {/* BIG NUMBER */}
-            <div className="text-5xl md:text-7xl font-cinzel font-light text-white">
-
+            {/* NUMBER */}
+            <div className="text-4xl md:text-6xl font-cinzel font-light text-white tracking-wide">
               {start ? (
                 <CountUp end={stat.value} duration={2.5} separator="," />
               ) : (
                 0
               )}
 
-              <span className="text-yellow-600">+</span>
-
+              <span className="text-resort-gold ml-1">+</span>
             </div>
 
             {/* LABEL */}
-            <p className="mt-4 text-gray-400 tracking-wide uppercase text-sm">
+            <p className="mt-4 text-white/60 tracking-[0.2em] uppercase text-xs">
               {stat.label}
             </p>
 
-            {/* Divider line */}
+            {/* VERTICAL DIVIDER (desktop only) */}
             {i !== stats.length - 1 && (
-              <div className="hidden md:block absolute right-[-20px] top-1/2 -translate-y-1/2 w-px h-20 bg-white/10" />
+              <div className="hidden md:block absolute right-[-20px] top-1/2 -translate-y-1/2 w-px h-16 bg-resort-gold/20" />
             )}
-
           </div>
-
         ))}
-
       </div>
-
     </section>
   );
 }

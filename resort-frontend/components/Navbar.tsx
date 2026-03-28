@@ -18,8 +18,8 @@ export default function Navbar() {
       href={href}
       className={`transition duration-300 ${
         pathname === href
-          ? "text-resort-secondary"
-          : "text-white hover:text-resort-secondary"
+          ? "text-resort-gold"
+          : "text-white hover:text-resort-gold"
       }`}
     >
       {label}
@@ -49,13 +49,14 @@ export default function Navbar() {
 
   return (
     <>
+      {/* <nav className="absolute top-8 md:top-10 left-0 w-full z-40 bg-transparent"> */}
       <nav className="absolute top-8 md:top-10 left-0 w-full z-40 bg-transparent">
         <div className="container flex items-center justify-between py-6 text-white">
           {/* LEFT SECTION */}
           <div className="flex items-center gap-10">
             {/* MENU BUTTON */}
             <button
-              className="text-white text-2xl"
+              className="text-white text-2xl hover:text-resort-gold transition"
               onClick={() => setMobileMenu(!mobileMenu)}
               aria-label="Toggle Menu"
             >
@@ -88,7 +89,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-8 text-sm tracking-wide font-medium">
             <button
               onClick={() => setOpenBranches(true)}
-              className="hover:text-resort-secondary transition"
+              className="hover:text-resort-gold transition"
             >
               Properties
             </button>

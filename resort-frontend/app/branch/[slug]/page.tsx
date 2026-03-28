@@ -1,5 +1,4 @@
 import { branches } from "@/data/branches";
-
 import BranchHero from "@/components/branch/BranchHero";
 import BranchAmenities from "@/components/branch/BranchAmenities";
 import BranchAbout from "@/components/branch/BranchAbout";

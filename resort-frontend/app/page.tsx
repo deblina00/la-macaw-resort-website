@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import HeroSection from "@/components/Hero/HeroSection";
 import AboutPreview from "@/components/home/AboutPreview";
-// import OffersBanner from "@/components/home/OffersBanner";
 import BranchShowcase from "@/components/home/BranchShowcase";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import ResortStats from "@/components/home/ResortStats";
@@ -24,7 +23,6 @@ export default function Home() {
       <OfferPopup />
       <HeroSection />
       <AboutPreview />
-      {/* <OffersBanner /> */}
       <BranchShowcase />
       <ServicesOverview />
       <ResortStats />

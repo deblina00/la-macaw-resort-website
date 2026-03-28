@@ -37,7 +37,7 @@ export default function B2BClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[520px] flex items-center justify-center text-white">
+      <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
           src="/gallery-hero.jpg"
           fill
@@ -46,14 +46,15 @@ export default function B2BClient() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
-        <div className="relative text-center px-6">
-          <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
+
+        <div className="relative text-center max-w-2xl px-6">
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
             — BUSINESS PARTNERSHIP —
           </p>
-          <h1 className="text-4xl md:text-5xl font-cinzel mb-6">
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
             B2B COLLABORATIONS
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-300 mx-auto">
             Partner with La Macaw Resort to deliver unforgettable travel
             experiences and premium hospitality for your clients.
           </p>
@@ -61,7 +62,7 @@ export default function B2BClient() {
       </section>
 
       {/* CONTENT + FORM */}
-      <section className="relative bg-gradient-to-b from-[#0b0909] via-black to-[#0b0909] text-white py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-[#0b0909] via-black to-[#0b0909] text-white py-20 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/5 blur-[140px]"></div>
 
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-start">
@@ -86,7 +87,7 @@ export default function B2BClient() {
             </p>
 
             {/* CONTACT BOX */}
-            <div className="border border-white/10 p-10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-xl relative overflow-hidden">
+            <div className="border border-white/10 p-10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl relative overflow-hidden">
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-yellow-500/10 blur-3xl"></div>
               <h3 className="text-2xl font-semibold mb-6">Partner Contact</h3>
               <p className="text-gray-300 mb-4">
@@ -110,7 +111,7 @@ export default function B2BClient() {
           </div>
 
           {/* FORM */}
-          <div className="relative border border-white/10 bg-white/5 backdrop-blur-xl p-12 rounded-2xl shadow-2xl overflow-hidden">
+          <div className="relative border border-white/10 bg-white/5 backdrop-blur-xl p-12 shadow-2xl overflow-hidden">
             <h3 className="text-3xl font-cinzel mb-4">Become a Partner</h3>
             <p className="text-gray-400 mb-8">
               Share your details and our team will reach out to discuss
@@ -126,13 +127,13 @@ export default function B2BClient() {
                   onChange={(e) =>
                     setForm({ ...form, agencyName: e.target.value })
                   }
-                  className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                  className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
                 />
                 <input
                   placeholder="Contact Person"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                  className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
                 />
               </div>
 
@@ -142,13 +143,13 @@ export default function B2BClient() {
                   placeholder="Email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                  className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
                 />
                 <input
                   placeholder="Phone"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                  className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
                 />
               </div>
 
@@ -157,7 +158,7 @@ export default function B2BClient() {
                   placeholder="City"
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
-                  className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                  className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
                 />
                 <input
                   placeholder="Pincode"
@@ -165,7 +166,7 @@ export default function B2BClient() {
                   onChange={(e) =>
                     setForm({ ...form, pincode: e.target.value })
                   }
-                  className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                  className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
                 />
               </div>
 
@@ -174,7 +175,7 @@ export default function B2BClient() {
                 rows={1}
                 value={form.address}
                 onChange={(e) => setForm({ ...form, address: e.target.value })}
-                className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
               />
 
               <textarea
@@ -182,12 +183,18 @@ export default function B2BClient() {
                 rows={3}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="bg-black/30 border border-white/10 px-4 py-3 w-full rounded-md text-sm focus:outline-none focus:border-yellow-500 transition"
+                className="bg-black/30 border border-white/10 px-4 py-3 w-full  text-sm focus:outline-none focus:border-resort-gold transition"
               />
 
               <button
                 disabled={loading}
-                className="w-full border border-white py-3 tracking-widest hover:bg-white hover:text-black transition"
+                className="w-full inline-block
+                px-8 py-3 border border-resort-gold 
+                text-resort-gold 
+                tracking-widest text-sm
+                hover:bg-resort-gold 
+                hover:text-black 
+                transition-all duration-300"
               >
                 {loading ? "Submitting..." : "Submit Enquiry"}
               </button>

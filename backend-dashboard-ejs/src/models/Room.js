@@ -4,49 +4,53 @@ const RoomSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     branchId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Branch",
-      required: true
+      required: true,
     },
 
     price: {
       type: Number,
-      required: true
+      required: true,
     },
 
     capacity: {
       type: Number,
-      required: true
+      required: true,
+    },
+    totalBed: {
+      type: Number,
+      requires: true,
     },
 
     amenities: [
       {
-        type: String
-      }
+        type: String,
+      },
     ],
 
     gallery: [
       {
-        type: String
-      }
+        type: String,
+      },
     ],
 
     description: {
-      type: String
+      type: String,
     },
 
     ratings: {
       type: Number,
-      default: 4.5
-    }
+      default: 4.5,
+    },
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
 module.exports = mongoose.model("Room", RoomSchema);

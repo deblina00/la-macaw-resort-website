@@ -50,7 +50,7 @@ export default function ContactClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[520px] flex items-center justify-center text-white">
+      <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
           src="/gallery-hero.jpg"
           fill
@@ -59,14 +59,17 @@ export default function ContactClient() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
-        <div className="relative text-center px-6">
-          <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
+
+        <div className="relative text-center max-w-2xl px-6">
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
             — CONTACT LA MACAW —
           </p>
-          <h1 className="text-4xl md:text-6xl font-cinzel mb-6">
+
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
             PLAN YOUR PERFECT STAY
           </h1>
-          <p className="max-w-2xl mx-auto text-gray-300">
+          
+          <p className="text-gray-300">
             Whether you&apos;re planning a relaxing getaway, destination
             wedding, or corporate retreat, our team is ready to assist you.
           </p>
@@ -74,22 +77,22 @@ export default function ContactClient() {
       </section>
 
       {/* GET IN TOUCH WITH US */}
-      <section className="bg-black text-white py-24 px-6">
+      <section className="bg-black text-white py-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Heading row */}
           <div className="grid lg:grid-cols-2 gap-10 items-center mb-16">
             <div>
-              <p className="text-sm tracking-[0.3em] text-gray-400 mb-4 flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-gray-500"></span>
+              <p className="text-sm tracking-[0.3em] text-resort-gold mb-4 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-resort-gold"></span>
                 Contact Us
               </p>
 
-              <h2 className="font-cinzel text-4xl md:text-5xl leading-tight">
-                GET IN TOUCH WITH <br /> US
+              <h2 className="font-cinzel text-3xl md:text-4xl leading-tight">
+                GET IN TOUCH WITH US
               </h2>
             </div>
 
-            <p className="text-gray-400 max-w-md">
+            <p className="text-gray-400">
               Connect with our hospitality team for bookings, weddings,
               corporate retreats, or special celebrations across our resort
               destinations.
@@ -98,16 +101,16 @@ export default function ContactClient() {
 
           {/* Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+            <div className="bg-[#161616] border border-white/10 hover:border-resort-gold transition p-10 text-center">
               <p className="text-3xl mb-6">✉</p>
-              <h4 className="font-cinzel text-xl mb-4">MAIL US</h4>
+              <h4 className="font-cinzel text-xl mb-4 text-resort-gold">MAIL US</h4>
               <p className="text-gray-400 text-sm">sales.lmc2018@gmail.com</p>
               <p className="text-gray-400 text-sm">lamacawresort@gmail.com</p>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+            <div className="bg-[#161616] border border-white/10 hover:border-resort-gold transition p-10 text-center">
               <p className="text-3xl mb-6">🏢</p>
-              <h4 className="font-cinzel text-xl mb-4">VISIT OUR OFFICE</h4>
+              <h4 className="font-cinzel text-xl mb-4 text-resort-gold">VISIT OUR OFFICE</h4>
               <p className="text-gray-400 text-sm">
                 Mani Casadona, Newtown
                 <br />
@@ -115,9 +118,9 @@ export default function ContactClient() {
               </p>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+            <div className="bg-[#161616] border border-white/10 hover:border-resort-gold transition p-10 text-center">
               <p className="text-3xl mb-6">📍</p>
-              <h4 className="font-cinzel text-xl mb-4">VISIT OUR RESORT</h4>
+              <h4 className="font-cinzel text-xl mb-4 text-resort-gold">VISIT OUR RESORT</h4>
               <p className="text-gray-400 text-sm">
                 Tajpur / Joypur / Purulia
                 <br />
@@ -125,9 +128,9 @@ export default function ContactClient() {
               </p>
             </div>
 
-            <div className="bg-[#161616] border border-white/10 p-10 text-center">
+            <div className="bg-[#161616] border border-white/10 hover:border-resort-gold transition p-10 text-center">
               <p className="text-3xl mb-6">📞</p>
-              <h4 className="font-cinzel text-xl mb-4">CALL US</h4>
+              <h4 className="font-cinzel text-xl mb-4 text-resort-gold">CALL US</h4>
               <p className="text-gray-400 text-sm">+91 96744 07000</p>
               <p className="text-gray-400 text-sm">+91 90512 11212</p>
             </div>
@@ -150,13 +153,13 @@ export default function ContactClient() {
                 placeholder="Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
               />
               <input
                 placeholder="Email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
               />
             </div>
 
@@ -166,12 +169,12 @@ export default function ContactClient() {
                 placeholder="Phone"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
               />
               <select
                 value={form.branch}
                 onChange={(e) => setForm({ ...form, branch: e.target.value })}
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
               >
                 <option value="" className="text-black">
                   Select Branch
@@ -192,12 +195,12 @@ export default function ContactClient() {
             <div className="grid md:grid-cols-2 gap-4">
               <input
                 type="date"
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
                 onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
               />
               <input
                 type="date"
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
                 onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
               />
             </div>
@@ -208,13 +211,13 @@ export default function ContactClient() {
                 placeholder="Guests"
                 value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
               />
               <input
                 placeholder="Rooms"
                 value={form.rooms}
                 onChange={(e) => setForm({ ...form, rooms: e.target.value })}
-                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+                className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
               />
             </div>
 
@@ -245,12 +248,19 @@ export default function ContactClient() {
               placeholder="Message"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-white"
+              className="w-full bg-transparent border-b border-white/30 py-3 outline-none placeholder-gray-400 focus:border-resort-gold"
             />
 
             <button
               disabled={loading}
-              className="w-full border border-white py-3 tracking-widest hover:bg-white hover:text-black transition"
+              className="w-full inline-block
+                px-8 py-3 
+                border border-resort-gold 
+                text-resort-gold 
+                tracking-widest text-sm
+                hover:bg-resort-gold 
+                hover:text-black 
+                transition-all duration-300"
             >
               {loading ? "Submitting..." : "Submit Enquiry"}
             </button>

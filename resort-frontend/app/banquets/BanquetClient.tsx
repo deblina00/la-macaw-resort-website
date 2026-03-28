@@ -26,34 +26,40 @@ export default function BanquetsClient() {
           alt="Banquet Hall"
           className="absolute object-cover"
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative text-center px-6">
-          <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
-           — BANQUETS —
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/90" />
+        
+        <div className="relative text-center max-w-2xl px-6">
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
+            — BANQUETS —
           </p>
-          <h1 className="text-4xl md:text-5xl font-cinzel mb-6">
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
             BANQUETS & GRAND CELEBRATIONS
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Host unforgettable weddings, corporate gatherings and special celebrations at La Macaw Resort.
+          <p className="text-gray-300">
+            Host unforgettable weddings, corporate gatherings and special
+            celebrations at La Macaw Resort.
           </p>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="bg-black text-white py-24">
-        <div className="container mx-auto text-center max-w-3xl px-6">
-          <h2 className="text-4xl font-cinzel mb-6">
+      <section className="bg-[#0b0909] text-white py-20">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <h2 className="text-4xl font-cinzel mb-8 text-resort-gold">
             ELEGANT VENUES FOR EVERY OCCASION
           </h2>
-          <p className="text-gray-400 leading-relaxed">
-            Our banquet halls are thoughtfully designed to host everything from intimate celebrations to grand weddings and corporate conferences. Experience sophisticated interiors, flexible layouts, and exceptional hospitality tailored for unforgettable events.
+
+          <p className="text-gray-300 leading-relaxed mb-6">
+            Our banquet halls are thoughtfully designed to host everything from
+            intimate celebrations to grand weddings and corporate conferences.
+            Experience sophisticated interiors, flexible layouts, and
+            exceptional hospitality tailored for unforgettable events.
           </p>
         </div>
       </section>
 
       {/* BANQUET GRID */}
-      <section className="bg-black pb-28">
+      <section className="bg-gradient-to-b from-black via-[#0b0909] to-black pb-28">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {banquets.map((b) => (

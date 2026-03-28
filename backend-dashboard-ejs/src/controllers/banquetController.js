@@ -49,6 +49,7 @@ exports.createBanquet = async (req, res) => {
     await Banquet.create({
       title: body.title,
       branchId: body.branchId,
+      totalArea: body.totalArea,
       capacity: body.capacity,
       type: body.type,
       features,
@@ -100,6 +101,7 @@ exports.updateBanquet = async (req, res) => {
     const updateData = {
       title: body.title,
       branchId: body.branchId,
+      totalArea: body.totalArea,
       capacity: body.capacity,
       type: body.type,
       features,

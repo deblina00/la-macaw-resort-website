@@ -5,21 +5,23 @@ const createBanquetSchema = Joi.object({
 
   branchId: Joi.string().required(),
 
+  totalArea: Joi.number().required(),
+
   capacity: Joi.number().min(1).optional(),
 
   type: Joi.string().valid("Hall", "Lawn").required(),
 
   features: Joi.alternatives()
     .try(Joi.array().items(Joi.string()), Joi.string())
-    .optional()
+    .optional(),
 });
 
 const updateBanquetSchema = createBanquetSchema.fork(
   ["title", "branchId", "type"],
-  (schema) => schema.optional()
+  (schema) => schema.optional(),
 );
 
 module.exports = {
   createBanquetSchema,
-  updateBanquetSchema
+  updateBanquetSchema,
 };

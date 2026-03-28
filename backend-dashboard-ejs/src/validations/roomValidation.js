@@ -7,6 +7,8 @@ const createRoomSchema = Joi.object({
 
   price: Joi.number().min(0).required(),
 
+  totalBed: Joi.number().min(1).required(),
+
   capacity: Joi.number().min(1).required(),
 
   amenities: Joi.alternatives()
@@ -17,7 +19,7 @@ const createRoomSchema = Joi.object({
 });
 
 const updateRoomSchema = createRoomSchema.fork(
-  ["title", "branchId", "price", "capacity"],
+  ["title", "branchId", "price", "totalBed", "capacity"],
   (schema) => schema.optional(),
 );
 

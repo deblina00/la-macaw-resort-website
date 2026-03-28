@@ -18,7 +18,7 @@ export default function OffersClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[520px] flex items-center justify-center text-white">
+      <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
           src="/gallery-hero.jpg"
           fill
@@ -27,14 +27,14 @@ export default function OffersClient() {
           priority
         />
 
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/70" />
 
         <div className="relative text-center max-w-2xl px-6">
-          <p className="uppercase tracking-widest text-sm text-gray-300 mb-4">
-            Exclusive Packages
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
+            — Exclusive Packages —
           </p>
 
-          <h1 className="text-5xl md:text-6xl font-serif mb-6">
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
             Special Resort Offers
           </h1>
 
@@ -46,9 +46,9 @@ export default function OffersClient() {
       </section>
 
       {/* INTRO */}
-      <section className="bg-black text-white py-24">
-        <div className="container mx-auto px-6 text-center max-w-3xl">
-          <h2 className="text-4xl font-serif mb-6">
+      <section className="bg-[#0a0a0a] text-white py-20">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <h2 className="text-4xl font-cinzel mb-8 text-resort-gold">
             Luxury Packages & Seasonal Deals
           </h2>
 
@@ -68,7 +68,7 @@ export default function OffersClient() {
               offer.branchOffers.map((branch) => (
                 <div
                   key={`${offer._id}-${branch.branch}`}
-                  className="group relative  overflow-hidden border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.6)] hover:shadow-[0_25px_80px_rgba(0,0,0,0.95)] transition-all duration-700"
+                  className="group relative  overflow-hidden border border-resort-gold/20 bg-gradient-to-b from-white/5 to-white/[0.02] backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.6)] hover:shadow-[0_25px_80px_rgba(0,0,0,0.95)] hover:border-resort-gold transition-all duration-700"
                 >
                   {/* IMAGE */}
                   <div className="relative h-72 overflow-hidden">
@@ -83,12 +83,12 @@ export default function OffersClient() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition duration-700" />
 
                     {/* BRANCH BADGE */}
-                    <div className="absolute top-5 left-5 bg-white/90 text-black px-4 py-1.5 rounded-full text-[11px] tracking-widest font-semibold shadow-lg backdrop-blur">
+                    <div className="absolute top-5 left-5 bg-resort-gold uppercase text-black px-4 py-1.5 rounded-full text-[11px] tracking-widest font-semibold shadow-lg backdrop-blur">
                       {branch.branch}
                     </div>
 
                     {/* PRICE TAG */}
-                    <div className="absolute bottom-5 right-5 bg-white/10 backdrop-blur-lg border border-white/20 px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    <div className="absolute bottom-5 right-5 bg-white/10 backdrop-blur-lg border border-resort-gold px-5 py-2 rounded-full text-sm font-semibold shadow-lg text-resort-gold">
                       ₹{branch.price}
                     </div>
                   </div>
@@ -96,7 +96,7 @@ export default function OffersClient() {
                   {/* CONTENT */}
                   <div className="p-7 flex flex-col justify-between h-[270px]">
                     <div>
-                      <p className="text-[10px] tracking-[0.35em] uppercase text-gray-400 mb-3">
+                      <p className="text-[10px] tracking-[0.35em] uppercase text-resort-gold mb-3">
                         Limited Edition Stay
                       </p>
 
@@ -120,7 +120,7 @@ export default function OffersClient() {
 
                     {/* CTA */}
                     <Link href="/contact">
-                      <button className="mt-6 relative w-full py-3 rounded-full text-sm tracking-wider font-medium border border-white/20 overflow-hidden group/btn transition-all duration-500">
+                      <button className="mt-6 relative w-full py-3 text-sm tracking-wider font-medium border border-resort-gold/20 overflow-hidden group/btn transition-all duration-500">
                         {/* shimmer effect */}
                         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover/btn:opacity-100 transition duration-700 blur-md" />
 
@@ -128,7 +128,7 @@ export default function OffersClient() {
                           Enquiry Now
                         </span>
 
-                        <span className="absolute inset-0 bg-white scale-x-0 origin-left group-hover/btn:scale-x-100 transition-transform duration-500" />
+                        <span className="absolute inset-0 bg-resort-gold scale-x-0 origin-left group-hover/btn:scale-x-100 transition-transform duration-500" />
                       </button>
                     </Link>
                   </div>
@@ -143,28 +143,60 @@ export default function OffersClient() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 text-white text-center">
+      <section className="relative overflow-hidden py-20 text-white">
+        {/* BACKGROUND IMAGE */}
         <Image
-          src="/gallery-hero.jpg"
+          src="/book-banner.jpg"
+          alt="Luxury Resort Stay"
           fill
-          alt="Luxury stay"
-          className="object-cover"
+          priority
+          className="object-cover scale-105"
         />
 
-        <div className="absolute inset-0 bg-black/70" />
+        {/* DARK + GOLD OVERLAY */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black" />
+        <div className="absolute inset-0 bg-resort-gold/15" />
 
-        <div className="relative max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-serif mb-6">Plan Your Luxury Escape</h2>
-
-          <p className="text-gray-300 mb-8">
-            Experience the perfect blend of nature, comfort and hospitality at
-            La Macaw Resort.
+        {/* CONTENT */}
+        <div className="relative container mx-auto px-6 text-center">
+          {/* LABEL */}
+          <p className="text-xs tracking-[0.4em] text-resort-gold mb-4 uppercase">
+            — Plan Your Escape —
           </p>
 
+          {/* HEADING */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-cinzel tracking-[0.12em] leading-tight mb-6">
+            BOOK YOUR DREAM STAY
+          </h2>
+
+          {/* DESCRIPTION */}
+          <p className="max-w-2xl mx-auto text-white/70 mb-10 text-sm md:text-base">
+            Experience luxury, nature, and unforgettable hospitality across our
+            exclusive destinations. Your perfect escape awaits.
+          </p>
+
+          {/* CTA BUTTON */}
           <Link href="/contact">
-            <button className="px-10 py-4 bg-white text-black font-semibold hover:bg-gray-200 transition">
-              Book Your Stay
-            </button>
+            <span
+              className="
+               inline-flex items-center gap-2 
+               px-10 py-3 
+               border border-resort-gold 
+               text-resort-gold 
+               hover:bg-resort-gold 
+               tracking-widest text-sm
+               relative overflow-hidden
+               transition-all duration-300
+               hover:text-black
+             "
+            >
+              {/* HOVER BG */}
+              <span className="absolute inset-0 bg-resort-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+
+              {/* TEXT */}
+              <span className="relative z-10">BOOK YOUR STAY</span>
+            </span>
           </Link>
         </div>
       </section>
