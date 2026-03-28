@@ -249,7 +249,7 @@ West Bengal`,
       text1:
         "Located near Ayodhya Hills, the resort offers a peaceful escape surrounded by scenic landscapes.",
       text2: "Perfect for nature lovers and adventure travelers.",
-      images: ["/purulia-1.jpg", "/purulia-2.jpg"],
+      images: ["/purulia-1.jpeg", "/purulia-2.jpg"],
     },
 
     faq: [

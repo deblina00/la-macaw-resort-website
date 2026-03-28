@@ -16,7 +16,7 @@ export default function BranchLocation({ location }: Props) {
         {/* LEFT CONTENT */}
         <div className="max-w-lg">
 
-          <p className="tracking-[0.35em] text-gray-400 text-sm mb-4">
+          <p className="tracking-[0.35em] text-resort-gold text-sm mb-4">
             — LOCATION —
           </p>
 

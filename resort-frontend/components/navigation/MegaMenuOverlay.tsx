@@ -174,11 +174,6 @@
 //   );
 // }
 
-
-
-
-
-
 // 2ND CHANGE
 // "use client";
 
@@ -206,8 +201,8 @@
 //       {/* CLOSE BUTTON */}
 //       <button
 //         onClick={close}
-//         className={`absolute top-8 right-10 z-[1000] w-12 h-12 flex items-center justify-center rounded-full 
-//         bg-black/70 backdrop-blur-md border border-white/10 text-white text-2xl 
+//         className={`absolute top-8 right-10 z-[1000] w-12 h-12 flex items-center justify-center rounded-full
+//         bg-black/70 backdrop-blur-md border border-white/10 text-white text-2xl
 //         hover:bg-resort-gold hover:text-black transition-all duration-500
 //         ${open ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
 //       >
@@ -216,7 +211,7 @@
 
 //       {/* LEFT MENU */}
 //       <div
-//         className={`bg-gradient-to-b from-black via-black to-[#111] text-white 
+//         className={`bg-gradient-to-b from-black via-black to-[#111] text-white
 //         flex flex-col items-center justify-center gap-5 lg:gap-6 text-xl font-serif
 //         transform transition-all duration-700 ease-out
 //         ${open ? "translate-x-0" : "-translate-x-20"}`}
@@ -345,8 +340,6 @@
 //   );
 // }
 
-
-
 // NEW LAYOUT
 "use client";
 
@@ -374,7 +367,7 @@ export default function MegaMenuOverlay({
       {/* CLOSE BUTTON */}
       <button
         onClick={close}
-        className={`absolute top-8 right-10 z-[1000] w-12 h-12 flex items-center justify-center 
+        className={`absolute top-8 right-10 z-[1000] w-8 h-8 lg:w-12 lg:h-12 flex items-center justify-center 
         rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-white text-2xl 
         hover:border-resort-gold hover:text-resort-gold transition-all duration-500
         ${open ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
@@ -384,7 +377,7 @@ export default function MegaMenuOverlay({
 
       {/* LEFT MENU */}
       <div
-        className={`relative flex flex-col items-center justify-center gap-4 lg:gap-6 text-xl font-serif
+        className={`relative flex flex-col items-center justify-center gap-4  lg:gap-6 text-xl font-serif
         text-white
         transform transition-all duration-700 ease-out
         ${open ? "translate-x-0" : "-translate-x-20"}`}
@@ -395,7 +388,7 @@ export default function MegaMenuOverlay({
         {/* GOLD GLOW */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.15),transparent_40%)]" />
 
-        <div className="relative z-10 flex flex-col items-center gap-6">
+        <div className="relative z-10 flex flex-col items-center lg:gap-6 gap-4">
           <Image src="/logo.png" width={180} height={80} alt="logo" />
 
           <div onClick={close}>{navLink("/", "Home")}</div>
@@ -426,8 +419,10 @@ export default function MegaMenuOverlay({
           <div onClick={close}>{navLink("/contact", "Contact")}</div>
 
           {/* CTA BUTTON */}
-          <button className="mt-8 px-12 py-3 text-sm border border-resort-gold text-resort-gold 
-          hover:bg-resort-gold hover:text-black transition-all duration-300">
+          <button
+            className="mt-8 px-12 py-3 text-sm border border-resort-gold text-resort-gold 
+          hover:bg-resort-gold hover:text-black transition-all duration-300"
+          >
             ENQUIRY NOW
           </button>
         </div>
@@ -502,16 +497,12 @@ export default function MegaMenuOverlay({
 
             <div>
               <h3 className="font-semibold mb-2 text-resort-gold">Email</h3>
-              <p className="text-sm text-gray-300">
-                info@lamacawresort.com
-              </p>
+              <p className="text-sm text-gray-300">info@lamacawresort.com</p>
             </div>
 
             <div>
               <h3 className="font-semibold mb-2 text-resort-gold">Phone</h3>
-              <p className="text-sm text-gray-300">
-                +91 1234567809
-              </p>
+              <p className="text-sm text-gray-300">+91 1234567809</p>
             </div>
           </div>
         </div>

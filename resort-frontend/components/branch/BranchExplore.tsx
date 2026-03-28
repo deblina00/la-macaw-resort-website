@@ -16,7 +16,7 @@ export default function BranchExplore({ currentSlug }: Props) {
         {/* HEADER */}
         <div className="text-center mb-16">
 
-          <p className="tracking-[0.3em] text-gray-400 text-sm mb-3">
+          <p className="tracking-[0.3em] text-resort-gold text-sm mb-3">
            — DISCOVER MORE —
           </p>
 
@@ -57,11 +57,11 @@ export default function BranchExplore({ currentSlug }: Props) {
                   {/* TEXT */}
                   <div className="absolute bottom-8 left-8">
 
-                    <h3 className="text-3xl font-serif mb-2">
+                    <h3 className="text-3xl font-cinzel mb-2">
                       {branch.name}
                     </h3>
 
-                    <span className="text-sm tracking-wider text-gray-300 group-hover:text-white transition">
+                    <span className="text-sm tracking-wider text-gray-300 group-hover:text-resort-gold transition">
                       Explore Destination →
                     </span>
 

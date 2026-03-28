@@ -24,7 +24,7 @@ export default async function BranchRooms({ branchId }: Props) {
   <div className="container mx-auto px-6">
 
     <div className="text-center mb-16">
-      <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
+      <p className="uppercase tracking-widest text-sm text-resort-gold mb-4">
        — ACCOMODATION —
       </p>
 

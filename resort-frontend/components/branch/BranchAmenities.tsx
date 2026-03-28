@@ -56,11 +56,11 @@ export default function BranchAmenities({ amenities }: Props) {
       <div className="container mx-auto px-6">
         {/* TITLE */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-widest text-sm text-gray-400 mb-4">
+          <p className="uppercase tracking-[0.25em] text-xs text-resort-gold mb-4">
             — AMENITIES —
           </p>
 
-          <h2 className="text-4xl lg:text-5xl font-cinzel">
+          <h2 className="text-3xl lg:text-4xl font-cinzel tracking-[0.08em] leading-tight">
             OUR AMENITIES & FACILITIES
           </h2>
         </div>
@@ -86,10 +86,10 @@ export default function BranchAmenities({ amenities }: Props) {
                 )}
 
                 {/* DEFAULT CONTENT */}
-                <div className="absolute inset-0 bg-[#174c57] group-hover:bg-black/40 transition flex flex-col items-center justify-center text-center p-4">
+                <div className="absolute inset-0 bg-resort-goldHover group-hover:bg-black/40 hover:text-white transition flex flex-col items-center justify-center text-center p-4">
                   {Icon && <Icon size={28} className="mb-3 text-gray-300" />}
 
-                  <p className="text-base tracking-widest uppercase text-gray-400">
+                  <p className="text-base tracking-widest uppercase text-white">
                     {item.title}
                   </p>
                 </div>

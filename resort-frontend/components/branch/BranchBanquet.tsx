@@ -20,7 +20,7 @@ export default async function BranchBanquet({ branchId }: Props) {
     <section className="bg-[#0b0909] text-white py-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="tracking-[0.3em] text-gray-400 text-sm mb-3">
+          <p className="tracking-[0.3em] text-resort-gold text-sm mb-3">
             — EVENTS & CELEBRATIONS —
           </p>
 

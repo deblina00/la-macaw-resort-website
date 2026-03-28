@@ -7,7 +7,7 @@ type Props = {
 };
 export default function BranchHero({ branch }: Props) {
   return (
-    <section className="relative h-[420px] flex items-center justify-center text-white">
+    <section className="relative h-[500px] flex items-center justify-center text-white">
       <Image
         src={branch.heroImage}
         alt={branch.name}
@@ -15,18 +15,34 @@ export default function BranchHero({ branch }: Props) {
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/70" />
 
-      <div className="relative text-center max-w-2xl">
-        <h1 className="text-5xl font-semibold mb-2 mt-10 font-cinzel">{branch.name}</h1>
+      <div className="relative text-center max-w-2xl px-6">
+        <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
+          — Properties —
+        </p>
+        <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
+          {branch.name}
+        </h1>
 
-        <p className="text-lg">{branch.description}</p>
+        <p className="text-gray-300 mb-10">{branch.description}</p>
 
-        <Link
-          href="/rooms"
-          className="inline-block mt-6 bg-white text-black px-6 py-3"
-        >
-          Book Your Stay
+        {/* CTA */}
+        <Link href="/rooms">
+          <span
+            className="
+                inline-block
+                px-8 py-3 
+                border border-resort-gold 
+                text-resort-gold 
+                tracking-widest text-sm
+                hover:bg-resort-gold 
+                hover:text-black 
+                transition-all duration-300
+              "
+          >
+            Book Your Stay
+          </span>
         </Link>
       </div>
     </section>

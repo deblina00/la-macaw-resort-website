@@ -55,7 +55,7 @@ export default function BranchFAQ({ faq, images }: Props) {
         {/* RIGHT FAQ */}
         <div className="h-[560px]">
 
-          <p className="tracking-[0.3em] text-gray-400 text-sm mb-4">
+          <p className="tracking-[0.3em] text-resort-gold text-sm mb-4">
             — FAQ —
           </p>
 
