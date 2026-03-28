@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
     const banquets = await Banquet.find(filter)
       .populate("branchId")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: 1 });
 
     res.json(banquets);
   } catch (err) {

@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
 
   const filter = category ? { category } : {};
 
-  const query = Gallery.find(filter).sort({ createdAt: -1 });
+  const query = Gallery.find(filter).sort({ createdAt: 1 });
 
   if (limit) {
     query.limit(parseInt(limit));

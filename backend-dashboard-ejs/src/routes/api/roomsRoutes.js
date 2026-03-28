@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
     const rooms = await Room.find(filter)
       .populate("branchId")
-      .sort({ createdAt: -1 });
+      .sort({ createdAt: 1 });
 
     res.json(rooms);
   } catch (err) {

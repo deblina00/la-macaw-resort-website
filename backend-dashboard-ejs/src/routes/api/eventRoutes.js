@@ -5,7 +5,7 @@ const Event = require("../../models/Event");
 router.get("/", async (req, res) => {
 
   const events = await Event.find()
-  .sort({ createdAt: -1 })
+  .sort({ createdAt: 1 })
   .limit(3);
 
   res.json(events);
