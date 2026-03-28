@@ -7,16 +7,17 @@ type Props = {
 
 export default function BranchAbout({ about }: Props) {
   return (
-    <section className="bg-[#0b0909] text-white py-20" id="about">
+    <section className="bg-resort-black text-white py-20" id="about">
 
       <div className="container mx-auto px-6 grid lg:grid-cols-3 lg:grid-rows-[auto_1fr] gap-12 items-start">
+
         {/* LEFT IMAGE */}
-        <div className="relative h-[600px] overflow-hidden lg:row-span-2">
+        <div className="relative h-[550px] overflow-hidden lg:row-span-2">
           <Image
             src={about.images[0]}
             alt="Luxury resort view in West Bengal"
             fill
-            className="object-cover"
+            className="object-cover scale-105 group-hover:scale-110 transition duration-700"
           />
         </div>
 
@@ -33,13 +34,13 @@ export default function BranchAbout({ about }: Props) {
 
          {/* CENTER CONTENT */}
         <div>
-          <p className="text-gray-300 mb-8 mt-8 leading-relaxed">{about.text1}</p>
+          <p className="text-gray-300 mb-10 leading-relaxed">{about.text1}</p>
 
-          <p className="text-gray-300 mb-8 leading-relaxed">{about.text2}</p>
+          <p className="text-gray-300 mb-10 leading-relaxed">{about.text2}</p>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="relative h-[420px] overflow-hidden mt-10">
+        <div className="relative h-[420px] overflow-hidden">
           <Image
             src={about.images[1]}
             alt="Resort environment"
