@@ -157,7 +157,7 @@ West Bengal`,
         "Nestled near Joypur forest, the resort offers an eco-friendly stay surrounded by nature.",
       text2:
         "Guests enjoy peaceful forest views, nature walks and relaxing stays.",
-      images: ["/joypur-1.jpg", "/joypur-2.jpg"],
+      images: ["/joypur-1.jpg", "/joypur-2.jpeg"],
     },
 
     faq: [
