@@ -30,10 +30,9 @@ export default function BranchShowcase() {
   return (
     <section className="bg-resort-black text-white py-20">
       <div className="container mx-auto px-6 text-center">
-
         {/* LABEL */}
         <p className="text-xs tracking-[0.4em] text-resort-gold mb-4 uppercase">
-         — Our Destinations —
+          — Our Destinations —
         </p>
 
         {/* HEADING */}
@@ -52,12 +51,12 @@ export default function BranchShowcase() {
           {branches.map((branch, i) => (
             <Link key={i} href={branch.href}>
               <div className="group relative h-[480px] overflow-hidden cursor-pointer">
-
                 {/* IMAGE */}
                 <Image
                   src={branch.img}
                   alt={branch.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover scale-105 group-hover:scale-110 transition duration-700"
                 />
 
@@ -66,7 +65,6 @@ export default function BranchShowcase() {
 
                 {/* CONTENT */}
                 <div className="absolute bottom-0 p-7 text-left">
-
                   {/* LOCATION */}
                   <div className="flex items-center gap-2 text-xs text-white/70 mb-2">
                     <MapPin size={14} className="text-resort-gold" />

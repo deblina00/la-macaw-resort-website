@@ -52,7 +52,7 @@ export default function ContactClient() {
       {/* HERO */}
       <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/gallery-hero.jpg"
+          src="/contact-banner.jpg"
           fill
           priority
           alt="Contact La Macaw Resort"

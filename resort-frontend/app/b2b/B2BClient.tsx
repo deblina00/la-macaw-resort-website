@@ -39,13 +39,13 @@ export default function B2BClient() {
       {/* HERO */}
       <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/gallery-hero.jpg"
+          src="/b2b-banner.jpg"
           fill
           priority
           alt="B2B Partnership"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative text-center max-w-2xl px-6">
           <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">

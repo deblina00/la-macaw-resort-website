@@ -11,6 +11,7 @@ export default function AboutPreview() {
             src="/about1.jpeg"
             alt="Luxury pool at La Macaw Resort"
             fill
+            sizes="(max-width: 1024px) 100vw, 33vw"
             className="object-cover scale-105 group-hover:scale-110 transition duration-700"
           />
         </div>
@@ -81,7 +82,8 @@ export default function AboutPreview() {
             src="/about2.jpeg"
             alt="Swimming pool area of La Macaw Resort"
             fill
-            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 33vw"
+            className="object-cover scale-105 group-hover:scale-110 transition duration-700"
           />
         </div>
       </div>

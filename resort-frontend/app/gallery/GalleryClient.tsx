@@ -31,17 +31,17 @@ export default function GalleryClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[520px] flex items-center justify-center text-white">
+      <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/gallery-hero.jpg"
+          src="/gallery-banner.jpeg"
           fill
           priority
           alt="Resort Gallery"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative text-center px-6">
-          <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+        <div className="relative text-center max-w-2xl px-6">
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
             — RESORT MOMENTS —
           </p>
           <h1 className="text-4xl md:text-5xl font-cinzel mb-6">
@@ -63,10 +63,10 @@ export default function GalleryClient() {
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`px-6 py-2 text-sm transition border ${
+                className={`px-6 py-2 text-sm tracking-wide border transition-all duration-300 ${
                   category === cat
-                    ? "bg-white text-black border-white"
-                    : "border-white/20 text-gray-300 hover:border-white hover:text-white"
+                    ? "bg-resort-gold text-black border-resort-gold"
+                    : "border-white/20 text-white hover:border-resort-gold hover:text-resort-gold"
                 }`}
               >
                 {cat}

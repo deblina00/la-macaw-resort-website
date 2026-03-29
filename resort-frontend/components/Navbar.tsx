@@ -81,6 +81,7 @@ export default function Navbar() {
                 height={60}
                 alt="La Macaw Resort"
                 priority
+                className="w-[150px] h-auto"
               />
             </Link>
           </div>

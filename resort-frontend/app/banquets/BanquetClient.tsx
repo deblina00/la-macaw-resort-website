@@ -5,6 +5,7 @@ import api from "@/services/api";
 import BanquetCard from "@/components/banquet/BanquetCard";
 import Image from "next/image";
 import { Banquet } from "@/types/banquet";
+import BookNowBanner from "@/components/home/BookNowBanner";
 
 const branches = ["All", "Tajpur", "Joypur", "Purulia"] as const;
 type Branch = (typeof branches)[number];
@@ -33,15 +34,15 @@ export default function BanquetsClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[520px] flex items-center justify-center text-white">
+      <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/gallery-hero.jpg"
+          src="/banquet.jpg"
           fill
           priority
           alt="Banquet Hall"
           className="absolute object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
 
         <div className="relative text-center max-w-2xl px-6">
           <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
@@ -54,16 +55,27 @@ export default function BanquetsClient() {
       </section>
 
       {/* INTRO */}
-      <section className="bg-[#0b0909] text-white py-20">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h2 className="text-4xl font-cinzel mb-8 text-resort-gold">
+      <section className="bg-resort-softBlack text-white py-20">
+        <div className="container mx-auto text-center max-w-3xl px-6">
+          <h2 className="text-4xl font-cinzel text-resort-gold mb-6">
             ELEGANT VENUES FOR EVERY OCCASION
           </h2>
+
+          <p className="text-gray-400 leading-relaxed">
+            At La Macaw Resort, we provide three sophisticated banquet halls,
+            designed to accommodate a wide variety of events, from corporate
+            conferences to weddings and social gatherings. Each venue is
+            equipped with state-of-the-art facilities and can be tailored to
+            meet the specific requirements of your event. Our experienced team
+            is committed to delivering a seamless experience, ensuring that
+            every detail is handled with precision and professionalism, making
+            your occasion truly exceptional.
+          </p>
         </div>
       </section>
 
       {/* FILTER BUTTONS */}
-      <section className="bg-black py-10">
+      <section className="bg-resort-softBlack py-10">
         <div className="flex justify-center gap-4 flex-wrap">
           {branches.map((cat) => (
             <button
@@ -83,7 +95,7 @@ export default function BanquetsClient() {
       </section>
 
       {/* BANQUET GRID */}
-      <section className="bg-gradient-to-b from-black via-[#0b0909] to-black pb-28 pt-10">
+      <section className="bg-resort-softBlack pb-20 pt-10">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {banquets.map((b) => (
@@ -92,6 +104,9 @@ export default function BanquetsClient() {
           </div>
         </div>
       </section>
+
+      {/* BOOK NOW BANNER */}
+      <BookNowBanner/>
     </>
   );
 }

@@ -18,23 +18,23 @@ export default function EventsClient() {
   return (
     <>
       {/* HERO */}
-      <section className="relative h-[520px] flex items-center justify-center text-white">
+      <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/gallery-hero.jpg"
+          src="/event-banner.jpg"
           fill
           priority
           alt="Resort Events"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="relative text-center px-6">
-          <p className="tracking-[0.35em] text-gray-300 mb-4 text-sm">
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative text-center max-w-2xl px-6">
+          <p className="uppercase tracking-[0.35em] text-sm mb-4 text-resort-gold">
             — EVENTS —
           </p>
-          <h1 className="text-4xl md:text-6xl font-cinzel mb-6">
+          <h1 className="text-4xl md:text-5xl font-cinzel mb-6 leading-tight">
             EVENTS & CELEBRATIONS
           </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-300">
             Celebrate weddings, anniversaries, corporate gatherings and
             unforgettable moments in the luxurious surroundings of La Macaw
             Resort.
@@ -43,9 +43,9 @@ export default function EventsClient() {
       </section>
 
       {/* INTRO */}
-      <section className="bg-black text-white py-24">
+      <section className="bg-resort-black text-white py-20">
         <div className="container mx-auto text-center max-w-3xl px-6">
-          <h2 className="text-4xl font-cinzel mb-6">
+          <h2 className="text-4xl font-cinzel text-resort-gold mb-6">
             CREATE UNFORGETTABLE MEMORIES
           </h2>
           <p className="text-gray-400 leading-relaxed">

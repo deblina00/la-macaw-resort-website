@@ -78,7 +78,7 @@ export default function CareersPage() {
       {/* HERO */}
       <section className="relative h-[500px] flex items-center justify-center text-white">
         <Image
-          src="/gallery-hero.jpg"
+          src="/career-banner.png"
           fill
           alt="Careers"
           className="object-cover"

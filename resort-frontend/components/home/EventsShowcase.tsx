@@ -49,6 +49,7 @@ export default function EventsShowcase() {
               alt={events[0]?.title}
               fill
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover scale-105 group-hover:scale-110 transition duration-700"
             />
 
@@ -91,6 +92,7 @@ export default function EventsShowcase() {
                   src={event.images?.[0]}
                   alt={event.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover scale-105 group-hover:scale-110 transition duration-700"
                 />
 

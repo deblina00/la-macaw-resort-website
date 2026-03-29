@@ -57,6 +57,7 @@ export default function GalleryPreview() {
               alt={img.title}
               fill
               priority
+              sizes="(max-width: 768px) 50vw, 33vw"
               className="object-cover scale-105 group-hover:scale-110 transition duration-700"
             />
 
