@@ -16,16 +16,17 @@
 
 <!-- Table Card -->
 
-<div class="card">
+<div class="card overflow-x-auto">
 
-  <table class="table">
+  <table class="w-full text-sm">
 
-    <thead>
+    <thead class="bg-gray-100">
       <tr>
-        <th>Room</th>
-        <th>Branch</th>
-        <th>Price</th>
-        <th class="text-center">Actions</th>
+        <th class="p-3 text-left">Room</th>
+        <th class="p-3 text-left">Image</th>
+        <th class="p-3 text-left">Branch</th>
+        <th class="p-3 text-left">Price</th>
+        <th class="p-3 text-center">Actions</th>
       </tr>
     </thead>
 
@@ -34,7 +35,7 @@
       <% if(rooms.length === 0){ %>
 
         <tr>
-          <td colspan="4" class="text-center text-gray-500 py-6">
+          <td colspan="5" class="text-center text-gray-500 py-8">
             No rooms found
           </td>
         </tr>
@@ -43,36 +44,74 @@
 
       <% rooms.forEach(room => { %>
 
-      <tr>
+      <tr class="border-b hover:bg-gray-50 transition">
 
-        <td class="font-semibold">
+        <!-- Room Title -->
+
+        <td class="p-3 font-semibold">
           <%= room.title %>
         </td>
 
-        <td>
+        <!-- Image -->
+
+        <td class="p-3">
+
+          <% if(room.gallery){ %>
+
+            <img
+              src="<%= room.gallery %>"
+              alt="room"
+              class="w-16 h-12 object-cover rounded-lg shadow"
+            >
+
+          <% } else { %>
+
+            <span class="text-gray-400 text-xs">
+              No Image
+            </span>
+
+          <% } %>
+
+        </td>
+
+        <!-- Branch -->
+
+        <td class="p-3">
           <%= room.branchId?.name || "N/A" %>
         </td>
 
-        <td class="text-emerald-600 font-semibold">
+        <!-- Price -->
+
+        <td class="p-3 text-emerald-600 font-semibold">
           ₹ <%= room.price %>
         </td>
 
-        <td class="text-center space-x-3">
+        <!-- Actions -->
 
-          <a
-            href="/admin/rooms/edit/<%= room._id %>"
-            class="text-blue-600 hover:underline"
-          >
-            Edit
-          </a>
+        <td class="p-3 text-center">
 
-          <a
-            href="/admin/rooms/delete/<%= room._id %>"
-            onclick="return confirm('Delete this room?')"
-            class="text-red-600 hover:underline"
-          >
-            Delete
-          </a>
+          <div class="flex justify-center gap-2">
+
+            <!-- Edit -->
+
+            <a
+              href="/admin/rooms/edit/<%= room._id %>"
+              class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-xs"
+            >
+              ✏ Edit
+            </a>
+            
+            <!-- Delete -->
+
+            <a
+              href="/admin/rooms/delete/<%= room._id %>"
+              onclick="return confirm('Delete this room?')"
+              class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-xs"
+            >
+              🗑 Delete
+            </a>
+
+          </div>
 
         </td>
 
@@ -85,7 +124,6 @@
   </table>
 
 </div>
-
 
 <!-- Pagination -->
 

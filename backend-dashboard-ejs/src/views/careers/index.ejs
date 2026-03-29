@@ -87,7 +87,7 @@
 
 <!-- Jobs Table -->
 
-<div class="card">
+<div class="card overflow-x-auto">
 
   <h3 class="text-lg font-semibold mb-4">
     Job Listings
@@ -109,9 +109,9 @@
 
       <% jobs.forEach(job => { %>
 
-        <tr class="border-t">
+         <tr class="border-b hover:bg-gray-50 transition">
 
-          <td class="p-3 font-medium">
+          <td class="p-3 font-semibold">
             <%= job.title %>
           </td>
 
@@ -134,30 +134,36 @@
 
           </td>
 
-          <td class="p-3 text-center space-x-3">
+        <!-- Actions -->
+
+        <td class="p-3 text-center">
+
+          <div class="flex justify-center gap-2">
 
             <a
               href="/admin/careers/edit/<%= job._id %>"
-              class="text-blue-600 hover:underline"
+              class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-xs"
             >
-              Edit
+             ✏ Edit
             </a>
 
             <a
               href="/admin/careers/delete/<%= job._id %>"
               onclick="return confirm('Delete this job?')"
-              class="text-red-600 hover:underline"
+              class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-xs"
             >
-              Delete
+              🗑 Delete
             </a>
 
             <a
               href="/admin/careers/toggle/<%= job._id %>"
-              class="text-gray-700 hover:underline"
+              class="px-3 py-1 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition text-xs"
             >
-              Toggle
+             👁 Toggle
             </a>
 
+             </div>
+             
           </td>
 
         </tr>

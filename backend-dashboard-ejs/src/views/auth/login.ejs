@@ -2,70 +2,163 @@
 <html>
 <head>
 
-<title>Admin Login</title>
+<title>La Macaw Admin Login</title>
+
 <link rel="stylesheet" href="/css/admin.build.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family: "Poppins", sans-serif;
+}
+
+/* floating animation */
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-18px); }
+100% { transform: translateY(0px); }
+}
+
+.float{
+animation: float 6s ease-in-out infinite;
+}
+
+/* glass effect */
+.glass{
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* glow button */
+.glow-btn{
+box-shadow: 0 0 15px rgba(59,130,246,0.6);
+}
+
+.glow-btn:hover{
+box-shadow: 0 0 30px rgba(59,130,246,0.9);
+}
+
+</style>
+
 </head>
 
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+<body class="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center relative overflow-hidden">
 
-<form action="/admin/login" method="POST" class="bg-white p-8 rounded-xl shadow-lg w-96">
+<!-- Background Blobs -->
+<div class="absolute top-10 left-10 w-60 h-60 bg-blue-500 opacity-20 rounded-full blur-3xl float"></div>
+<div class="absolute bottom-10 right-10 w-60 h-60 bg-purple-500 opacity-20 rounded-full blur-3xl float"></div>
+<div class="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-500 opacity-20 rounded-full blur-3xl float"></div>
 
-<h2 class="text-2xl font-bold text-center mb-6">
-La Macaw Admin Login
+<!-- Back Button -->
+<a href="/"
+class="absolute top-6 left-6 text-white bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition">
+← Back
+</a>
+
+<!-- Login Container -->
+<div class="glass p-10 rounded-2xl shadow-2xl w-96 text-white relative z-10" data-aos="zoom-in">
+
+<!-- Logo -->
+<h2 class="text-3xl font-bold text-center mb-2">
+🦜 La Macaw
 </h2>
 
+<p class="text-center text-gray-200 mb-6">
+Admin Dashboard Login
+</p>
+
+<!-- Error Message -->
 <% if (typeof error !== "undefined") { %>
-<div class="bg-red-100 text-red-600 p-2 mb-4 rounded">
+<div class="bg-red-500/20 border border-red-400 text-red-200 p-3 mb-4 rounded">
 <%= error %>
 </div>
 <% } %>
 
-<input 
+<!-- Form -->
+<form action="/admin/login" method="POST">
+
+<!-- Username -->
+<div class="mb-4">
+
+<label class="text-sm text-gray-200">
+Username
+</label>
+
+<input
 type="text"
 name="username"
-placeholder="Username"
-class="w-full border p-3 mb-4 rounded"
+placeholder="Enter username"
+class="w-full mt-1 p-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400"
 required
 >
 
-<div class="relative">
+</div>
 
-<input 
+<!-- Password -->
+<div class="mb-4 relative">
+
+<label class="text-sm text-gray-200">
+Password
+</label>
+
+<input
 type="password"
 name="password"
 id="password"
-placeholder="Password"
-class="w-full border p-3 rounded"
+placeholder="Enter password"
+class="w-full mt-1 p-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400"
 required
 >
 
 <button
 type="button"
 onclick="togglePassword()"
-class="absolute right-3 top-3 text-sm text-gray-500"
+class="absolute right-3 top-10 text-gray-300 text-sm hover:text-white"
 >
 Show
 </button>
 
 </div>
 
-<button class="btn-primary w-full mt-5">
-Login
+<!-- Login Button -->
+<button
+class="w-full bg-blue-500 glow-btn py-3 rounded-lg font-semibold hover:bg-blue-600 transition transform hover:scale-105">
+🚀 Login to Dashboard
 </button>
 
 </form>
 
+<!-- Footer -->
+<p class="text-center text-gray-300 text-sm mt-6">
+© <%= new Date().getFullYear() %> La Macaw Resort
+</p>
+
+</div>
+
 <script>
 
-function togglePassword() {
+AOS.init({
+duration: 1000,
+once: true
+});
 
-  const pass = document.getElementById("password");
+function togglePassword(){
 
-  if(pass.type === "password"){
-    pass.type = "text";
-  } else {
-    pass.type = "password";
-  }
+const pass = document.getElementById("password");
+
+if(pass.type === "password"){
+pass.type = "text";
+}else{
+pass.type = "password";
+}
 
 }
 

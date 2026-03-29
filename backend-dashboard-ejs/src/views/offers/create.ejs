@@ -1,136 +1,128 @@
-
-
 <div class="mb-6">
-
-  <h2 class="text-2xl font-bold">
-    Create Offer
-  </h2>
-
-  <p class="text-gray-500 text-sm">
-    Add new promotional offer
-  </p>
-
+  <h2 class="text-2xl font-bold">Create Offer</h2>
+  <p class="text-gray-500 text-sm">Add new promotional offer</p>
 </div>
 
+<div class="card max-w-4xl">
 
-<div class="card max-w-3xl">
+<form method="POST" enctype="multipart/form-data" class="space-y-5">
 
-<form method="POST" enctype="multipart/form-data" class="space-y-6">
+  <!-- Title + Popup -->
 
-  <!-- TITLE -->
+  <div class="grid md:grid-cols-2 gap-4">
 
-  <div>
+    <div>
+      <label class="text-sm font-medium">Offer Title</label>
+      <input
+        name="title"
+        class="w-full border p-2 rounded"
+        placeholder="Summer Wedding Offer"
+        required
+      >
+    </div>
 
-    <label class="block text-sm mb-1">
-      Offer Title
-    </label>
-
-    <input
-      name="title"
-      class="w-full border p-3 rounded"
-      placeholder="Summer Wedding Offer"
-    />
-
-  </div>
-
-
-  <!-- POPUP -->
-
-  <div>
-
-    <label class="block text-sm mb-1">
-      Popup Banner
-    </label>
-
-    <input
-      type="file"
-      name="popupImage"
-      class="border p-2 rounded w-full"
-    />
+    <div>
+      <label class="text-sm font-medium">Popup Banner</label>
+      <input
+        type="file"
+        name="popupImage"
+        class="w-full border p-2 rounded"
+      >
+    </div>
 
   </div>
 
 
-  <!-- BRANCH OFFERS -->
-
-  <h3 class="font-semibold">
+  <h3 class="font-semibold border-b pb-2">
     Branch Offers
   </h3>
 
 
   <% ["Tajpur","Joypur","Purulia"].forEach((branch, i) => { %>
 
-    <div class="border rounded p-4">
+  <details class="border rounded p-4">
 
-      <h4 class="font-semibold mb-3">
-        <%= branch.name %>
-      </h4>
+    <summary class="font-semibold cursor-pointer">
+      <%= branch %> Offer
+    </summary>
 
-      <input
-        type="hidden"
-        name="branchOffers[<%= i %>][branch]"
-        value="<%= branch.name %>"
-      >
+    <input
+      type="hidden"
+      name="branchOffers[<%= i %>][branch]"
+      value="<%= branch %>"
+    >
 
-      <div class="grid md:grid-cols-2 gap-4">
+    <div class="grid md:grid-cols-2 gap-4 mt-4">
 
+      <div>
+        <label class="text-sm">Price</label>
         <input
           name="branchOffers[<%= i %>][price]"
-          placeholder="Price"
-          class="border p-3 rounded"
+          class="w-full border p-2 rounded"
         >
+      </div>
 
+      <div>
+        <label class="text-sm">Banner Image</label>
         <input
           type="file"
           name="branchImages"
-          class="border p-3 rounded"
+          class="w-full border p-2 rounded"
         >
-
-      </div>
-
-      <textarea
-        name="branchOffers[<%= i %>][details]"
-        placeholder="Offer Details"
-        class="border p-3 rounded w-full mt-3"
-      ></textarea>
-
-
-      <div class="grid md:grid-cols-2 gap-4 mt-3">
-
-        <div>
-
-          <label class="text-sm">From</label>
-
-          <input
-            type="date"
-            name="branchOffers[<%= i %>][validityFrom]"
-            class="border p-3 rounded w-full"
-          >
-
-        </div>
-
-        <div>
-
-          <label class="text-sm">To</label>
-
-          <input
-            type="date"
-            name="branchOffers[<%= i %>][validityTo]"
-            class="border p-3 rounded w-full"
-          >
-
-        </div>
-
       </div>
 
     </div>
 
+    <div class="mt-3">
+      <label class="text-sm">Offer Details</label>
+      <textarea
+        name="branchOffers[<%= i %>][details]"
+        class="w-full border p-2 rounded"
+        rows="2"
+      ></textarea>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 mt-3">
+
+      <div>
+        <label class="text-sm">From</label>
+        <input
+          type="date"
+          name="branchOffers[<%= i %>][validityFrom]"
+          class="w-full border p-2 rounded"
+        >
+      </div>
+
+      <div>
+        <label class="text-sm">To</label>
+        <input
+          type="date"
+          name="branchOffers[<%= i %>][validityTo]"
+          class="w-full border p-2 rounded"
+        >
+      </div>
+
+    </div>
+
+  </details>
+
   <% }) %>
 
 
-  <button class="btn-primary">
-    Save Offer
-  </button>
+  <div class="flex justify-end gap-3 pt-4">
+
+    <a
+      href="/admin/offers"
+      class="btn-secondary"
+    >
+      Cancel
+    </a>
+
+    <button class="btn-primary">
+      Save Offer
+    </button>
+
+  </div>
 
 </form>
 

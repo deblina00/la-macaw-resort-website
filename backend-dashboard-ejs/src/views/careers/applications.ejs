@@ -21,7 +21,7 @@
 
 <!-- Filter -->
 
-<div class="card mb-6">
+<div class="card mb-5">
 
 <form method="GET" class="flex gap-3 items-center">
   <select name="jobId" class="border p-2 rounded">
@@ -47,7 +47,7 @@
 
 <!-- Applications Table -->
 
-<div class="card">
+<div class="card overflow-x-auto">
 
   <table class="w-full text-sm">
 
@@ -57,7 +57,7 @@
         <th class="p-3 text-left">Email</th>
         <th class="p-3 text-left">Position</th>
         <th class="p-3 text-left">Address</th>
-        <th class="p-3 text-left">CV</th>
+        <th class="p-3 text-left c">CV</th>
         <th class="p-3 text-left">Date</th>
   </tr>
      </thead>
@@ -65,7 +65,7 @@
            <% if(apps.length === 0){ %>
 
         <tr>
-          <td colspan="6" class="text-center p-6 text-gray-500">
+          <td colspan="5" class="text-center p-6 text-gray-500">
             No applications found
           </td>
         </tr>
@@ -74,9 +74,10 @@
 
 
   <% apps.forEach(app => { %>
-  <tr class="border-t">
+  
+      <tr class="border-b hover:bg-gray-50 transition">
 
-     <td class="p-3">
+     <td class="p-3 font-semibold">
             <%= app.name %>
           </td>
 
@@ -95,7 +96,8 @@
        <td class="p-3">
       <% if (app.cvUrl) { %>
 
-        <a href="<%= app.cvUrl.replace('/upload/', '/upload/fl_attachment/') %>" target="_blank" class="text-green-600 hover:underline">
+        <a href="<%= app.cvUrl.replace('/upload/', '/upload/fl_attachment/') %>" target="_blank" class="px-3 py-1 bg-green-500 text-white rounded-lg hover:underline transition text-xs"
+>
       Download
     </a>
 

@@ -1,152 +1,152 @@
-<h2 class="text-2xl font-bold mb-5">
-Admin Dashboard
+<h2 class="text-2xl font-bold mb-6">
+Dashboard Overview
 </h2>
 
-<!-- Stats Cards -->
+<!-- Stats -->
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
 
-  <div class="card">
-    <p class="text-gray-500">Branches</p>
-    <h3 class="text-3xl font-bold text-emerald-600">
-      <%= stats.branches %>
-    </h3>
-  </div>
+<div class="bg-white p-5 flex justify-between items-center rounded-xl shadow hover:shadow-lg transition">
+<p class="text-gray-500 text-sm">Branches</p>
+<h3 class="text-3xl font-bold text-blue-600">
+<%= stats.branches %>
+</h3>
+</div>
 
-  <div class="card">
-    <p class="text-gray-500">Rooms</p>
-    <h3 class="text-3xl font-bold text-blue-600">
-      <%= stats.rooms %>
-    </h3>
-  </div>
+<div class="bg-white p-5 flex justify-between items-center rounded-xl shadow hover:shadow-lg transition">
+<p class="text-gray-500 text-sm">Rooms</p>
+<h3 class="text-3xl font-bold text-emerald-600">
+<%= stats.rooms %>
+</h3>
+</div>
 
-  <div class="card">
-    <p class="text-gray-500">Offers</p>
-    <h3 class="text-3xl font-bold text-purple-600">
-      <%= stats.offers %>
-    </h3>
-  </div>
+<div class="bg-white p-5 flex justify-between items-center rounded-xl shadow hover:shadow-lg transition">
+<p class="text-gray-500 text-sm">Offers</p>
+<h3 class="text-3xl font-bold text-purple-600">
+<%= stats.offers %>
+</h3>
+</div>
 
-  <div class="card">
-    <p class="text-gray-500">Enquiries</p>
-    <h3 class="text-3xl font-bold text-orange-600">
-      <%= stats.enquiries %>
-    </h3>
-  </div>
+<div class="bg-white p-5 flex justify-between items-center rounded-xl shadow hover:shadow-lg transition">
+<p class="text-gray-500 text-sm">Enquiries</p>
+<h3 class="text-3xl font-bold text-orange-600">
+<%= stats.enquiries %>
+</h3>
+</div>
 
-  <div class="card">
-    <p class="text-gray-500">Events</p>
-    <h3 class="text-3xl font-bold text-pink-600">
-      <%= stats.events %>
-    </h3>
-  </div>
+<div class="bg-white p-5 flex justify-between items-center rounded-xl shadow hover:shadow-lg transition">
+<p class="text-gray-500 text-sm">Events</p>
+<h3 class="text-3xl font-bold text-pink-600">
+<%= stats.events %>
+</h3>
+</div>
 
-  <div class="card">
-    <p class="text-gray-500">Reviews</p>
-    <h3 class="text-3xl font-bold text-yellow-600">
-      <%= stats.reviews %>
-    </h3>
-  </div>
+<div class="bg-white p-5 flex justify-between items-center rounded-xl shadow hover:shadow-lg transition">
+<p class="text-gray-500 text-sm">Reviews</p>
+<h3 class="text-3xl font-bold text-yellow-600">
+<%= stats.reviews %>
+</h3>
+</div>
 
 </div>
 
-<!-- Graph Section -->
+<!-- Charts -->
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-6">
+<div class="grid lg:grid-cols-2 gap-6 mt-6">
 
-  <!-- Monthly Enquiries -->
+<div class="bg-white p-2 rounded-xl shadow">
+<h3 class="font-semibold mb-2">
+Monthly Enquiries
+</h3>
 
-<div class="card h-[260px]">
-  <h3 class="text-lg font-bold mb-2">
-    Monthly Enquiries
-  </h3>
-
-  <div class="h-[200px]">
-    <canvas id="enquiryChart"></canvas>
-  </div>
+<div class="h-50">
+<canvas id="enquiryChart"></canvas>
+</div>
 </div>
 
-  <!-- Enquiry Type -->
+<div class="bg-white p-2 rounded-xl shadow">
+<h3 class="font-semibold mb-2">
+Enquiry Type
+</h3>
 
-<div class="card h-[260px]">
-  <h3 class="text-lg font-bold mb-2">
-    Enquiry Type
-  </h3>
-
-  <div class="h-[200px]">
-    <canvas id="typeChart"></canvas>
-  </div>
+<div class="h-44">
+<canvas id="typeChart"></canvas>
+</div>
 </div>
 
 </div>
 
 <!-- Latest Activity -->
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+<div class="grid md:grid-cols-2 gap-6 mt-6">
 
-  <!-- Latest Enquiries -->
+<!-- Enquiries -->
 
-  <div class="card">
+<div class="bg-white p-6 rounded-xl shadow">
 
-    <h3 class="text-lg font-bold mb-3">
-      Latest Enquiries
-    </h3>
+<h3 class="font-semibold mb-4">
+Latest Enquiries
+</h3>
 
-    <table class="w-full">
+<table class="w-full text-sm">
 
-      <tr class="bg-gray-200">
-        <th class="p-1">Name</th>
-        <th class="p-1">Phone</th>
-        <th class="p-1">Type</th>
-      </tr>
+<tr class="text-left text-gray-500 border-b">
+<th class="pb-2">Name</th>
+<th>Phone</th>
+<th>Type</th>
+</tr>
 
-      <% latestEnquiries.forEach(e => { %>
+<% latestEnquiries.forEach(e => { %>
 
-      <tr class="border-t">
-        <td class="p-1 text-sm"><%= e.name %></td>
-        <td class="p-1 text-sm"><%= e.phone %></td>
-        <td class="p-1 text-sm"><%= e.enquiryType %></td>
-      </tr>
+<tr class="border-b hover:bg-gray-50">
 
-      <% }) %>
+<td class="py-1"><%= e.name %></td>
+<td><%= e.phone %></td>
+<td><%= e.enquiryType %></td>
 
-    </table>
+</tr>
 
-  </div>
+<% }) %>
 
-  <!-- Latest Reviews -->
-
-  <div class="card">
-
-    <h3 class="text-lg font-bold mb-3">
-      Latest Reviews
-    </h3>
-
-    <table class="w-full">
-
-      <tr class="bg-gray-200">
-        <th class="p-1">Guest</th>
-        <th class="p-1">Rating</th>
-        <th class="p-1">Location</th>
-      </tr>
-
-      <% latestReviews.forEach(r => { %>
-
-      <tr class="border-t">
-        <td class="p-1 text-sm"><%= r.guestName %></td>
-        <td class="p-1 text-sm"><%= r.rating %> ⭐</td>
-        <td class="p-1 text-sm"><%= r.location %></td>
-      </tr>
-
-      <% }) %>
-
-    </table>
-
-  </div>
+</table>
 
 </div>
 
-<!-- Chart.js -->
+<!-- Reviews -->
+
+<div class="bg-white p-6 rounded-xl shadow">
+
+<h3 class="font-semibold mb-4">
+Latest Reviews
+</h3>
+
+<table class="w-full text-sm">
+
+<tr class="text-left text-gray-500 border-b">
+<th class="pb-2">Guest</th>
+<th>Rating</th>
+<th>Location</th>
+</tr>
+
+<% latestReviews.forEach(r => { %>
+
+<tr class="border-b hover:bg-gray-50">
+
+<td class="py-1"><%= r.guestName %></td>
+<td><%= r.rating %> ⭐</td>
+<td><%= r.location %></td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Chart JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -156,61 +156,42 @@ const enquiryGraph = JSON.parse('<%- JSON.stringify(enquiryGraph) %>');
 const typeLabels = JSON.parse('<%- JSON.stringify(typeLabels) %>');
 const typeData = JSON.parse('<%- JSON.stringify(typeData) %>');
 
-</script>
+new Chart(document.getElementById("enquiryChart"), {
+type: "bar",
+data: {
+labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+datasets: [{
+label: "Enquiries",
+data: enquiryGraph,
+backgroundColor: "#3B82F6",
+borderRadius: 6
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false
+}
+});
 
-<script>
-
-/* Monthly Enquiry Chart */
-
-new Chart(
-  document.getElementById("enquiryChart"),
-  {
-    type: "bar",
-    data: {
-      labels: [
-        "Jan","Feb","Mar","Apr","May","Jun",
-        "Jul","Aug","Sep","Oct","Nov","Dec"
-      ],
-      datasets: [{
-        label: "Enquiries",
-        data: enquiryGraph,
-        borderRadius: 6
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: true
-        }
-      }
-    }
-  }
-);
-
-/* Enquiry Type Pie */
-
-new Chart(
-  document.getElementById("typeChart"),
-{
-    type: "doughnut",
-    data: {
-      labels: typeLabels,
-      datasets: [{
-        data: typeData
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          position: "bottom"
-        }
-      }
-    }
-  }
-);
+new Chart(document.getElementById("typeChart"), {
+type: "doughnut",
+data: {
+labels: typeLabels,
+datasets: [{
+data: typeData,
+backgroundColor: [
+"#3B82F6",
+"#10B981",
+"#F59E0B",
+"#EF4444",
+"#8B5CF6"
+]
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false
+}
+});
 
 </script>

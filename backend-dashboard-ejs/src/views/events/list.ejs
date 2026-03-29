@@ -20,7 +20,9 @@
 </div>
 
 
-<div class="card">
+<!-- Table Card -->
+
+<div class="card overflow-x-auto">
 
   <table class="w-full text-sm">
 
@@ -38,7 +40,7 @@
       <% if(events.length === 0){ %>
 
         <tr>
-          <td colspan="4" class="text-center p-6 text-gray-500">
+          <td colspan="5" class="text-center text-gray-500 py-8">
             No events available
           </td>
         </tr>
@@ -48,9 +50,11 @@
 
       <% events.forEach(event => { %>
 
-        <tr class="border-t">
+        <tr class="border-b hover:bg-gray-50 transition">
 
-          <td class="p-3 font-medium">
+        <!-- Event Title -->
+
+        <td class="p-3 font-semibold">
             <%= event.title %>
           </td>
 
@@ -99,22 +103,29 @@
 
           </td>
 
-          <td class="p-3 text-center space-x-3">
+        <!-- Actions -->
+
+        <td class="p-3 text-center">
+
+          <div class="flex justify-center gap-2">
+
+            <!-- Edit -->
 
             <a
               href="/admin/events/edit/<%= event._id %>"
-              class="text-blue-600 hover:underline"
+              class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-xs"
             >
-              Edit
+             ✏ Edit
             </a>
 
             <a
               href="/admin/events/delete/<%= event._id %>"
               onclick="return confirm('Delete this event?')"
-              class="text-red-600 hover:underline"
+              class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-xs"
             >
               Delete
             </a>
+            </div>
 
           </td>
 

@@ -10,119 +10,128 @@
     </p>
   </div>
 
-  <a
-    href="/admin/offers/create"
-    class="btn-primary"
-  >
+  <a href="/admin/offers/create" class="btn-primary">
     + Add Offer
   </a>
 
 </div>
 
 
-<div class="space-y-6">
+<div class="card overflow-x-auto">
+
+<table class="w-full text-sm">
+
+<thead class="bg-gray-100">
+
+<tr>
+  <th class="p-3 text-left">Offer</th>
+  <th class="p-3 text-left">Popup</th>
+  <th class="p-3 text-left">Branches</th>
+  <th class="p-3 text-left">Validity</th>
+  <th class="p-3 text-center">Actions</th>
+</tr>
+
+</thead>
+
+<tbody>
 
 <% if(offers.length === 0){ %>
 
-  <div class="card text-center text-gray-500 p-6">
-    No offers available
-  </div>
+<tr>
+<td colspan="5" class="text-center py-8 text-gray-500">
+No offers available
+</td>
+</tr>
 
 <% } %>
 
 
 <% offers.forEach(o => { %>
 
-  <div class="card">
+<tr class="border-b hover:bg-gray-50 transition">
 
-    <div class="flex justify-between items-center mb-4">
-
-      <h3 class="text-lg font-bold">
-        <%= o.title %>
-      </h3>
-
-      <div class="space-x-4">
-
-        <a
-          href="/admin/offers/edit/<%= o._id %>"
-          class="text-blue-600 hover:underline"
-        >
-          Edit
-        </a>
-
-        <a
-          href="/admin/offers/delete/<%= o._id %>"
-          onclick="return confirm('Delete this offer?')"
-          class="text-red-600 hover:underline"
-        >
-          Delete
-        </a>
-
-      </div>
-
-    </div>
+<td class="p-3 font-semibold">
+<%= o.title %>
+</td>
 
 
-    <!-- Popup Banner -->
+<td class="p-3">
 
-    <% if(o.popupImage){ %>
+<% if(o.popupImage){ %>
 
-      <img
-        src="<%= o.popupImage %>"
-        class="w-64 rounded mb-4"
-      >
+<img
+src="<%= o.popupImage %>"
+class="w-20 h-12 object-cover rounded shadow"
+/>
 
-    <% } %>
+<% } else { %>
 
+<span class="text-gray-400 text-xs">
+No Image
+</span>
 
-    <!-- Branch Offers -->
+<% } %>
 
-    <div class="grid md:grid-cols-3 gap-4">
-
-      <% o.branchOffers.forEach(b => { %>
-
-        <div class="border rounded p-4">
-
-          <h4 class="font-semibold mb-2">
-            <%= b.branch %>
-          </h4>
-
-          <p class="text-sm">
-            Price: ₹<%= b.price %>
-          </p>
-
-          <p class="text-sm text-gray-500">
-
-            <%= b.validity?.from
-              ? new Date(b.validity.from).toDateString()
-              : "-" %>
-
-            -
-
-            <%= b.validity?.to
-              ? new Date(b.validity.to).toDateString()
-              : "-" %>
-
-          </p>
+</td>
 
 
-          <% if(b.bannerImage){ %>
+<td class="p-3">
 
-            <img
-              src="<%= b.bannerImage %>"
-              class="w-full h-32 object-cover mt-3 rounded"
-            >
+<% o.branchOffers.forEach(b => { %>
 
-          <% } %>
-
-        </div>
-
-      <% }) %>
-
-    </div>
-
-  </div>
+<div class="text-xs bg-gray-100 px-2 py-1 rounded mb-1 inline-block">
+<%= b.branch %> - ₹<%= b.price %>
+</div>
 
 <% }) %>
+
+</td>
+
+
+<td class="p-3 text-xs text-gray-600">
+
+<% if(o.branchOffers.length){ %>
+
+<%= new Date(o.branchOffers[0]?.validity?.from).toDateString() %>
+-
+<%= new Date(o.branchOffers[0]?.validity?.to).toDateString() %>
+
+<% } else { %>
+-
+<% } %>
+
+</td>
+
+
+<td class="p-3 text-center">
+
+<div class="flex justify-center gap-2">
+
+<a
+href="/admin/offers/edit/<%= o._id %>"
+class="px-3 py-1 bg-blue-500 text-white rounded-lg text-xs hover:bg-blue-600"
+>
+✏ Edit
+</a>
+
+<a
+href="/admin/offers/delete/<%= o._id %>"
+onclick="return confirm('Delete this offer?')"
+class="px-3 py-1 bg-red-500 text-white rounded-lg text-xs hover:bg-red-600"
+>
+🗑 Delete
+</a>
+
+</div>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</tbody>
+
+</table>
 
 </div>

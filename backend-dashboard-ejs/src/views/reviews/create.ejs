@@ -1,36 +1,59 @@
-<h2 class="text-xl font-bold mb-4">Add Review</h2>
+<div class="mb-6">
+  <h2 class="text-2xl font-bold">Create Review</h2>
 
-<form method="POST" class="bg-white p-6 shadow w-1/2">
-  <input
-    name="guestName"
-    placeholder="Guest Name"
-    required
-    class="border p-2 w-full mb-3"
-  />
+  <p class="text-gray-500 text-sm">Add your guests top reviews</p>
+</div>
 
-  <input
-    type="number"
-    name="rating"
-    min="1"
-    max="5"
-    required
-    placeholder="Rating (1-5)"
-    class="border p-2 w-full mb-3"
-  />
+<div class="card max-w-2xl">
+  <form method="POST" class="space-y-4">
+    <div>
+      <label class="block text-sm mb-1"> Guest Name </label>
+      <input
+        name="guestName"
+        placeholder="Guest Name"
+        required
+        class="w-full border p-3 rounded"
+      />
+    </div>
 
-  <input
-    name="location"
-    placeholder="Location (City / Branch)"
-    required
-    class="border p-2 w-full mb-3"
-  />
+    <div>
+      <label class="block text-sm mb-1"> Rating </label>
+      <input
+        type="number"
+        name="rating"
+        min="1"
+        max="5"
+        required
+        placeholder="Rating (1-5)"
+        class="border p-2 rounded w-full"
+      />
+    </div>
 
-  <textarea
-    name="comment"
-    placeholder="Review Comment"
-    required
-    class="border p-2 w-full mb-3"
-  ></textarea>
+    <div>
+      <label class="block text-sm mb-1"> Location </label>
+      <input
+        name="location"
+        placeholder="Location (City / Branch)"
+        required
+        class="border p-2 rounded w-full"
+      />
+    </div>
 
-  <button class="bg-blue-600 text-white px-4 py-2">Save</button>
-</form>
+    <div>
+      <label class="block text-sm mb-1"> Comment </label>
+      <textarea
+        name="comment"
+        placeholder="Review Comment"
+        required
+        rows="5"
+        class="w-full border p-3 rounded"
+      ></textarea>
+    </div>
+
+    <div class="flex gap-3 pt-4">
+      <button class="btn-primary">Save</button>
+
+      <a href="/admin/reviews" class="px-4 py-2 border rounded"> Cancel </a>
+    </div>
+  </form>
+</div>

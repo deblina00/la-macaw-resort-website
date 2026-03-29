@@ -20,13 +20,16 @@
 </div>
 
 
-<div class="card">
+<!-- Table Card -->
+
+<div class="card overflow-x-auto">
 
   <table class="w-full text-sm">
 
     <thead class="bg-gray-100">
       <tr>
-        <th class="p-3 text-left">Title</th>
+        <th class="p-3 text-left">Title</th> 
+        <th class="p-3 text-left">Image</th>
         <th class="p-3 text-left">Branch</th>
         <th class="p-3 text-left">Area</th>
         <th class="p-3 text-left">Capacity</th>
@@ -40,7 +43,7 @@
       <% if(banquets.length === 0){ %>
 
         <tr>
-          <td colspan="6" class="text-center p-6 text-gray-500">
+          <td colspan="5" class="text-center py-8 text-gray-500">
             No banquets found
           </td>
         </tr>
@@ -49,11 +52,36 @@
 
       <% banquets.forEach(b => { %>
 
-        <tr class="border-t">
+         <tr class="border-b hover:bg-gray-50 transition">
 
-          <td class="p-3 font-medium">
+        <!-- Banquet Title -->
+
+        <td class="p-3 font-semibold">
             <%= b.title %>
           </td>
+
+            <!-- Image -->
+
+        <td class="p-3">
+
+          <% if(b.images){ %>
+
+            <img
+              src="<%= b.images %>"
+              alt="banquet"
+              class="w-16 h-12 object-cover rounded-lg shadow"
+            >
+
+          <% } else { %>
+
+            <span class="text-gray-400 text-xs">
+              No Image
+            </span>
+
+          <% } %>
+
+        </td>
+
 
           <td class="p-3">
             <%= b.branchId?.name || '-' %>
@@ -80,23 +108,30 @@
 
           </td>
 
-          <td class="p-3 text-center space-x-3">
+                 <!-- Actions -->
+
+        <td class="p-3 text-center">
+
+          <div class="flex justify-center gap-2">
+
+            <!-- Edit -->
 
             <a
               href="/admin/banquets/edit/<%= b._id %>"
-              class="text-blue-600 hover:underline"
+              class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-xs"
             >
-              Edit
+             ✏ Edit
             </a>
 
             <a
               href="/admin/banquets/delete/<%= b._id %>"
               onclick="return confirm('Delete this banquet?')"
-              class="text-red-600 hover:underline"
+              class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-xs"
             >
-              Delete
+              🗑 Delete
             </a>
-
+          </div>
+          
           </td>
 
         </tr>

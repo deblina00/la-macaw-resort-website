@@ -5,79 +5,116 @@
       Guests Reviews
     </h2>
 
-    <!-- <p class="text-gray-500 text-sm">
-      Manage weddings, corporate events, and private parties
-    </p> -->
+    <p class="text-gray-500 text-sm">
+      Manage reviews from your guests
+    </p>
   </div>
 
 <a href="/admin/reviews/create"
 class="btn-primary">
 + Add Review
 </a>
+</div>
 
-<form method="GET" class="mb-4 flex gap-3">
+<!-- Filter -->
+<div class="card mb-5">
 
-<select name="rating" class="border px-3 py-2">
+<form method="GET" class="flex gap-3 items-center">
+
+<select name="rating" class="border p-2 rounded"">
 
   <option value="">All Ratings</option>
   <option value="5">5 Star</option>
   <option value="4">4 Star</option>
 </select>
 
-<button class="bg-blue-600 text-white px-4 py-2">
+<button class="btn-secondary">
 Filter
 </button>
 
+ <a
+      href="/admin/reviews"
+      class="px-4 py-2 border rounded"
+    >
+      Reset
+    </a>
 </form>
 </div>
 
-<div class="card">
+<!-- Rating Table -->
 
-<table class="w-full text-sm">
-<thead class="bg-gray-100">
+<div class="card overflow-x-auto">
 
-<tr>
-<th class="p-3 text-left">Guest</th>
-<th class="p-3 text-left">Rating</th>
-<th class="p-3 text-left">Comment</th>
-<th class="p-3 text-left">Location</th>
-<th class="p-3 text-left">Action</th>
-</tr>
+  <table class="w-full text-sm">
+
+    <thead class="bg-gray-100">
+    <tr>
+      <th class="p-3 text-left">Guest</th>
+      <th class="p-3 text-left">Rating</th>
+      <th class="p-3 text-left">Comment</th>
+      <th class="p-3 text-left">Location</th>
+      <th class="p-3 text-center">Action</th>
+    </tr>
 
  </thead>
 
-    <tbody>
+<tbody>
+
+   <% if(reviews.length === 0){ %>
+
+   <tr>
+    <td colspan="5" class="text-center text-gray-500 py-8">
+       No reviews found
+    </td>
+   </tr>
+
+<% } %>
 
 <% reviews.forEach(review => { %>
 
-<tr>
+<tr class="border-b hover:bg-gray-50 transition">
 
-<td class="p-2"><%= review.guestName %></td>
+<td class="p-3 font-semibold"><%= review.guestName %></td>
 
-<td class="p-2">
+<td class="p-3">
   <%= review.rating %> ⭐
 </td>
 
-<td class="p-2">
-  <%= review.comment %>
-</td>
+<td class="p-3 max-w-sm">
 
-<td class="p-2">
-  <%= review.location %>
+  <p class="truncate" title="<%= review.comment %>">
+    <%= review.comment %>
+  </p>
+
 </td>
 
 <td class="p-3">
+  <%= review.location %>
+</td>
 
-<a href="/admin/reviews/edit/<%= review._id %>"
-class="text-blue-500">
-Edit
-</a>
 
-<a href="/admin/reviews/delete/<%= review._id %>"
-class="text-red-500 ml-3"
-onclick="return confirm('Delete this review?')">
-Delete
-</a>
+<!-- Actions -->
+
+<td class="p-3 text-center">
+
+<div class="flex justify-center gap-2">
+
+ <!-- Edit -->
+
+  <a href="/admin/reviews/edit/<%= review._id %>"
+     class="px-3 py-1 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-xs"
+  >
+     ✏ Edit
+  </a>
+
+  <a href="/admin/reviews/delete/<%= review._id %>"
+     onclick="return confirm('Delete this review?')"
+     class="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-xs"
+
+  >
+    🗑 Delete
+  </a>
+  </div>
 
 </td>
 
@@ -85,7 +122,7 @@ Delete
 
 <% }) %>
 
-   </tbody>
+</tbody>
 
 </table>
 

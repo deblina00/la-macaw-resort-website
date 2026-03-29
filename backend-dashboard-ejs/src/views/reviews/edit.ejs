@@ -1,39 +1,62 @@
-<h2 class="text-xl font-bold mb-4">Edit Review</h2>
+<div class="mb-6">
+  <h2 class="text-2xl font-bold">Edit Review</h2>
 
-<form method="POST" class="bg-white p-6 shadow w-1/2">
+  <p class="text-gray-500 text-sm">Update reviews details</p>
+</div>
 
-<input
-name="guestName"
-value="<%= review.guestName %>"
-required
-class="border p-2 w-full mb-3"
->
+<div class="card max-w-2xl">
+  <form method="POST" class="space-y-4">
+    <div>
+      <label class="block text-sm mb-1"> Guest Name </label>
+      <input
+        name="guestName"
+        value="<%= review.guestName %>"
+        required
+        class="w-full border p-3 rounded"
+      />
+    </div>
 
-<input
-type="number"
-name="rating"
-min="1"
-max="5"
-required
-value="<%= review.rating %>"
-class="border p-2 w-full mb-3"
->
+    <div>
+      <label class="block text-sm mb-1"> Rating </label>
 
-<input
-name="location"
-value="<%= review.location %>"
-required
-class="border p-2 w-full mb-3"
->
+      <input
+        type="number"
+        name="rating"
+        min="1"
+        max="5"
+        required
+        value="<%= review.rating %>"
+        class="w-full border p-3 rounded"
+      />
+    </div>
 
-<textarea
-name="comment"
-required
-class="border p-2 w-full mb-3"
-><%= review.comment %></textarea>
+    <div>
+      <label class="block text-sm mb-1"> Location </label>
+      <input
+        name="location"
+        value="<%= review.location %>"
+        required
+        class="w-full border p-3 rounded"
+      />
+    </div>
 
-<button class="bg-blue-600 text-white px-4 py-2">
-Update
-</button>
+    <div>
+      <label class="block text-sm mb-1">Comment </label>
+      <textarea
+        name="comment"
+        required
+        rows="5"
+        class="w-full border p-3 rounded"
+      >
+     <%= review.comment %>
+     </textarea
+      >
+    </div>
 
-</form>
+    <div class="flex gap-3 pt-4">
+      <button class="btn-primary">Update</button>
+
+      <a href="/admin/reviews" class="px-4 py-2 border rounded"> Cancel </a>
+    </div>
+  </form>
+</div>

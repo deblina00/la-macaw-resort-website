@@ -9,6 +9,8 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+
+
 /* Card */
 .card {
   @apply bg-white rounded-xl shadow-sm border border-gray-100 p-5;
@@ -17,6 +19,10 @@ body {
 /* Button */
 .btn-primary {
   @apply bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition;
+}
+
+.btn-secondary {
+  @apply bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition;
 }
 
 .btn-danger {

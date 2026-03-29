@@ -1,30 +1,207 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Admin Landing Page</title>
+    <title>La Macaw Admin</title>
+
     <link rel="stylesheet" href="/css/admin.build.css" />
+
+    <!-- AOS -->
+    <link
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* floating animation */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-18px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* glowing button */
+      .glow-btn {
+        box-shadow: 0 0 15px rgba(59,130,246,0.6);
+      }
+
+      .glow-btn:hover {
+        box-shadow: 0 0 30px rgba(59,130,246,0.9);
+      }
+
+      /* glass */
+      .glass {
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+    </style>
   </head>
-  <body class="bg-gray-100 flex items-center justify-center h-screen">
-    <section class="flex items-center justify-center min-h-[80vh]">
-      <div class="bg-white shadow-xl rounded-2xl p-10 max-w-2xl text-center">
-        <h1 class="text-4xl font-bold mb-4 text-gray-800">
-          La Macaw Resort Admin Panel
-        </h1>
 
-        <p class="text-gray-600 mb-6">
-          Welcome to the Resort Admin Dashboard. Manage branches, rooms,
-          bookings, banquets and website content from one place.
-        </p>
+  <body
+    class="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 relative overflow-hidden"
+  >
+    <!-- Background Blobs -->
+    <div class="absolute top-10 left-10 w-60 h-60 bg-blue-500 opacity-20 rounded-full blur-3xl float"></div>
+    <div class="absolute bottom-10 right-10 w-60 h-60 bg-purple-500 opacity-20 rounded-full blur-3xl float"></div>
+    <div class="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-500 opacity-20 rounded-full blur-3xl float"></div>
 
-        <div class="flex justify-center gap-4">
-          <a
-            href="/admin/login"
-            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            Admin Login
+    <!-- Navbar -->
+    <header class="absolute top-0 left-0 w-full z-20">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center text-white">
+        
+        <h2 class="text-2xl font-bold tracking-wide">
+          🦜 La Macaw
+        </h2>
+
+        <div class="space-x-4">
+          <a href="/admin/login"
+            class="px-5 py-2 border border-white/30 rounded-lg hover:bg-white/10 transition">
+            Login
+          </a>
+
+          <a href="https://la-macaw-resort-website.vercel.app/"
+            class="px-5 py-2 bg-white text-blue-900 rounded-lg font-semibold hover:bg-gray-200 transition">
+            Website
           </a>
         </div>
       </div>
+    </header>
+
+    <!-- Main Section -->
+    <section
+      class="relative z-10 max-w-7xl mx-auto px-6 flex items-center min-h-screen"
+    >
+      <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+
+        <!-- Left Content -->
+        <div data-aos="fade-right" class="text-white">
+
+          <h1 class="text-6xl font-bold leading-tight mb-6">
+            La Macaw Resort <br />
+            <span class="text-blue-300">
+              Admin Dashboard
+            </span>
+          </h1>
+
+          <p class="text-lg text-gray-200 mb-8 max-w-lg">
+            Control branches, rooms, bookings, banquets, reviews, and
+            website content from a single intelligent admin system.
+            Built for speed, SEO, and seamless management.
+          </p>
+
+          <div class="flex gap-5">
+
+            <a href="/admin/login"
+              class="bg-blue-500 glow-btn px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition transform hover:scale-105">
+              🚀 Admin Login
+            </a>
+
+            <a href="https://la-macaw-resort-website.vercel.app/"
+              class="glass px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition">
+              🌐 Visit Website
+            </a>
+
+          </div>
+
+          <!-- Stats -->
+          <div class="flex gap-10 mt-10 text-gray-300">
+            <div>
+              <h3 class="text-2xl font-bold text-white">4+</h3>
+              <p>Modules</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-white">100%</h3>
+              <p>Secure</p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold text-white">24/7</h3>
+              <p>Access</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Dashboard -->
+        <div
+          class="relative flex items-center justify-center"
+          data-aos="fade-left"
+        >
+          <div class="absolute w-[420px] h-[420px] bg-blue-500 opacity-20 blur-3xl rounded-full float"></div>
+
+          <!-- Dashboard Card -->
+          <div
+            class="relative glass rounded-2xl shadow-2xl p-6 w-[380px] transform hover:scale-105 transition duration-500"
+          >
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex gap-2">
+                <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+              </div>
+              <span class="text-white text-sm">
+                Admin Panel
+              </span>
+            </div>
+
+            <!-- Dashboard Items -->
+            <div class="space-y-4">
+
+              <div class="bg-blue-500/30 p-4 rounded-lg hover:bg-blue-500/40 transition">
+                <p class="text-white text-sm">🏨 Branches</p>
+              </div>
+
+              <div class="bg-purple-500/30 p-4 rounded-lg hover:bg-purple-500/40 transition">
+                <p class="text-white text-sm">🛏 Rooms</p>
+              </div>
+
+              <div class="bg-green-500/30 p-4 rounded-lg hover:bg-green-500/40 transition">
+                <p class="text-white text-sm">📅 Bookings</p>
+              </div>
+
+              <div class="bg-pink-500/30 p-4 rounded-lg hover:bg-pink-500/40 transition">
+                <p class="text-white text-sm">🎉 Banquets</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Floating Cards -->
+          <div class="absolute -top-8 -left-8 glass px-4 py-2 rounded-lg text-white float">
+            ⭐ Reviews
+          </div>
+
+          <div class="absolute -bottom-8 -right-8 glass px-4 py-2 rounded-lg text-white float">
+            📊 Analytics
+          </div>
+
+        </div>
+
+      </div>
     </section>
+
+    <script>
+      AOS.init({
+        duration: 1200,
+        once: true
+      });
+    </script>
   </body>
 </html>
