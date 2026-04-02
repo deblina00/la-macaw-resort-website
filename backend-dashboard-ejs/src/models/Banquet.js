@@ -7,6 +7,16 @@ const BanquetSchema = new mongoose.Schema(
       required: true,
     },
 
+    slug: {
+      type: String,
+      unique: true,
+      lowercase: true,
+    },
+
+    description: {
+      type: String,
+    },
+
     branchId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Branch",
@@ -18,8 +28,18 @@ const BanquetSchema = new mongoose.Schema(
       required: true,
     },
 
-    capacity: {
-      type: Number,
+    // capacity: {
+    //   type: Number,
+    // },
+
+    // ✅ NEW: seating-wise capacity
+    seatingCapacity: {
+      theatre: Number,
+      cluster: Number,
+      floating: Number,
+      dining: Number,
+      min: Number,
+      max: Number,
     },
 
     type: {
@@ -27,17 +47,13 @@ const BanquetSchema = new mongoose.Schema(
       enum: ["Hall", "Lawn"],
     },
 
-    features: [
-      {
-        type: String,
-      },
-    ],
+    features: [String],
 
-    images: [
-      {
-        type: String,
-      },
-    ],
+    images: [String],
+
+    // ✅ NEW: timing
+    openingTime: String, // "08:00 AM"
+    closingTime: String, // "10:00 PM"
   },
   {
     timestamps: true,

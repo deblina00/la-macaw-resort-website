@@ -72,19 +72,21 @@
 
     </div>
 
-    <div>
+   <div>
+  <label class="block text-sm mb-2 font-semibold">Seating Capacity</label>
 
-      <label class="block text-sm mb-1">
-        Capacity
-      </label>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
 
-      <input
-        name="capacity"
-        class="w-full border p-3 rounded"
-        placeholder="300"
-      />
+    <input name="seatingCapacity[min]" placeholder="Min" class="border p-2 rounded" />
+    <input name="seatingCapacity[max]" placeholder="Max" class="border p-2 rounded" />
 
-    </div>
+    <input name="seatingCapacity[theatre]" placeholder="Theatre" class="border p-2 rounded" />
+    <input name="seatingCapacity[dining]" placeholder="Dining" class="border p-2 rounded" />
+    <input name="seatingCapacity[floating]" placeholder="Floating" class="border p-2 rounded" />
+    <input name="seatingCapacity[cluster]" placeholder="Cluster" class="border p-2 rounded" />
+
+  </div>
+</div>
 
   </div>
 
@@ -107,6 +109,11 @@
 
   </div>
 
+  <!-- Description -->
+<div>
+  <label class="block text-sm mb-1">Description</label>
+  <textarea name="description" class="w-full border p-3 rounded"></textarea>
+</div>
 
   <div>
 
@@ -122,6 +129,19 @@
 
   </div>
 
+  <div class="grid md:grid-cols-2 gap-4">
+
+  <div>
+    <label class="block text-sm mb-1">Opening Time</label>
+    <input name="openingTime" class="border p-3 rounded w-full" placeholder="08:00 AM" />
+  </div>
+
+  <div>
+    <label class="block text-sm mb-1">Closing Time</label>
+    <input name="closingTime" class="border p-3 rounded w-full" placeholder="10:00 PM" />
+  </div>
+
+</div>
 
   <div>
 

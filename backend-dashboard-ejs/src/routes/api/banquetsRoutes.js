@@ -22,4 +22,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:slug", async (req, res) => {
+  console.log("Slug received:", req.params.slug);
+  try {
+    const banquet = await Banquet.findOne({
+      slug: req.params.slug,
+    }).populate("branchId");
+
+    if (!banquet) {
+      return res.status(404).json({ error: "Not found" });
+    }
+
+    res.json(banquet);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;

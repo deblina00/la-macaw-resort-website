@@ -1,119 +1,171 @@
 <div class="mb-6">
-
-  <h2 class="text-2xl font-bold">
-    Edit Banquet
-  </h2>
-
+  <h2 class="text-2xl font-bold">Edit Banquet</h2>
   <p class="text-gray-500 text-sm">
     Update banquet details
   </p>
-
 </div>
-
 
 <div class="card max-w-2xl">
 
-<form method="POST" enctype="multipart/form-data" class="space-y-4">
+<form method="POST" enctype="multipart/form-data" class="space-y-5">
 
+  <!-- TITLE -->
   <div>
-
-    <label class="block text-sm mb-1">
+    <label class="block text-sm mb-1 font-medium">
       Banquet Title
     </label>
-
     <input
       name="title"
       value="<%= banquet.title %>"
       class="w-full border p-3 rounded"
+      placeholder="Royal Banquet Hall"
     />
-
   </div>
 
-
+  <!-- BRANCH -->
   <div>
-
-    <label class="block text-sm mb-1">
+    <label class="block text-sm mb-1 font-medium">
       Branch
     </label>
-
-    <select
-      name="branchId"
-      class="w-full border p-3 rounded"
-    >
-
+    <select name="branchId" class="w-full border p-3 rounded">
       <% branches.forEach(branch => { %>
-
         <option
           value="<%= branch._id %>"
           <%= banquet.branchId == branch._id ? "selected" : "" %>
         >
           <%= branch.name %>
         </option>
-
       <% }) %>
-
     </select>
-
   </div>
 
-
-  <div class="grid md:grid-cols-2 gap-4">
-
+  <!-- AREA -->
+  <div>
+    <label class="block text-sm mb-1 font-medium">
+      Total Area (sqft)
+    </label>
     <input
       name="totalArea"
       value="<%= banquet.totalArea %>"
-      class="border p-3 rounded"
-      placeholder="Area"
+      class="w-full border p-3 rounded"
+      placeholder="2000"
     />
-
-    <input
-      name="capacity"
-      value="<%= banquet.capacity %>"
-      class="border p-3 rounded"
-      placeholder="Capacity"
-    />
-
   </div>
 
-
+  <!-- SEATING CAPACITY -->
   <div>
+    <label class="block text-sm mb-2 font-semibold">
+      Seating Capacity
+    </label>
 
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+
+      <div>
+        <label class="text-xs text-gray-500">Min</label>
+        <input name="seatingCapacity[min]" value="<%= banquet.seatingCapacity?.min || '' %>" class="border p-2 rounded w-full" />
+      </div>
+
+      <div>
+        <label class="text-xs text-gray-500">Max</label>
+        <input name="seatingCapacity[max]" value="<%= banquet.seatingCapacity?.max || '' %>" class="border p-2 rounded w-full" />
+      </div>
+
+      <div>
+        <label class="text-xs text-gray-500">Theatre</label>
+        <input name="seatingCapacity[theatre]" value="<%= banquet.seatingCapacity?.theatre || '' %>" class="border p-2 rounded w-full" />
+      </div>
+
+      <div>
+        <label class="text-xs text-gray-500">Dining</label>
+        <input name="seatingCapacity[dining]" value="<%= banquet.seatingCapacity?.dining || '' %>" class="border p-2 rounded w-full" />
+      </div>
+
+      <div>
+        <label class="text-xs text-gray-500">Floating</label>
+        <input name="seatingCapacity[floating]" value="<%= banquet.seatingCapacity?.floating || '' %>" class="border p-2 rounded w-full" />
+      </div>
+
+      <div>
+        <label class="text-xs text-gray-500">Cluster</label>
+        <input name="seatingCapacity[cluster]" value="<%= banquet.seatingCapacity?.cluster || '' %>" class="border p-2 rounded w-full" />
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TYPE -->
+  <div>
+    <label class="block text-sm mb-1 font-medium">
+      Type
+    </label>
     <select name="type" class="w-full border p-3 rounded">
-
-      <option
-        value="Hall"
-        <%= banquet.type === "Hall" ? "selected" : "" %>
-      >
+      <option value="Hall" <%= banquet.type === "Hall" ? "selected" : "" %>>
         Hall
       </option>
-
-      <option
-        value="Lawn"
-        <%= banquet.type === "Lawn" ? "selected" : "" %>
-      >
+      <option value="Lawn" <%= banquet.type === "Lawn" ? "selected" : "" %>>
         Lawn
       </option>
-
     </select>
-
   </div>
 
-
+  <!-- DESCRIPTION -->
   <div>
+    <label class="block text-sm mb-1 font-medium">
+      Description
+    </label>
+    <textarea
+      name="description"
+      class="w-full border p-3 rounded"
+      rows="4"
+      placeholder="Write banquet description..."
+    ><%= banquet.description || '' %></textarea>
+  </div>
 
+  <!-- FEATURES -->
+  <div>
+    <label class="block text-sm mb-1 font-medium">
+      Features (comma separated)
+    </label>
     <input
       name="features"
-      value="<%= banquet.features?.join(', ') %>"
+      value="<%= banquet.features?.join(', ') || '' %>"
       class="w-full border p-3 rounded"
-      placeholder="Features"
+      placeholder="AC, Stage, Lighting, Parking"
     />
+  </div>
+
+  <!-- TIMING -->
+  <div class="grid md:grid-cols-2 gap-4">
+
+    <div>
+      <label class="block text-sm mb-1 font-medium">
+        Opening Time
+      </label>
+      <input
+        name="openingTime"
+        value="<%= banquet.openingTime || '' %>"
+        class="w-full border p-3 rounded"
+        placeholder="08:00 AM"
+      />
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1 font-medium">
+        Closing Time
+      </label>
+      <input
+        name="closingTime"
+        value="<%= banquet.closingTime || '' %>"
+        class="w-full border p-3 rounded"
+        placeholder="10:00 PM"
+      />
+    </div>
 
   </div>
 
-
+  <!-- IMAGES -->
   <div>
-
-    <label class="text-sm">
+    <label class="block text-sm mb-2 font-medium">
       Upload New Images
     </label>
 
@@ -124,9 +176,17 @@
       class="border p-2 rounded w-full"
     />
 
+    <!-- Existing Images Preview -->
+    <% if (banquet.images && banquet.images.length > 0) { %>
+      <div class="flex gap-2 mt-3 flex-wrap">
+        <% banquet.images.forEach(img => { %>
+          <img src="<%= img %>" class="w-20 h-14 object-cover rounded border" />
+        <% }) %>
+      </div>
+    <% } %>
   </div>
 
-
+  <!-- ACTIONS -->
   <div class="flex gap-3 pt-4">
 
     <button class="btn-primary">

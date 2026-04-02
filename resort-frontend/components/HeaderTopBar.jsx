@@ -16,7 +16,7 @@ export default function HeaderTopBar() {
         {/* Social */}
         <div className="flex items-center gap-4 ">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/profile.php?id=61587016558068"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -24,7 +24,7 @@ export default function HeaderTopBar() {
           </a>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/lamacawresort2025?igsh=d3A5czl3NGxoMGpt"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -32,7 +32,7 @@ export default function HeaderTopBar() {
           </a>
 
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@LaMacawResort"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,7 +40,7 @@ export default function HeaderTopBar() {
           </a>
 
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/la-macaw"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -57,7 +57,7 @@ export default function HeaderTopBar() {
 
           <span className="flex items-center gap-2">
             <MapPin size={16} className="text-resort-gold" />
-            Tajpur, West Bengal
+            Howrah, West Bengal
           </span>
         </div>
       </div>

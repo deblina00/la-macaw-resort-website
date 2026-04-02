@@ -32,53 +32,37 @@ export default function Footer() {
 
           <div className="flex gap-4">
             <a
-              className="
-w-9 h-9 flex items-center justify-center 
-rounded-full 
-border border-resort-gold/30 
-text-resort-gold 
-hover:bg-resort-gold hover:text-black 
-transition
-"
+              href="https://www.facebook.com/profile.php?id=61587016558068"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-resort-gold/30 text-resort-gold hover:bg-resort-gold hover:text-black transition"
             >
               <FaFacebookF size={14} />
             </a>
 
             <a
-              className="
-w-9 h-9 flex items-center justify-center 
-rounded-full 
-border border-resort-gold/30 
-text-resort-gold 
-hover:bg-resort-gold hover:text-black 
-transition
-"
+              href="https://www.instagram.com/lamacawresort2025?igsh=d3A5czl3NGxoMGpt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-resort-gold/30 text-resort-gold hover:bg-resort-gold hover:text-black transition"
             >
               <FaInstagram size={14} />
             </a>
 
             <a
-              className="
-w-9 h-9 flex items-center justify-center 
-rounded-full 
-border border-resort-gold/30 
-text-resort-gold 
-hover:bg-resort-gold hover:text-black 
-transition
-"
+              href="https://www.youtube.com/@LaMacawResort"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-resort-gold/30 text-resort-gold hover:bg-resort-gold hover:text-black transition"
             >
               <FaYoutube size={14} />
             </a>
 
             <a
-              className="
-w-9 h-9 flex items-center justify-center 
-rounded-full 
-border border-resort-gold/30 
-text-resort-gold 
-hover:bg-resort-gold hover:text-black 
-transition
-"
+              href="https://www.linkedin.com/company/la-macaw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full border border-resort-gold/30 text-resort-gold hover:bg-resort-gold hover:text-black transition"
             >
               <FaLinkedinIn size={14} />
             </a>
@@ -212,14 +196,14 @@ transition
               <span className="w-9 h-9 flex items-center justify-center rounded-full bg-resort-gold/10 text-resort-gold">
                 <MdPhone />
               </span>
-              +91 98765 43210
+              +91  98748 34000
             </p>
 
             <p className="flex items-center gap-4">
               <span className="w-9 h-9 flex items-center justify-center rounded-full bg-resort-gold/10 text-resort-gold">
                 <MdEmail />
               </span>
-              info@lamacaw.com
+              info@lamacawresort.com
             </p>
           </div>
         </div>

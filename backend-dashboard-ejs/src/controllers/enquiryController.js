@@ -14,15 +14,6 @@ const {
 
 const { generateWhatsAppLink } = require("../services/whatsappService");
 
-// exports.listEnquiries = async (req, res) => {
-//   const enquiries = await Enquiry.find().sort({ createdAt: -1 });
-
-//   res.render("enquiries/list", {
-//     title: "Guest Enquiries",
-//     enquiries,
-//   });
-// };
-
 exports.listEnquiries = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // current page
