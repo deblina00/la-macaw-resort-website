@@ -9,14 +9,23 @@ import BranchLocation from "@/components/branch/BranchLocation";
 import BranchExplore from "@/components/branch/BranchExplore";
 import { Metadata } from "next";
 
+// type Props = {
+//   params: {
+//     slug: keyof typeof branches;
+//   };
+// };
+
 type Props = {
-  params: {
+  params: Promise<{
     slug: keyof typeof branches;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const branch = branches[params.slug];
+  // const branch = branches[params.slug];
+
+  const { slug } = await params; // ✅ FIX
+  const branch = branches[slug];
 
   if (!branch) {
     // Return default metadata for unknown branch
@@ -31,9 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // 🔥 Dynamic SEO Description
   const dynamicDescription = `${branch.name} is a premium ${
-    params.slug === "tajpur"
+    slug === "tajpur"
       ? "beach resort in Tajpur near the sea"
-      : params.slug === "joypur"
+      : slug === "joypur"
         ? "eco resort near Joypur forest in Bankura"
         : "luxury resort in Purulia near Ayodhya Hills"
   }. Enjoy luxury rooms, nature views, fine dining and relaxing stays in West Bengal. Ideal for weekend getaways from Kolkata.`;
@@ -58,12 +67,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ],
 
     alternates: {
-      canonical: `https://lamacawresort.com/branch/${params.slug}`,
+      canonical: `https://lamacawresort.com/branch/${slug}`,
     },
     openGraph: {
       title: `${branch.name} | Luxury Resort in West Bengal`,
       description: branch.description,
-      url: `https://lamacawresort.com/branch/${params.slug}`,
+      url: `https://lamacawresort.com/branch/${slug}`,
       siteName: "La Macaw Resort",
       images: branch.heroImage
         ? [

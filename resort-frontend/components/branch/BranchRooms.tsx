@@ -28,7 +28,7 @@ export default async function BranchRooms({ branchId }: Props) {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {rooms.slice(0, 3).map((room) => (
+          {rooms.map((room) => (
             <RoomCard key={room._id} room={room} />
           ))}
         </div>
