@@ -58,8 +58,9 @@ export const branches = {
     about: {
       title: "About La Macaw Tajpur",
       text1:
-        "La Macaw Resort Tajpur is a luxury coastal retreat located near Tajpur beach.",
-      text2: "Perfect for beach vacations, weddings and corporate retreats.",
+        "Set along the serene coastline of Tajpur, La Macaw Resort Tajpur is a refined coastal escape where the rhythm of the sea meets understated luxury. Designed for those who appreciate space, calm, and elegance, the resort offers a seamless blend of modern comfort and natural beauty.",
+      text2:
+        "From sunlit mornings by the beach to slow afternoons by the pool, every experience here is curated to help you unwind. Guests can indulge in thoughtfully designed rooms, curated dining, and peaceful surroundings that invite you to pause and reconnect. Whether it’s a romantic retreat, a family holiday, or a special celebration, La Macaw Tajpur delivers a stay that feels both indulgent and effortlessly relaxed.",
       images: ["/tajpur-1.jpg", "/tajpur-2.jpg"],
     },
 
@@ -154,9 +155,9 @@ West Bengal`,
     about: {
       title: "About La Macaw Aranyak Eco Resort",
       text1:
-        "Nestled near Joypur forest, the resort offers an eco-friendly stay surrounded by nature.",
+        "Tucked away on the edge of the lush Joypur Forest, La Macaw Aranyak Eco Resort offers an intimate escape into nature, where luxury is defined by space, silence, and authenticity. Built with a deep respect for the environment, the resort blends eco-conscious design with warm, personalized hospitality.",
       text2:
-        "Guests enjoy peaceful forest views, nature walks and relaxing stays.",
+        "Here, days unfold gently—wake to birdsong, explore shaded forest trails, and spend evenings under open skies by a glowing bonfire. Each cottage is thoughtfully crafted to harmonize with its surroundings, offering comfort without disturbing the natural rhythm of the land. Ideal for mindful travelers, couples, and families, the experience is less about excess and more about meaningful, restorative living.",
       images: ["/joypur-1.jpg", "/joypur-2.jpeg"],
     },
 
@@ -247,8 +248,9 @@ West Bengal`,
     about: {
       title: "About La Macaw Purulia",
       text1:
-        "Located near Ayodhya Hills, the resort offers a peaceful escape surrounded by scenic landscapes.",
-      text2: "Perfect for nature lovers and adventure travelers.",
+        "Surrounded by the dramatic landscapes of Purulia and the nearby Ayodhya Hills, La Macaw Resort Purulia is a destination where raw natural beauty meets quiet sophistication. The resort offers a peaceful retreat for travelers seeking both relaxation and a deeper connection with the region’s cultural and scenic richness.",
+      text2:
+        "Guests can wake up to expansive hill views, explore local traditions, or set out on curated adventures across forests, dams, and heritage sites. Evenings bring a slower pace—perfect for bonfires, conversations, and unwinding in comfort. Thoughtfully designed spaces, warm hospitality, and immersive experiences come together to create a stay that is both grounding and memorable.",
       images: ["/purulia-1.jpeg", "/purulia-2.jpg"],
     },
 
