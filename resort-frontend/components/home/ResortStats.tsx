@@ -6,10 +6,10 @@ import { useInView } from "react-intersection-observer";
 
 export default function ResortStats() {
   const stats = [
-    { label: "Total Reviews", value: 1500 },
-    { label: "Years of Experience", value: 7 },
-    { label: "Happy Guests", value: 6700 },
-    { label: "Successful Events", value: 100 },
+    { label: "Total Reviews", value: 1536 },
+    { label: "Years of Experience", value: 8 },
+    { label: "Happy Guests", value: 6787 },
+    { label: "Successful Events", value: 125 },
   ];
 
   const [start, setStart] = useState(false);
@@ -28,7 +28,7 @@ export default function ResortStats() {
       <div className="container mx-auto px-6 text-center">
         {/* LABEL */}
         <p className="text-xs tracking-[0.4em] text-resort-gold mb-4 uppercase">
-        — Resort At A Glance —
+          — Resort At A Glance —
         </p>
 
         {/* HEADING */}
